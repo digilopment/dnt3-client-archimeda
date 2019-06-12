@@ -1,0 +1,116 @@
+/*
+.sidebar-left .sidebar-header.sidebar-header-image{
+	background: url(https://myhealth.alberta.ca/HealthTopics/healthcare101/PublishingImages/healthcare-revolves-around-you.png);
+	background-size: cover;
+}*/
+
+html, body {
+    overflow-x: hidden;
+    overflow-y: hidden;
+	overflow: hidden;
+}
+
+.img-responsive{
+	width:100%
+}
+
+.page-login {
+    margin-top: 75px;
+}
+.page-login-logo {
+    margin-bottom: 0px;
+}
+
+.text-buble{
+	background-color: rgba(255, 255, 255, 0.6);
+	border-radius: 10px;
+	padding: 5px 20px 0px 20px;
+}
+
+.app-info p{
+	font-size: 17px;
+}
+.coverpage-bottom.app-info p {
+    opacity: 1;
+}
+
+.nav-img{
+	width: 100%;
+}
+.sidebar-header-image .sidebar-socials {
+	padding-bottom: 0px;
+}
+.sidebar-header-image .sidebar-socials {
+    background: #fff;
+}
+.profile img{
+	width: 45px;
+    border-radius: 100px;
+    margin: 15px 15px 0px 15px;
+}
+.header-logo-text{
+	display: block;
+    background-color: transparent;
+    color: #fff;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: Roboto;
+    font-weight: bold;
+    font-size: 18px;
+    width: 100%;
+}
+
+.slide-wrapper{
+	padding: 20px 0px;
+}
+
+.landing-homepage ul li a em {
+    font-size: 12px;
+    line-height: 15px;
+    font-weight: bold;
+}
+
+.landing-homepage ul li {
+    min-height: 130px;
+}
+
+.hamburger-animated .hm1, .hamburger-animated .hm2, .hamburger-animated .hm3 {
+    height: 1.5px;
+}
+
+
+/** COLORS **/
+.sidebars-light .sidebar-socials a i {
+    color: #fff!important;
+    font-size: 16px;
+}
+.coverpage-slider {
+    background-color: rgb(255, 255, 255);
+}
+.dark-overlay {
+    background-color: rgb(255, 255, 255);
+}
+.header-dark {
+    background-color: rgba(26, 121, 178, 1);
+}
+.theme.blue .dark-overlay {
+    background-color: rgba(26, 121, 175, 1);
+}
+.theme.blue .header-dark {
+    background-color: rgba(26, 121, 175, 1);
+}
+.sidebar-header-image .sidebar-socials {
+    background: rgba(26, 121, 175, 1);
+}
+
+/** text **/
+.landing-dark ul li a em,
+.coverpage-bottom h3,
+.coverpage-bottom p,
+.coverpage-bottom-button-2,
+.coverpage-center p,
+.coverpage-left a,
+.coverpage-center h3,
+.coverpage-bottom-button-1{
+    color: #111;
+}

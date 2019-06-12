@@ -16,6 +16,7 @@ html, body {
 
 .page-login {
     margin-top: 75px;
+	width: 342px;
 }
 .page-login-logo {
     margin-bottom: 0px;
@@ -78,6 +79,17 @@ html, body {
     height: 1.5px;
 }
 
+/** form errror **/
+label.error {
+    position: absolute;
+    top: 24px;
+    left: 45px;
+    font-size: 10px;
+    color: red;
+}
+button{
+	position:relative;
+}
 
 /** COLORS **/
 .sidebars-light .sidebar-socials a i {

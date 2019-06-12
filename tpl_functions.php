@@ -18,25 +18,52 @@
 		<!-- Favicone Icon -->
 		<link rel="" type="img/x-icon" href="<?php echo $favicon; ?>" />
 		<link rel="" type="img/png" href="<?php echo $favicon; ?>" />
-		<link rel="icon" type="image/vnd.microsoft.icon" href="<?php echo $favicon; ?>" />
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Karla%7CMontserrat">
-      <link rel="stylesheet" href="<?php echo $data['media_path']; ?>css/bootstrap3.min.css">
-      <link rel="stylesheet" href="<?php echo $data['media_path']; ?>css/lightbox.css">
-      <link rel="stylesheet" href="<?php echo $data['media_path']; ?>css/bootstrap.min.css">
-      <link rel="stylesheet" href="<?php echo $data['media_path']; ?>css/bootstrap-responsive.min.css">
-      <link rel="stylesheet" href="<?php echo $data['media_path']; ?>css/font-awesome.min.css">
-      <link rel="stylesheet" href="<?php echo $data['media_path']; ?>css/main.css">
-      <link rel="stylesheet" href="<?php echo $data['media_path']; ?>css/custom.css">
-      <link rel="stylesheet" href="<?php echo $data['media_path']; ?>css/sl-slide.css">
-	  <script src="<?php echo $data['media_path']; ?>js/lightbox-plus-jquery.min.js"></script>
-      <script src="<?php echo $data['media_path']; ?>js/jquery-1.11.1.min.js" type="text/javascript"></script>
+		<link rel="stylesheet" type="text/css" href="<?php echo $data['media_path']; ?>css/style.css">
+      <link rel="stylesheet" type="text/css" href="<?php echo $data['media_path']; ?>css/skin.css">
+      <link rel="stylesheet" type="text/css" href="<?php echo $data['media_path']; ?>css/framework.css">
+      <link rel="stylesheet" type="text/css" href="<?php echo $data['media_path']; ?>css/ionicons.min.css">
+      <link rel="stylesheet" type="text/css" href="<?php echo $data['media_path']; ?>css/archimeda.css">
+	  
+	  
+      <script type="text/javascript" src="<?php echo $data['media_path']; ?>js/jquery.js"></script>
+      <script type="text/javascript" src="<?php echo $data['media_path']; ?>js/plugins.js"></script>
+      <script type="text/javascript" src="<?php echo $data['media_path']; ?>js/custom.js"></script>
+	  
+	  
 	  <script src="<?php echo $data['media_path']; ?>js/jquery.validate.js"></script>
 	  <script src="<?php echo $data['media_path']; ?>js/additional-methods.min.js"></script>
-      <script src="<?php echo $data['media_path']; ?>js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+
 	  <script src="https://www.google.com/recaptcha/api.js"></script>
    </head>
 <?php } ?>
-<?php function get_slider($data) {
+<?php 
+function registration_form($data, $selector) {
+	include "plugins/registration-form.php";
+}
+function login_form($data, $selector) {
+	include "plugins/login-form.php";
+}
+function departments_tpl($data, $selector) {
+	include "plugins/departments-tpl.php";
+}
+function app_info_tpl($data, $selector) {
+	include "plugins/app-info-tpl.php";
+}
+function user_menu_tpl($data, $user, $selector) {
+	include "plugins/user-menu-tpl.php";
+}
+
+
+
+
+
+
+
+
+
+
+
+function get_slider($data) {
    $multylanguage = new MultyLanguage;
    $article = new ArticleView;
    $db = new Db;

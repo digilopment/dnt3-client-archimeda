@@ -3,6 +3,8 @@
 $user = new ArchimedaUser();
 ?>
    <body>
+	<div class="loader"></div>
+	<div class="content-page">
       <div id="page-transitions">
       <!-- NAVIGATION LEFT -->
       <div class="sidebars sidebars-light">
@@ -42,6 +44,11 @@ $user = new ArchimedaUser();
 		?>
 		 
       </div>
+	  
+
+
+
+  
       <div class="header header-logo-center header-dark">
          <a href="#" class="header-icon header-icon-1 hamburger-animated open-sidebar-left"></a>
          <!--<a href="index.html" class="header-logo"></a>-->
@@ -80,6 +87,11 @@ $user = new ArchimedaUser();
 				  <?php login_form($data, "login-form"); ?>
 				 </div>
 				 
+				 <!-- profile settings -->
+				 <div class="swiper-slide" id="login-form_main">
+				  <?php user_profile_settings($data, $user, "profile-settings-form"); ?>
+				 </div>
+				 
 				 
 				 <!-- USER CONTENT AND SETTINGS -->
 				 
@@ -89,4 +101,5 @@ $user = new ArchimedaUser();
          </div>
          <a href="#" class="back-to-top-badge"><i class="ion-ios-arrow-up"></i></a>
       </div>
+	  </div>
    </body>

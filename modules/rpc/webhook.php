@@ -8,6 +8,8 @@ class rpcModulController extends archimedaUser{
 			include "registration-form.php";
 		}elseif($rest->webhook(2) == "json" && $rest->webhook(3) == "login-form"){
 			include "login-form.php";
+		}elseif($rest->webhook(2) == "json" && $rest->webhook(3) == "logout-form"){
+			include "logout-form.php";
 		}
 		elseif($rest->webhook(2) == "xml" && $rest->webhook(3) == "sitemap"){
 			include "sitemap.php";

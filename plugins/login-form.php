@@ -6,22 +6,22 @@
 		   <i class="login-icon ion-at"></i>
 		   <input type="text" name="email" placeholder="Email Address">
 		</div>
-		<div class="page-login-input">
+		<div class="page-login-input full-bottom">
 		   <i class="login-icon ion-locked"></i>
 		   <input type="password" name="pass" value="" placeholder="*****">
 		</div>
-		<div class="pageapp-login-links">
+		<div class="page-login-input" style="margin-top: -10px;">
+		   <div class="g-recaptcha" data-sitekey="6LeejJQUAAAAALTt0EovyVZRzxkH-TtqzNEcfS-E"></div>
+		</div>
+			<button type="submit" name="login" class="button button-green button-icon button-full half-top full-bottom"/><i class="ion-log-in"></i>Login to account</button>
+			
+			<div class="pageapp-login-links">
 		   <a href="#" class="page-login-forgot "><i class="ion-eye"></i>Forgot Credentials</a>
 		   <a href="#" class="page-login-create ">Create Account<i class="ion-person"></i></a>
 		   <div class="clear"></div>
 		</div>
-		<div class="page-login-input">
-		   <div class="g-recaptcha" data-sitekey="6LeejJQUAAAAALTt0EovyVZRzxkH-TtqzNEcfS-E"></div>
-		</div>
-			<button type="submit" name="login" class="button button-green button-icon button-full half-top full-bottom"/><i class="ion-log-in"></i>Create Account</button>
 	</form>
  </div>
- 
  <script type="text/javascript">
 	  jQuery(document).ready(function() {
 		   jQuery("#<?php echo $selector; ?>").validate({
@@ -50,7 +50,7 @@
 					success: function(data) {
 						console.log(data);
 						 if (data.success == 1) {
-							jQuery( "#<?php echo $selector; ?>_main" ).hide();
+							window.location.href = data.url;
 						 }
 						 else if (data.success == 0) {
 							alert("Bat token");

@@ -28,10 +28,15 @@
       <script type="text/javascript" src="<?php echo $data['media_path']; ?>js/jquery.js"></script>
       <script type="text/javascript" src="<?php echo $data['media_path']; ?>js/plugins.js"></script>
       <script type="text/javascript" src="<?php echo $data['media_path']; ?>js/custom.js"></script>
+      <script type="text/javascript" src="<?php echo $data['media_path']; ?>js/archimeda.js"></script>
 	  
 	  
 	  <script src="<?php echo $data['media_path']; ?>js/jquery.validate.js"></script>
 	  <script src="<?php echo $data['media_path']; ?>js/additional-methods.min.js"></script>
+	  
+	  <script>
+		var WWW_PATH = "<?php echo WWW_PATH;?>";
+	  </script>
 
 	  <script src="https://www.google.com/recaptcha/api.js"></script>
    </head>
@@ -51,6 +56,8 @@ function app_info_tpl($data, $selector) {
 }
 function user_menu_tpl($data, $user, $selector) {
 	include "plugins/user-menu-tpl.php";
+}function user_profile_settings($data, $user, $selector) {
+	include "plugins/user-profile-settings.php";
 }
 
 

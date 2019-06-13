@@ -21,7 +21,7 @@
 	   <em class="menu-divider"><?php echo $user->get()->name . " " . $user->get()->surname?></em>
 	   <a href="index.html"><i class="icon-bg bg-green-dark ion-android-home"></i><span>profile</span><i class="ion-record"></i></a>
 	   <a href="index.html"><i class="icon-bg bg-blue-dark ion-gear-a"></i><span>settings</span><i class="ion-record"></i></a>
-	   <a href="index.html"><i class="icon-bg bg-red-light ion-log-out"></i><span>logout</span><i class="ion-record"></i></a>
+	   <a href="#" id="logout-form"><i class="icon-bg bg-red-light ion-log-out"></i><span>logout</span><i class="ion-record"></i></a>
 	   <em class="menu-divider">Copyright <u class="copyright-year"></u>. All rights reserved</em>
 	</div>
  </div>

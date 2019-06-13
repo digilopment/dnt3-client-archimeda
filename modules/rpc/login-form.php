@@ -26,6 +26,7 @@ if($data['meta_settings']['keys']['gc_secret_key']['show'] == 1 && $data['meta_s
 }else{
 	$NO_CAPTCHA = 1;
 }
+$url = false;
 
 if(isset($_POST['login'])){
 	if($gc->getResult() || $NO_CAPTCHA){
@@ -33,7 +34,8 @@ if(isset($_POST['login'])){
 			$session->set("archimeda-patient_logged", "1");
 			$session->set("archimeda-patient_id", $email);
 			$RESPONSE 	= 1;
-			$ATTACHMENT = 0;	
+			$ATTACHMENT = 0;
+			$url	    = WWW_PATH;
 		}else{
 			$RESPONSE 	= 0;
 			$ATTACHMENT = 0;	
@@ -56,6 +58,7 @@ echo '
   "custom": "'.$ATTACHMENT.'",
   "imagex": "",
   "protokol": "REST",
+  "url": "'.$url.'",
   "lang": "",
   "generator": "Designdnt 3",
   "service": "c_dnt-ajax-universal",

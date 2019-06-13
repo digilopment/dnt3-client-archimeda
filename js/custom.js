@@ -100,7 +100,7 @@ $(document).ready(function(){
 		    
         $('.close-sidebar, #sidebar-tap-close').on('click',function(){
 			close_sidebar();
-			return false;
+			//return false;
 		});
 		
 		//Close Sidebar Function

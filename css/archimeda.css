@@ -6,8 +6,6 @@
 
 html, body {
     overflow-x: hidden;
-    overflow-y: hidden;
-	overflow: hidden;
 }
 
 .img-responsive{
@@ -53,6 +51,38 @@ html, body {
     height: 0px;
     line-height: 0px;
     margin-top: 0px;
+}
+
+
+.sidebar-left,
+.sidebar-right {
+    width: 260px;
+}
+
+/** menu close button LEFT*/
+.sidebar-header-image .sidebar-socials a {
+    float: right;
+    border: 1px solid #fff;
+    border-radius: 49px;
+    height: 29px;
+    width: 29px;
+    padding: 0px;
+    margin: 13px;
+}
+.sidebars-light .sidebar-socials a i{
+    margin-top: -13px;
+    display: block;
+}
+/** menu close button RIGHT */
+.sidebars-light .sidebar-header-classic .sidebar-socials a {
+    color: #333;
+    float: left;
+    border: 1px solid #333;
+    border-radius: 50px;
+    height: 29px;
+    width: 29px;
+    padding: 0px;
+    margin: 13px;
 }
 
 .text-buble{

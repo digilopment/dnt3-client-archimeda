@@ -795,9 +795,9 @@ $(document).ready(function(){
                 "margin-top": (content_full_height/2)*(-1)
             });                       
 			
-			/** set dznamic content **/
+			/** set dynamic windows content **/
 			swiper_coverpage.on('transitionEnd', function() { 
-				var addHight = 0;
+				var addHight = 5;
 				$('.coverpage-slider.coverpage-classic').css({"height": "auto"});   
 				screen_height = $(".swiper-slide-active").height(); 
 				if(screen_height == 0){

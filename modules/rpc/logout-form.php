@@ -7,7 +7,11 @@ class logoutModulController{
 		
 		$session 	= new Sessions;
 		$session->set("archimeda-patient_logged", "0");
-		$session->set("archimeda-patient_id", "");		
+		$session->set("archimeda-patient_id", "");
+		
+		Cookie::Delete("archimeda-patient_logged");
+		Cookie::Delete("archimeda-patient_id");
+		
 		$url = WWW_PATH;
 		$RESPONSE = "1";
 		echo '

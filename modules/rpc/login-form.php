@@ -33,6 +33,9 @@ if(isset($_POST['login'])){
 		if($this->validProcessLogin($type, $email, $pass)){
 			$session->set("archimeda-patient_logged", "1");
 			$session->set("archimeda-patient_id", $email);
+			
+			Cookie::Set("archimeda-patient_logged", "1");
+			Cookie::Set("archimeda-patient_id", $email);
 			$RESPONSE 	= 1;
 			$ATTACHMENT = 0;
 			$url	    = WWW_PATH;

@@ -13,4 +13,15 @@ $(document).ready(function($) {
 			window.location.href = data.url;
 		});
 	});
+	
+		/*new Swiper('.swiper-wrapper', {
+		  // other parameters
+		  on: {
+			init: function () {
+			  console.log("OK");
+			},
+		  }
+		});*/
+		
+		
 });

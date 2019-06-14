@@ -28,11 +28,11 @@
 		</select>
 	</div>
 	<div class="page-login-input">
-		<i class="login-icon ion-magnet"></i>
+		<i class="login-icon fa fa-balance-scale"></i>
 		<input name="weight" value="75.4" placeholder="weight" type="number">
 	</div>
 	<div class="page-login-input">
-		<i class="login-icon ion-code-download"></i>
+		<i class="login-icon fa fa-arrow-up"></i>
 		<input name="weight" value="75.4" placeholder="height" type="number">
 	</div>
 	
@@ -46,9 +46,9 @@
 		<button type="submit" name="sent" class="button button-green button-icon button-full half-top full-bottom"/><i class="ion-log-in"></i>Save</button>
 	</form>
  </div>
+
  
- <style>
- 
+<style>
 label.filebutton {
     width: 150px;
     height: 37px;
@@ -60,18 +60,15 @@ label.filebutton {
     padding-right: 9px;
     display: block;
     margin: 10px 0px;
-    margin-left: 10px;
+    margin-left: 1px;
     color: #fff;
     border-radius: 3px;
 }
-
- 
 label.filebutton i.ion-images  {
     font-size: 24px !important;
 	    margin-top: -6px;
 		 color: #fff;
 }
-
 label span input {
     z-index: 999;
     line-height: 0;
@@ -87,9 +84,8 @@ label span input {
     margin: 0;
     padding:0;
 }
-
- .small-form .page-login-input select,
- .small-form .page-login-input input {
+.small-form .page-login-input select,
+.small-form .page-login-input input {
     width: 100%;
     display: flex;
     height: 30px;
@@ -146,6 +142,4 @@ input:-ms-input-placeholder { /* Internet Explorer 10-11 */
 input::-ms-input-placeholder { /* Microsoft Edge */
   color: #555;
 }
-
-
- </style>
+</style>

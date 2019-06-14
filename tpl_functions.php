@@ -1,45 +1,42 @@
 <?php function get_top($data){?>
 <!doctype html>
 <html lang="<?php echo Frontend::getMetaSetting($data, "language"); ?>">
-   <head>
-            <meta charset="utf-8">
-		<title><?php echo $data['title']; ?></title>
-		<?php
-		foreach ($data['meta'] as $meta) {
-			echo $meta;
-		}
-		?>
-		<meta name="robots" content="index,follow" />
-		<meta name="author" content="digilopment">
-		<meta name="viewport" content="width=device-width" />
-		<?php
-		$favicon = Settings::getImage($data['meta_settings']['keys']['favicon']['value']);
-		?>
-		<!-- Favicone Icon -->
-		<link rel="" type="img/x-icon" href="<?php echo $favicon; ?>" />
-		<link rel="" type="img/png" href="<?php echo $favicon; ?>" />
-		<link rel="stylesheet" type="text/css" href="<?php echo $data['media_path']; ?>css/style.css">
-      <link rel="stylesheet" type="text/css" href="<?php echo $data['media_path']; ?>css/skin.css">
-      <link rel="stylesheet" type="text/css" href="<?php echo $data['media_path']; ?>css/framework.css">
-      <link rel="stylesheet" type="text/css" href="<?php echo $data['media_path']; ?>css/ionicons.min.css">
-      <link rel="stylesheet" type="text/css" href="<?php echo $data['media_path']; ?>css/archimeda.css">
-	  
-	  
-      <script type="text/javascript" src="<?php echo $data['media_path']; ?>js/jquery.js"></script>
-      <script type="text/javascript" src="<?php echo $data['media_path']; ?>js/plugins.js"></script>
-      <script type="text/javascript" src="<?php echo $data['media_path']; ?>js/custom.js"></script>
-      <script type="text/javascript" src="<?php echo $data['media_path']; ?>js/archimeda.js"></script>
-	  
-	  
-	  <script src="<?php echo $data['media_path']; ?>js/jquery.validate.js"></script>
-	  <script src="<?php echo $data['media_path']; ?>js/additional-methods.min.js"></script>
-	  
-	  <script>
-		var WWW_PATH = "<?php echo WWW_PATH;?>";
-	  </script>
-
-	  <script src="https://www.google.com/recaptcha/api.js"></script>
-   </head>
+<head>
+   <meta charset="utf-8">
+   <title><?php echo $data['title']; ?></title>
+   <?php
+      foreach ($data['meta'] as $meta) {
+      	echo $meta;
+      }
+      ?>
+   <meta name="robots" content="index,follow" />
+   <meta name="author" content="digilopment">
+   <meta name="viewport" content="width=device-width" />
+   <?php
+      $favicon = Settings::getImage($data['meta_settings']['keys']['favicon']['value']);
+      ?>
+   <!-- Favicone Icon -->
+   <link rel="" type="img/x-icon" href="<?php echo $favicon; ?>" />
+   <link rel="" type="img/png" href="<?php echo $favicon; ?>" />
+   <link rel="stylesheet" type="text/css" href="<?php echo $data['media_path']; ?>css/style.css">
+   <link rel="stylesheet" type="text/css" href="<?php echo $data['media_path']; ?>css/skin.css">
+   <link rel="stylesheet" type="text/css" href="<?php echo $data['media_path']; ?>css/framework.css">
+   <link rel="stylesheet" type="text/css" href="<?php echo $data['media_path']; ?>css/ionicons.min.css">
+   <link rel="stylesheet" type="text/css" href="<?php echo $data['media_path']; ?>css/archimeda.css">
+   <!-- Font Awesome v4.7.0 -->
+   <link href="https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+   <script type="text/javascript" src="<?php echo $data['media_path']; ?>js/jquery.js"></script>
+   <script type="text/javascript" src="<?php echo $data['media_path']; ?>js/plugins.js"></script>
+   <script type="text/javascript" src="<?php echo $data['media_path']; ?>js/custom.js"></script>
+   <script type="text/javascript" src="<?php echo $data['media_path']; ?>js/archimeda.js"></script>
+   <script src="<?php echo $data['media_path']; ?>js/jquery.validate.js"></script>
+   <script src="<?php echo $data['media_path']; ?>js/additional-methods.min.js"></script>
+   <script>
+      var WWW_PATH = "<?php echo WWW_PATH;?>";
+       
+   </script>
+   <script src="https://www.google.com/recaptcha/api.js"></script>
+</head>
 <?php } ?>
 <?php 
 function registration_form($data, $selector) {

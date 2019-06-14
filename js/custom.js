@@ -793,6 +793,19 @@ $(document).ready(function(){
                 "margin-top": (content_full_height/2)*(-1)
             });                       
             
+			var addHight = 0;
+			setInterval(function(){ 
+				$('.coverpage-slider.coverpage-classic').css({"height": "auto"});   
+				screen_height = $(".swiper-slide-active").height(); 
+				if(screen_height == 0){
+					screen_height = $(window).height();
+				}
+				if(screen_height < $(window).height() ){
+					screen_height = $(window).height();
+				}
+				$('.coverpage-classic').css({"height": screen_height + addHight});    
+			}, 100);
+			
             $('.coverpage-classic').css({"height": screen_height});           
             $('.coverpage-clear').css({"height": screen_height - 60});
             $('.coverpage-cube').css({"height": screen_height - 100});

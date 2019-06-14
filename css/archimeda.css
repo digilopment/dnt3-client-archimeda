@@ -11,6 +11,15 @@ input, select{
 	font-size:16px!important;
 } 
 
+.coverpage-slider.coverpage-classic{
+    /*height: auto !important;*/
+    position: relative !important;
+	margin-top: -60px;
+}
+.swiper-slide {
+    position: relative;
+}
+
 .img-responsive{
 	width:100%
 }

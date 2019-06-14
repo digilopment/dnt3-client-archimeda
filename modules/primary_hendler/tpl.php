@@ -63,24 +63,40 @@ $user = new ArchimedaUser();
                <div class="swiper-wrapper">
 			   
 				<!-- PRIMARY CONTENT -->
-			    
-				<?php if(!$user->logged()){ ?>
+				
+				<?php if($user->logged()){?>
+				<!--slide departments -->
+				<div class="swiper-slide" id="departments-tpl_main">
+					<?php departments_tpl($data, ""); ?>
+				</div>
+				
+				<!-- profile settings -->
+				<div class="swiper-slide" id="profile-settings-form_main">
+					<?php user_profile_settings($data, $user, "profile-settings-form"); ?>
+				</div>
+				
 				<!--app info -->
-                <div class="swiper-slide" id="app-info-tpl_main" style="background: url(<?php echo $data['media_path']; ?>img/cover.jpg?v2) 0% 0% / cover;background-position: unset;background-position: 0px 55px;">
+				<div class="swiper-slide" id="app-info-tpl_main" style="background: url(<?php echo $data['media_path']; ?>img/cover.jpg?v2) 0% 0% / cover;background-position: unset;background-position: 0px 55px;">
                      <?php app_info_tpl($data, ""); ?>
-                  </div>
+                </div>
 				<?php } ?>
-				  
+				
+				
+				<?php if(!$user->logged()){?>
+				<!--app info -->
+				<div class="swiper-slide" id="app-info-tpl_main" style="background: url(<?php echo $data['media_path']; ?>img/cover.jpg?v2) 0% 0% / cover;background-position: unset;background-position: 0px 55px;">
+                     <?php app_info_tpl($data, ""); ?>
+                </div>
+				
 				<!--slide departments -->
                 <div class="swiper-slide" id="departments-tpl_main">
                     <?php departments_tpl($data, ""); ?>
-                 </div>
-				  
-				<?php if(!$user->logged()){ ?>
-				  <!-- registration -->
-				  <div class="swiper-slide" id="registration-form_main">
-					<?php registration_form($data, "registration-form"); ?>
-				  </div>
+                </div>
+				
+				<!-- registration -->
+				<div class="swiper-slide" id="registration-form_main">
+				<?php registration_form($data, "registration-form"); ?>
+				</div>
                  
 				 <!-- login -->
 				 <div class="swiper-slide" id="login-form_main">
@@ -88,12 +104,7 @@ $user = new ArchimedaUser();
 				 </div>
 				<?php } ?>
 				
-				<?php if($user->logged()){ ?>				
-				 <!-- profile settings -->
-				 <div class="swiper-slide" id="profile-settings-form_main">
-				  <?php user_profile_settings($data, $user, "profile-settings-form"); ?>
-				 </div>
-				 <?php } ?>
+				
 				 
 				 
 				 <!-- USER CONTENT AND SETTINGS -->

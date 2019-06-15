@@ -2,44 +2,45 @@
  <form class="" id="<?php echo $selector; ?>" action="" novalidate="novalidate">
 	<div class="page-login-input">
 	   <i class="login-icon ion-person"></i>
-	   <input name="name" type="text" placeholder="Name" value="" >
+	   <input class="dnt-input" name="name" type="text" placeholder="Name" value="<?php echo $user->get()->name ?>" >
 	</div>
 	<div class="page-login-input">
 	   <i class="login-icon ion-person"></i>
-	   <input name="surname" type="text" placeholder="Surname" value="" >
+	   <input class="dnt-input" name="surname" type="text" placeholder="Surname" value="<?php echo $user->get()->surname ?>" >
 	</div>
 	<div class="page-login-input">
 	   <i class="login-icon ion-at"></i>
-	   <input type="text" name="email" placeholder="Email Address">
+	   <input class="dnt-input" type="text" name="email" value="<?php echo $user->get()->email ?>" placeholder="Email Address">
 	</div>
 	<div class="page-login-input">
 	   <i class="login-icon ion-flag"></i>
-	   <input type="text" name="country_city" placeholder="Country and City">
+	   <input class="dnt-input" type="text" name="country_city" value="<?php echo $user->get()->krajina ?>" placeholder="Country and City">
 	</div>
 	<div class="page-login-input">
 		<i class="login-icon ion-android-calendar"></i>
-		<input name="date" class="set-todays" value="2019-04-23" type="date" style="padding-bottom: 12px;">
+		<?php  $date = new DateTime($user->get()->datetime_publish);?>
+		<input class="dnt-input" name="date" class="set-todays" value="<?php echo $date->format("Y-m-d");?>" type="date" style="padding-bottom: 1px;">
 	</div>
 	<div class="page-login-input">
 		<i class="login-icon ion-transgender"></i>
-		<select name="gender">
+		<select name="gender" style="padding-bottom: 4px;">
 		  <option value="1" selected>Man</option>
 		  <option value="2">Woman</option>
 		</select>
 	</div>
 	<div class="page-login-input">
 		<i class="login-icon fa fa-balance-scale"></i>
-		<input name="weight" value="75.4" placeholder="weight" type="number">
+		<input class="dnt-input" name="weight" value="<?php echo $user->get()->vaha ?>" placeholder="weight (kg)" type="number">
 	</div>
 	<div class="page-login-input">
 		<i class="login-icon fa fa-arrow-up"></i>
-		<input name="weight" value="75.4" placeholder="height" type="number">
+		<input class="dnt-input" name="weight" value="<?php echo $user->get()->vyska ?>" placeholder="height (cm)" type="number">
 	</div>
 	
 	<div class="page-login-input">
 	<label class="filebutton">
 	<i class="login-icon ion-images"></i>Browse image!
-	<span>		<input type="file" id="myfile" name="myfile" accept="image/x-png,image/gif,image/jpeg" ></span>
+	<span><input type="file" id="myfile" name="myfile" accept="image/x-png,image/gif,image/jpeg" ></span>
 	</label>
 	</div>
 	
@@ -47,14 +48,44 @@
 	</form>
  </div>
 
+<script>
+	$("input.dnt-input").click(function(){
+		$this = $(this);
+		var oldValue =  $(this).val(); 
+		$(this).val("");
+		if($(this).val() == ""){
+			setTimeout(function(){$this.val(oldValue)}, 500);			
+		}
+	});
+	
+	/*$("input.dnt-input").focus(function(){
+	$this = $(this);
+	var oldValue =  $(this).val(); 
+	$(this).val("");
+	if($(this).val() == ""){
+		$("input.dnt-input").focusout(function(){
+			if($(this).val() == "" || $(this).val() == 0){
+				$this.val(oldValue)
+			}else{
+				$this.val($(this).val())
+			}
+		});			
+	}
+});
+*/
+</script>
  
 <style>
-label.filebutton {
-    width: 150px;
+.page-login.small-form input::placeholder {
+  font-size: 13px;
+  color: #6c6c6c !important;
+}
+.page-login.small-form label.filebutton {
+    width: 143px;
     height: 37px;
     overflow: hidden;
     position: relative;
-    background-color: #1a79b2;
+    background-color: transparent;
     text-align: right;
     padding: 3px;
     padding-right: 9px;
@@ -62,14 +93,17 @@ label.filebutton {
     margin: 10px 0px;
     margin-left: 1px;
     color: #fff;
-    border-radius: 3px;
+    color: #111;
+    font-size: 14px;
+	cursor:pointer;
+    /* border-radius: 3px; */
 }
-label.filebutton i.ion-images  {
-    font-size: 24px !important;
-	    margin-top: -6px;
-		 color: #fff;
+.page-login.small-form label.filebutton i.ion-images  {
+	font-size: 15px !important;
+    margin-top: -6px;
+    color: #111;
 }
-label span input {
+.page-login.small-form label span input {
     z-index: 999;
     line-height: 0;
     font-size: 50px;
@@ -93,7 +127,8 @@ label span input {
     line-height: 30px;
     font-weight: 400;
     padding-left: 45px;
-    margin-top: 10px;
+	margin-top: 5px;
+    padding-bottom: 5px;
 	font-family: Roboto;
 	color: #111;
 	border-bottom: 2px solid #e5e5e5;
@@ -106,6 +141,7 @@ label span input {
     line-height: 30px;
     width: 30px;
     text-align: center;
+	    z-index: 2;
 }
 
 /*** new one **/
@@ -130,16 +166,16 @@ label span input {
     width: 40px;
     text-align: center;
 }
-input::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+.small-form input::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
   color: #555;
   opacity: 1; /* Firefox */
 }
 
-input:-ms-input-placeholder { /* Internet Explorer 10-11 */
+.small-form input:-ms-input-placeholder { /* Internet Explorer 10-11 */
   color: #555;
 }
 
-input::-ms-input-placeholder { /* Microsoft Edge */
+.small-form input::-ms-input-placeholder { /* Microsoft Edge */
   color: #555;
 }
 </style>

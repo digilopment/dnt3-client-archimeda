@@ -1,7 +1,6 @@
-
- <div class="page-login content">
+<div class="page-login content">
 	<form class="" id="<?php echo $selector; ?>" action="" novalidate="novalidate">
-		<a href="#" class="page-login-logo"><img class="preload-image" data-original="<?php echo $data['media_path']; ?>img/logo.png" alt="img"></a>
+		<a href="#" class="page-login-logo"><img class="preload-image" data-original="<?php echo Settings::getImage($data['meta_settings']['keys']['logo_firmy']['value']); ?>" alt="img"></a>
 		<div class="page-login-input">
 		   <i class="login-icon ion-at"></i>
 		   <input type="text" name="email" placeholder="Email Address">

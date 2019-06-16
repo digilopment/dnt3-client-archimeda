@@ -33,6 +33,11 @@ class ArchimedaUser extends Database{
 			return false;
 		}
 	}
+	
+	public function loadHtmlTemplate($userData){
+		include "dnt-view/layouts/".Vendor::getLayout()."/plugins/reg-email-tpl.php";
+		return $data;
+	}
 	public function get(){
 		if($this->init){
 			return $this->data[0];

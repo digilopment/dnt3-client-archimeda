@@ -82,6 +82,39 @@ if(isset($_POST['sent'])){
 		$db->dbcommit();
 		
 		
+		
+		$userData = array(
+			"name" 				=> "Tomáš",
+			"surname" 			=> "Doubek",
+			"message_1" 		=> "Thank you for joining to Archimeda and our global community to performe health care.",
+			"message_2" 		=> "Are you ready to discover what Archimeda can do for your health?",
+			"app_name" 			=> "Archimeda",
+			"email" 			=> "info@archimeda.sk",
+			"google_play_url" 	=> "https://wwww.google.sk/",
+			"app_troe_url" 		=> "https://wwww.google.sk/",
+			"faqs" 				=> "https://wwww.google.sk/",
+			"unsubscribe" 		=> "https://wwww.google.sk/",
+			"facebook_url" 		=> "https://wwww.google.sk/",
+			"insta_url" 		=> "https://wwww.google.sk/",
+			"twitter_url" 		=> "https://wwww.google.sk/",
+			"linked_url" 		=> "https://wwww.google.sk/",
+			"youtube_url" 		=> "https://wwww.google.sk/",
+			"img_path" 			=> $data['media_path']."img/email/",
+			"img" 				=> Settings::getImage($data['meta_settings']['keys']['logo_firmy']['value']),
+		);
+		
+		$messageTitle 	= $userData['app_name'];
+		$senderEmail 	= "info@archimeda.sk";
+		$msg 			= $this->loadHtmlTemplate($userData);
+		$dntMailer->set_recipient(array($form_base_email));
+		$dntMailer->set_msg($msg);
+		$dntMailer->set_subject($messageTitle);
+		$dntMailer->set_sender_name($senderEmail);
+		$dntMailer->set_sender_email($senderEmail);
+		$dntMailer->sent_email();	
+			
+			
+		
 		/***
 		 *KONFIGURACIA ODOSLANEHO EMAILU 
 		 *

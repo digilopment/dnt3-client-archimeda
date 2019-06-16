@@ -1,5 +1,5 @@
  <div class="page-login small-form content">
- <form class="" id="<?php echo $selector; ?>" action="" novalidate="novalidate">
+ <form class="" id="<?php echo $selector; ?>" action="" novalidate="novalidate" enctype="multipart/form-data">
 	<div class="page-login-input">
 	   <i class="login-icon ion-person"></i>
 	   <input class="dnt-input" name="name" type="text" placeholder="Name" value="<?php echo $user->get()->name ?>" >
@@ -14,49 +14,137 @@
 	</div>
 	<div class="page-login-input">
 	   <i class="login-icon ion-flag"></i>
-	   <input class="dnt-input" type="text" name="country_city" value="<?php echo $user->get()->krajina ?>" placeholder="Country and City">
+	   <input class="dnt-input" type="text" name="krajina" value="<?php echo $user->get()->krajina ?>" placeholder="Country and City">
 	</div>
 	<div class="page-login-input">
 		<i class="login-icon ion-android-calendar"></i>
 		<?php  $date = new DateTime($user->get()->datetime_publish);?>
-		<input class="dnt-input" name="date" class="set-todays" value="<?php echo $date->format("Y-m-d");?>" type="date" style="padding-bottom: 1px;">
+		<input class="dnt-input" name="datetime_publish" class="set-todays" value="<?php echo $date->format("Y-m-d");?>" type="date" style="padding-bottom: 1px;">
 	</div>
 	<div class="page-login-input">
 		<i class="login-icon ion-transgender"></i>
-		<select name="gender" style="padding-bottom: 4px;">
+		<select name="sex" style="padding-bottom: 4px;">
 		  <option value="1" selected>Man</option>
 		  <option value="2">Woman</option>
 		</select>
 	</div>
 	<div class="page-login-input">
 		<i class="login-icon fa fa-balance-scale"></i>
-		<input class="dnt-input" name="weight" value="<?php echo $user->get()->vaha ?>" placeholder="weight (kg)" type="number">
+		<input class="dnt-input" name="vaha" value="<?php echo ($user->get()->vaha == 0) ? "" : $user->get()->vaha ?>" placeholder="weight (kg)" type="number">
 	</div>
 	<div class="page-login-input">
 		<i class="login-icon fa fa-arrow-up"></i>
-		<input class="dnt-input" name="weight" value="<?php echo $user->get()->vyska ?>" placeholder="height (cm)" type="number">
+		<input class="dnt-input" name="vyska" value="<?php echo ($user->get()->vyska == 0) ? "" : $user->get()->vyska ?>" placeholder="height (cm)" type="number">
 	</div>
 	
 	<div class="page-login-input">
-	<label class="filebutton">
-	<i class="login-icon ion-images"></i>Browse image!
-	<span><input type="file" id="myfile" name="myfile" accept="image/x-png,image/gif,image/jpeg" ></span>
-	</label>
+		<label class="filebutton">
+		<i class="login-icon ion-images"></i>Browse image!
+			<span><input type="file" id="form_user_image_1" name="form_user_image_1" accept="image/x-png,image/gif,image/jpeg" ></span>
+		</label>
 	</div>
-	
 		<button type="submit" name="sent" class="button button-green button-icon button-full half-top full-bottom"/><i class="ion-log-in"></i>Save</button>
 	</form>
  </div>
+ 
+ 
+ <script type="text/javascript">
+	  jQuery(document).ready(function() {
+		   jQuery("#<?php echo $selector; ?>").validate({
+			rules: {
+				name: {
+					required: true,
+					minlength: 1
+				},
+				email: {
+					required: true,
+					minlength: 1
+				},
+			},
+			messages: { 
+				name:		"Toto pole je povinné",
+				email:		"Toto pole je povinné",
+			},
+			//submitHandler: function(form) {
+			submitHandler: function(form) {
+				
+				jQuery(".loader").fadeIn();
+				
+				jQuery.ajax({
+					url: '<?php echo WWW_PATH; ?>rpc/json/update-profile',
+					type: 'POST',
+
+					// Form data
+					data: new FormData(jQuery('#<?php echo $selector; ?>')[0]),
+
+					// Tell jQuery not to process data or worry about content-type
+					// You *must* include these options!
+					cache: false,
+					contentType: false,
+					processData: false,
+
+					// Custom XMLHttpRequest
+					xhr: function() {
+						var myXhr = jQuery.ajaxSettings.xhr();
+						if (myXhr.upload) {
+							// For handling the progress of the upload
+							myXhr.upload.addEventListener('progress', function(e) {
+								if (e.lengthComputable) {
+									jQuery('progress').attr({
+										value: e.loaded,
+										max: e.total,
+									});
+								}
+							}, false);
+						}
+						return myXhr;
+					},
+					success: function(data) {
+						console.log(data);
+						 if (data.success == 1) {
+							window.location.href = data.url;
+						 }
+						 else if (data.success == 0) {
+							jQuery(".loader").fadeOut();
+							alert("Bat token");
+						 }
+						 else if (data.success == 2) {
+							jQuery(".loader").fadeOut();
+							alert("Prosím kliknite na Captchu");
+						 }
+						 else{
+							writeError(data.message); 
+						 }
+					},
+					error: function() {
+						alert("Momentálne sme zaneprázdnený.");
+					}
+				});
+				return false;
+			}
+		   });	
+	  
+	  function writeError(message)  {
+		jQuery("#form-result").html("<div class=\"alert alert-error\">" + message + "</div>");
+	  }
+	  }); 	
+   </script>
+ 
+ 
+ 
+ 
+     <!--<link rel="stylesheet" type="text/css" href="https://getbootstrap.com/docs/4.0/dist/css/bootstrap.min.css" >-->
+
 
 <script>
-	$("input.dnt-input").click(function(){
+	/*$("input.dnt-input").click(function(){
 		$this = $(this);
 		var oldValue =  $(this).val(); 
 		$(this).val("");
 		if($(this).val() == ""){
 			setTimeout(function(){$this.val(oldValue)}, 500);			
 		}
-	});
+	});*/
 	
 	/*$("input.dnt-input").focus(function(){
 	$this = $(this);

@@ -6,10 +6,12 @@ class rpcModulController extends archimedaUser{
 		$db 		= new Db;
 		if($rest->webhook(2) == "json" && $rest->webhook(3) == "registration-form"){
 			include "registration-form.php";
-		}elseif($rest->webhook(2) == "json" && $rest->webhook(3) == "login-form"){
-			include "login-form.php";
 		}elseif($rest->webhook(2) == "json" && $rest->webhook(3) == "logout-form"){
 			include "logout-form.php";
+		}elseif($rest->webhook(2) == "json" && $rest->webhook(3) == "login-form"){
+			include "login-form.php";
+		}elseif($rest->webhook(2) == "json" && $rest->webhook(3) == "update-profile"){
+			include "update-profile.php";
 		}
 		elseif($rest->webhook(2) == "xml" && $rest->webhook(3) == "sitemap"){
 			include "sitemap.php";

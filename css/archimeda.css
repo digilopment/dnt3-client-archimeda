@@ -71,6 +71,18 @@ input, select{
     width: 260px;
 }
 
+/** MINI LOGO **/
+.mini-logo{
+	display: block;
+	line-height: 18px;
+	margin: 25px 0px 10px 20px;
+}
+.mini-logo span{
+	color: #1a79b2;
+	text-align: left;	
+}
+		
+		
 /** menu close button LEFT*/
 .sidebar-header-image .sidebar-socials a {
     float: right;

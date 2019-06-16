@@ -13,8 +13,17 @@ function custom_modules($webhook = false){
 		"default" => array_merge(
 			array(), $webhook->getSitemapModules("default")
 		),
-		"primary_hendler" => array_merge(
-			array(), $webhook->getSitemapModules("primary_hendler")
+		//logouted
+		"app_logouted" => array_merge(
+			array(), $webhook->getSitemapModules("app_logouted")
+		),
+		//logged
+		"primary_handler" => array_merge(
+			array(), $webhook->getSitemapModules("primary_handler")
+		),
+		//logged/profile-settings
+		"profile_settings" => array_merge(
+			array(), $webhook->getSitemapModules("profile_settings")
 		),
 		
 		
@@ -40,8 +49,16 @@ function modulesConfig(){
 			"service_name" => "Error 404",
 			"sql" => ""
 		),
-		"primary_hendler" => array(
-			"service_name" => "Primary Hendler",
+		"app_logouted" => array(
+			"service_name" => "App Logouted",
+			"sql" => ""
+		),
+		"primary_handler" => array(
+			"service_name" => "Primary Handler",
+			"sql" => ""
+		),
+		"profile_settings" => array(
+			"service_name" => "Profile Settings",
 			"sql" => ""
 		),
 		

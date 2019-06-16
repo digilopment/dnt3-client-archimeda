@@ -53,7 +53,11 @@ function app_info_tpl($data, $selector) {
 }
 function user_menu_tpl($data, $user, $selector) {
 	include "plugins/user-menu-tpl.php";
-}function user_profile_settings($data, $user, $selector) {
+}
+function app_menu_tpl($data, $user, $selector) {
+	include "plugins/app-menu-tpl.php";
+}
+function user_profile_settings($data, $user, $selector) {
 	include "plugins/user-profile-settings.php";
 }
 

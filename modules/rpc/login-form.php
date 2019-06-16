@@ -1,5 +1,5 @@
 <?php
-header('Content-Type: application/json');
+//header('Content-Type: application/json');
 header('Access-Control-Allow-Origin: *');
 $rest = new Rest;
 $session = new Sessions;
@@ -27,8 +27,7 @@ if($data['meta_settings']['keys']['gc_secret_key']['show'] == 1 && $data['meta_s
 	$NO_CAPTCHA = 1;
 }
 $url = false;
-
-if(isset($_POST['login'])){
+if(isset($_POST['email'])){
 	if($gc->getResult() || $NO_CAPTCHA){
 		if($this->validProcessLogin($type, $email, $pass)){
 			$session->set("archimeda-patient_logged", "1");
@@ -38,10 +37,10 @@ if(isset($_POST['login'])){
 			Cookie::Set("archimeda-patient_id", $email);
 			$RESPONSE 	= 1;
 			$ATTACHMENT = 0;
-			$url	    = WWW_PATH;
+			$url	    = WWW_PATH."primary-handler";
 		}else{
-			$RESPONSE 	= 0;
-			$ATTACHMENT = 0;	
+			$RESPONSE 	= 3;
+			$ATTACHMENT = 3;	
 		}
 	}else{
 		$RESPONSE 	= 2; //no captcha
@@ -51,7 +50,6 @@ if(isset($_POST['login'])){
 	$RESPONSE 	= 0; //no post
 	$ATTACHMENT = 0;	
 }
-
 
 echo '
 {

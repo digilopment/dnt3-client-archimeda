@@ -28,6 +28,8 @@ class profileSettingsModulController extends ArchimedaUser{
 			include "dnt-view/layouts/".Vendor::getLayout()."/top.php";
 			include "tpl.php";
 			include "dnt-view/layouts/".Vendor::getLayout()."/bottom.php";
+		}else{
+			Dnt::redirect(WWW_PATH."primary-handler");
 		}
 		
 	}

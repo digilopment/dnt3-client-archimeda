@@ -5,7 +5,7 @@ $rest 				= new Rest;
 $db					= new Db;
 $dntMailer			= new Mailer;
 $user = new ArchimedaUser();
-$post_id = $user->get()->id;
+$post_id = $user->get()->id_entity;
 
 
 
@@ -61,7 +61,7 @@ if(isset($_POST['sent'])){
 			"form_user_image_1",					//input type file
 			$table, 								//update table
 			"img",	 								//update table column
-			"`id_entity`", 								//where column
+			"`id_entity`", 							//where column
 			$post_id, 								//where value
 			"dnt-view/data/uploads" 				//path
 		);

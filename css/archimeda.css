@@ -71,6 +71,15 @@ input, select{
     width: 260px;
 }
 
+/** form valid **/
+.formValidationError {
+    height: 40px;
+    line-height: 40px;
+    padding-top: 5px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
 /** MINI LOGO **/
 .mini-logo{
 	display: block;

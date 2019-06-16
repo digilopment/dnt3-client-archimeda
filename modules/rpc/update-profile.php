@@ -37,7 +37,7 @@ if(isset($_POST['sent'])){
 			if(
 				$value != "id" &&  
 				$value != "type" &&  
-				$value != "password" &&  
+				$value != "pass" &&  
 				$value != "id_entity" && 
 				$value != "vendor_id" && 
 				$value != "ip_adresa" && 

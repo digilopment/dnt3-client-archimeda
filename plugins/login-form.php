@@ -1,6 +1,7 @@
 <div class="page-login content">
 	<form class="" id="<?php echo $selector; ?>" action="" novalidate="novalidate">
 		<a href="#" class="page-login-logo"><img class="preload-image" data-original="<?php echo Settings::getImage($data['meta_settings']['keys']['logo_firmy']['value']); ?>" alt="img"></a>
+		<div id="form-result"></div>
 		<div class="page-login-input">
 		   <i class="login-icon ion-at"></i>
 		   <input type="text" name="email" placeholder="Email Address">
@@ -43,6 +44,7 @@
 				},
 			submitHandler: function(form) {
 				jQuery(".loader").fadeIn();
+				jQuery("#form-result").hide();
 				jQuery.ajax({
 					type: "POST",
 					url: '<?php echo WWW_PATH; ?>rpc/json/login-form',
@@ -58,7 +60,13 @@
 							alert("Bat token");
 						 }
 						 else if (data.success == 2) {
+							jQuery(".loader").fadeOut();
 							alert("Prosím kliknite na Captchu");
+						 }
+						 else if (data.success == 3) {
+							jQuery(".loader").fadeOut();
+							jQuery("#form-result").show();
+							writeError(data.message); 
 						 }
 						 else{
 							writeError(data.message); 
@@ -73,7 +81,7 @@
 		   });	
 	  
 	  function writeError(message)  {
-		jQuery("#form-result").html("<div class=\"alert alert-error\">" + message + "</div>");
+		jQuery("#form-result").html("<div class=\"formValidationError bg-red-dark\" id=\"contactNameFieldError\"><p class=\"center-text uppercase small-text color-white\">" + message +"</p></div>");
 	  }
 	  }); 	
    </script>

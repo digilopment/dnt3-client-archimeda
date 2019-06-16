@@ -27,6 +27,7 @@ if($data['meta_settings']['keys']['gc_secret_key']['show'] == 1 && $data['meta_s
 	$NO_CAPTCHA = 1;
 }
 $url = false;
+$message 	= false;
 if(isset($_POST['email'])){
 	if($gc->getResult() || $NO_CAPTCHA){
 		if($this->validProcessLogin($type, $email, $pass)){
@@ -41,6 +42,7 @@ if(isset($_POST['email'])){
 		}else{
 			$RESPONSE 	= 3;
 			$ATTACHMENT = 3;	
+			$message	= "Invalid user name or password.";
 		}
 	}else{
 		$RESPONSE 	= 2; //no captcha
@@ -63,5 +65,5 @@ echo '
   "lang": "",
   "generator": "Designdnt 3",
   "service": "c_dnt-ajax-universal",
-  "message": "Silence is golden, speech is gift :)"
+  "message": "'.$message.'"
 }';

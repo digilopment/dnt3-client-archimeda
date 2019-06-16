@@ -1,4 +1,4 @@
-<div id="page-content" class="page-content">
+<div id="page-content"
 	<div class="content-fullscreen">
 	   <div class="animate-fade">
 		  <h3 class="center-text thin small-bottom half-top">Settings</h3>
@@ -6,3 +6,4 @@
 	   </div>
 	</div>
 </div>
+<style>#page-content{min-height: auto!important};</style>

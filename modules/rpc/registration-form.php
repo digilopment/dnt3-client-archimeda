@@ -84,8 +84,8 @@ if(isset($_POST['sent'])){
 		
 		
 		$userData = array(
-			"name" 				=> "Tomáš",
-			"surname" 			=> "Doubek",
+			"name" 				=> $form_base_name,
+			"surname" 			=> $form_base_surname,
 			"message_1" 		=> "Thank you for joining to Archimeda and our global community to performe health care.",
 			"message_2" 		=> "Are you ready to discover what Archimeda can do for your health?",
 			"app_name" 			=> "Archimeda",

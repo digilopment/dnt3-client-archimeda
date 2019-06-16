@@ -43,7 +43,7 @@
 			<span><input type="file" id="form_user_image_1" name="form_user_image_1" accept="image/x-png,image/gif,image/jpeg" ></span>
 		</label>
 	</div>
-		<button type="submit" name="sent" class="button button-green button-icon button-full half-top full-bottom"/><i class="ion-log-in"></i>Save</button>
+		<button type="submit" name="sent" class="button button-green button-icon button-full half-top full-bottom"><i class="ion-log-in"></i>Save</button>
 	</form>
  </div>
  

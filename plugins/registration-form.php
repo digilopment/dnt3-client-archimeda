@@ -18,10 +18,12 @@
 	   <i class="login-icon ion-locked"></i>
 	   <input type="password" name="password" placeholder="****">
 	</div>
-	<div class="page-login-input">
+	<?php if($data['meta_settings']['keys']['gc_secret_key']['show'] == 1 && $data['meta_settings']['keys']['gc_site_key']['show'] == 1){?>
+	<div class="page-login-input" style="margin-top: -10px;">
 	   <div class="g-recaptcha" data-sitekey="6LeejJQUAAAAALTt0EovyVZRzxkH-TtqzNEcfS-E"></div>
 	</div>
-		<button type="submit" name="sent" class="button button-green button-icon button-full half-top full-bottom"/><i class="ion-log-in"></i>Create Account</button>
+	<?php } ?>
+	<button type="submit" name="sent" class="button button-green button-icon button-full half-top full-bottom"/><i class="ion-log-in"></i>Create Account</button>
 	</form>
  </div>
 
@@ -56,6 +58,7 @@
 				},
 			//submitHandler: function(form) {
 			submitHandler: function(form) {
+				jQuery(".loader").fadeIn();
 				jQuery.ajax({
 					type: "POST",
 					url: '<?php echo WWW_PATH; ?>rpc/json/registration-form',
@@ -65,6 +68,7 @@
 					success: function(data) {
 						console.log(data);
 						 if (data.success == 1) {
+							jQuery(".loader").fadeOut();
 							jQuery( "#<?php echo $selector; ?>_main" ).hide();
 						 }
 						 else if (data.success == 0) {

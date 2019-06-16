@@ -9,9 +9,11 @@
 		   <i class="login-icon ion-locked"></i>
 		   <input type="password" name="pass" value="" placeholder="*****">
 		</div>
+		<?php if($data['meta_settings']['keys']['gc_secret_key']['show'] == 1 && $data['meta_settings']['keys']['gc_site_key']['show'] == 1){?>
 		<div class="page-login-input" style="margin-top: -10px;">
 		   <div class="g-recaptcha" data-sitekey="6LeejJQUAAAAALTt0EovyVZRzxkH-TtqzNEcfS-E"></div>
 		</div>
+		<?php } ?>
 			<button type="submit" name="login" class="button button-green button-icon button-full half-top full-bottom"/><i class="ion-log-in"></i>Login to account</button>
 			
 			<div class="pageapp-login-links">
@@ -40,6 +42,7 @@
 	  
 				},
 			submitHandler: function(form) {
+				jQuery(".loader").fadeIn();
 				jQuery.ajax({
 					type: "POST",
 					url: '<?php echo WWW_PATH; ?>rpc/json/login-form',

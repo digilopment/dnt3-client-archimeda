@@ -7,10 +7,6 @@ $dntMailer			= new Mailer;
 $user = new ArchimedaUser();
 $post_id = $user->get()->id_entity;
 
-
-
-
-
 if(isset($_POST['sent'])){
 		$attachment = "";
 		$filePath = "dnt-view/data/external-uploads/";

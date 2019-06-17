@@ -136,7 +136,7 @@
  width: 100%;
 }
 .page-polls h3 {
-    padding: 23px;
+    padding: 0px 23px;
     padding-bottom: 1px;
     line-height: 30px;
     font-size: 24px;
@@ -166,12 +166,21 @@
 	cursor:pointer;
 	overflow: inherit;
     height: auto;
-	margin: 20px auto;
+	margin-bottom: 20px;
+}
+.polls_cont .input-wrap {
+    /* margin-left: -10px; */
 }
 @media screen and (max-width: 500px) {
 	.polls_cont .input-wrap label {
 		padding: 0px 0px 0px 60px;
 		margin: 5px 0px;
+	}
+	.polls_cont .input-wrap {
+		margin-left: 0px;
+	}
+	.polls_cont {
+		padding: 5px;
 	}
 }
 .polls_cont .input-wrap .check {

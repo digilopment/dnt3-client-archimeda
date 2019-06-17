@@ -15,7 +15,7 @@
 	<div class="menu-options icon-background sidebar-menu">
 	   <em class="menu-divider"><?php echo $user->get()->name . " " . $user->get()->surname?></em>
 	   <a class="close-sidebar" href="<?php echo WWW_PATH."profile-settings"?>"><i class="icon-bg bg-green-dark ion-android-home"></i><span>profile</span><i class="ion-record"></i></a>
-	   <a class="close-sidebar" href="<?php echo WWW_PATH."profile-settings"?>"><i class="icon-bg bg-blue-dark ion-gear-a"></i><span>settings</span><i class="ion-record"></i></a>
+	   <a class="click-show-preload close-sidebar" href="<?php echo WWW_PATH."profile-settings"?>"><i class=" icon-bg bg-blue-dark ion-gear-a"></i><span>settings</span><i class="ion-record"></i></a>
 	   <a class="close-sidebar" href="#" id="logout-form"><i class="icon-bg bg-red-light ion-log-out"></i><span>logout</span><i class="ion-record"></i></a>
 	   <em class="menu-divider">Copyright <u class="copyright-year"></u>. All rights reserved</em>
 	</div>

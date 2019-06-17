@@ -1,6 +1,6 @@
 <div class="page-login content">
 	<form class="" id="<?php echo $selector; ?>" action="" novalidate="novalidate">
-		<a href="#" class="page-login-logo"><img class="preload-image" data-original="<?php echo Settings::getImage($data['meta_settings']['keys']['logo_firmy']['value']); ?>" alt="img"></a>
+		<a href="#" class="page-login-logo"><img class="preload-image" src="<?php echo Settings::getImage($data['meta_settings']['keys']['logo_firmy']['value']); ?>" alt="img"></a>
 		<div id="form-result"></div>
 		<div class="page-login-input">
 		   <i class="login-icon ion-at"></i>

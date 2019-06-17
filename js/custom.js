@@ -958,7 +958,7 @@ $(document).ready(function(){
 
     
     setTimeout(init_template, 0);//Activating all the plugins
-    $(function(){
+   /*$(function(){
       'use strict';
       var options = {
         prefetch: false,
@@ -1009,6 +1009,6 @@ $(document).ready(function(){
         }
       };
       var smoothState = $('#page-transitions').smoothState(options).data('smoothState');
-    });
+    });*/
     
 });

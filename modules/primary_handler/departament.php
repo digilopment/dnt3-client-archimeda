@@ -72,13 +72,19 @@
 	});
 	</script>
 <style>
-#page-content .poll-steps{
-	background-color: #1a79b2;
+/** this is inline **/
+#page-content{
+	min-height: auto !important;
+}
+</style>
+<style>
+#page-content .poll-steps {
+    background-color: #1a79b2;
     color: #fff;
-    position: absolute;
-    bottom: 75px;
+    position: fixed;
+    bottom: 0px;
     width: 100%;
-	padding: 0px 20px;
+    padding: 0px 20px;
 }
 #page-content .poll-steps a{
 	color: #fff;
@@ -96,7 +102,7 @@
 
 .progress-bar {
     background-color: #eee;
-    height: 25px;
+    height: 10px;
     border-radius: 0px;
     box-shadow: inset 0px 0px 0px 0px rgba(0,0,0,0.1);
     margin-bottom: 15px;
@@ -105,14 +111,14 @@
     position: absolute;
     z-index: 10;
     right: 20px;
-    font-size: 15px;
+    font-size: 13px;
     font-style: inherit;
     height: 25px;
     line-height: 25px;
     font-weight: bold;
-	color: #111;
-    margin-top: 1px;
-    margin-right: -15px;
+    color: #1a79b2;
+    margin-top: 10px;
+    margin-right: -16px;
 }
 .progress-bar-size {
     position: absolute;
@@ -125,7 +131,6 @@
     border-bottom: 0px;
     background-color: #1a79b2 !important;
 }
-
 .page-polls {
  margin-top: 75px;
  width: 100%;
@@ -161,12 +166,16 @@
 	cursor:pointer;
 	overflow: inherit;
     height: auto;
+	margin: 20px auto;
 }
 @media screen and (max-width: 500px) {
 	.polls_cont .input-wrap label {
-		padding: 30px 0px 0px 60px;
+		padding: 0px 0px 0px 60px;
 		margin: 5px 0px;
 	}
+}
+.polls_cont .input-wrap .check {
+    top: 0px;
 }
 .polls_cont .input-wrap label {
     font-size: 15px;

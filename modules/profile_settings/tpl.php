@@ -1,4 +1,4 @@
-<div id="page-content"
+<div id="page-content">
 	<div class="content-fullscreen">
 	   <div class="animate-fade">
 		  <h3 class="center-text thin small-bottom half-top">Settings</h3>

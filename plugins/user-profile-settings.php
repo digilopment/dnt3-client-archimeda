@@ -2,19 +2,19 @@
  <form class="" id="<?php echo $selector; ?>" action="" novalidate="novalidate" enctype="multipart/form-data">
 	<div class="page-login-input">
 	   <i class="login-icon ion-person"></i>
-	   <input class="dnt-input" name="name" type="text" placeholder="Name" value="<?php echo $user->get()->name ?>" >
+	   <input class="dnt-input" name="name" type="text" placeholder="<?php echo MultyLanguage::translate($data, "name", "translate");?>" value="<?php echo $user->get()->name ?>" >
 	</div>
 	<div class="page-login-input">
 	   <i class="login-icon ion-person"></i>
-	   <input class="dnt-input" name="surname" type="text" placeholder="Surname" value="<?php echo $user->get()->surname ?>" >
+	   <input class="dnt-input" name="surname" type="text" placeholder="<?php echo MultyLanguage::translate($data, "surname", "translate");?>" value="<?php echo $user->get()->surname ?>" >
 	</div>
 	<div class="page-login-input">
 	   <i class="login-icon ion-at"></i>
-	   <input class="dnt-input" type="text" name="email" value="<?php echo $user->get()->email ?>" placeholder="Email Address">
+	   <input class="dnt-input" type="text" name="email" value="<?php echo $user->get()->email ?>" placeholder="<?php echo MultyLanguage::translate($data, "email_addr", "translate");?>">
 	</div>
 	<div class="page-login-input">
 	   <i class="login-icon ion-flag"></i>
-	   <input class="dnt-input" type="text" name="krajina" value="<?php echo $user->get()->krajina ?>" placeholder="Country and City">
+	   <input class="dnt-input" type="text" name="krajina" value="<?php echo $user->get()->krajina ?>" placeholder="<?php echo MultyLanguage::translate($data, "country_and_city", "translate");?>">
 	</div>
 	<div class="page-login-input">
 		<i class="login-icon ion-android-calendar"></i>
@@ -24,26 +24,26 @@
 	<div class="page-login-input">
 		<i class="login-icon ion-transgender"></i>
 		<select name="sex" style="padding-bottom: 4px;">
-		  <option value="1" selected>Man</option>
-		  <option value="2">Woman</option>
+		  <option value="1" selected><?php echo MultyLanguage::translate($data, "man", "translate");?></option>
+		  <option value="2"><?php echo MultyLanguage::translate($data, "woman", "translate");?></option>
 		</select>
 	</div>
 	<div class="page-login-input">
 		<i class="login-icon fa fa-balance-scale"></i>
-		<input class="dnt-input" name="vaha" value="<?php echo ($user->get()->vaha == 0) ? "" : $user->get()->vaha ?>" placeholder="weight (kg)" type="number">
+		<input class="dnt-input" name="vaha" value="<?php echo ($user->get()->vaha == 0) ? "" : $user->get()->vaha ?>" placeholder="<?php echo MultyLanguage::translate($data, "weight", "translate");?> (kg)" type="number">
 	</div>
 	<div class="page-login-input">
 		<i class="login-icon fa fa-arrow-up"></i>
-		<input class="dnt-input" name="vyska" value="<?php echo ($user->get()->vyska == 0) ? "" : $user->get()->vyska ?>" placeholder="height (cm)" type="number">
+		<input class="dnt-input" name="vyska" value="<?php echo ($user->get()->vyska == 0) ? "" : $user->get()->vyska ?>" placeholder="<?php echo MultyLanguage::translate($data, "height", "translate");?> (cm)" type="number">
 	</div>
 	
 	<div class="page-login-input">
 		<label class="filebutton">
-		<i class="login-icon ion-images"></i>Browse image!
+		<i class="login-icon ion-images"></i><?php echo MultyLanguage::translate($data, "select_image", "translate");?>
 			<span><input type="file" id="form_user_image_1" name="form_user_image_1" accept="image/x-png,image/gif,image/jpeg" ></span>
 		</label>
 	</div>
-		<button type="submit" name="sent" class="button button-green button-icon button-full half-top full-bottom"><i class="ion-log-in"></i>Save</button>
+		<button type="submit" name="sent" class="button button-green button-icon button-full half-top full-bottom"><i class="ion-log-in"></i><?php echo MultyLanguage::translate($data, "save", "translate");?></button>
 	</form>
  </div>
  
@@ -62,8 +62,8 @@
 				},
 			},
 			messages: { 
-				name:		"Toto pole je povinné",
-				email:		"Toto pole je povinné",
+				name:		"<?php echo MultyLanguage::translate($data, "required_field", "translate");?>",
+				email:		"<?php echo MultyLanguage::translate($data, "required_field", "translate");?>",
 			},
 			//submitHandler: function(form) {
 			submitHandler: function(form) {

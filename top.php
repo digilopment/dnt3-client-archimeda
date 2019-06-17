@@ -16,10 +16,10 @@ $user = new ArchimedaUser();
                   <div class="clear"></div>
                </div>
             </div>
-            <img class="nav-img" src="<?php echo $data['media_path']; ?>img/healthcare-revolves-around-you.png" alt="" />
+            <img class="nav-img" src="<?php echo Settings::getImage($data['meta_settings']['keys']['logo_firmy_2']['value']); ?>" alt="" />
             <div class="menu-search">
                <i class="ion-ios-search-strong"></i>
-               <input type="text" class="search-field" onclick="window.location.href='#departments-tpl_main'" placeholder="find departments" >
+               <input type="text" class="search-field" onclick="window.location.href='#departments-tpl_main'" placeholder="<?php echo MultyLanguage::translate($data, "find_departments", "translate");?>" >
             </div>
             <?php echo app_menu_tpl($data, $user, "");?>
          </div>

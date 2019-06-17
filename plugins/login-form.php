@@ -4,22 +4,22 @@
 		<div id="form-result"></div>
 		<div class="page-login-input">
 		   <i class="login-icon ion-at"></i>
-		   <input type="text" name="email" placeholder="Email Address">
+		   <input type="text" name="email" placeholder="<?php echo MultyLanguage::translate($data, "email_addr", "translate");?>">
 		</div>
 		<div class="page-login-input full-bottom">
 		   <i class="login-icon ion-locked"></i>
-		   <input type="password" name="pass" value="" placeholder="*****">
+		   <input type="password" name="pass" value="" placeholder="<?php echo MultyLanguage::translate($data, "password", "translate");?>">
 		</div>
 		<?php if($data['meta_settings']['keys']['gc_secret_key']['show'] == 1 && $data['meta_settings']['keys']['gc_site_key']['show'] == 1){?>
 		<div class="page-login-input" style="margin-top: -10px;">
 		   <div class="g-recaptcha" data-sitekey="6LeejJQUAAAAALTt0EovyVZRzxkH-TtqzNEcfS-E"></div>
 		</div>
 		<?php } ?>
-			<button type="submit" name="login" class="button button-green button-icon button-full half-top full-bottom"/><i class="ion-log-in"></i>Login to account</button>
+			<button type="submit" name="login" class="button button-green button-icon button-full half-top full-bottom"/><i class="ion-log-in"></i><?php echo MultyLanguage::translate($data, "login_to_account", "translate");?></button>
 			
 			<div class="pageapp-login-links">
-		   <a href="#" class="page-login-forgot "><i class="ion-eye"></i>Forgot Credentials</a>
-		   <a href="#" class="page-login-create ">Create Account<i class="ion-person"></i></a>
+		   <a href="#" class="page-login-forgot "><i class="ion-eye"></i><?php echo MultyLanguage::translate($data, "forgot_credentials", "translate");?></a>
+		   <a href="#" class="page-login-create "><?php echo MultyLanguage::translate($data, "create_account", "translate");?><i class="ion-person"></i></a>
 		   <div class="clear"></div>
 		</div>
 	</form>
@@ -38,8 +38,8 @@
 				},
 			},
 			messages: { 
-				email:		"Toto pole je povinné",
-				password:	"Toto pole je povinné",
+				email:		"<?php echo MultyLanguage::translate($data, "required_field", "translate");?>",
+				password:	"<?php echo MultyLanguage::translate($data, "required_field", "translate");?>",
 	  
 				},
 			submitHandler: function(form) {

@@ -11,6 +11,10 @@ input, select{
 	font-size:16px!important;
 } 
 
+.landing-wrapper {
+    margin-top: 60px;
+}
+
 .coverpage-slider.coverpage-classic{
     /*height: auto !important;*/
     position: relative !important;

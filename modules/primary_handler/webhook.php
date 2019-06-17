@@ -37,7 +37,7 @@ class homepageModulController extends ArchimedaUser{
 		$this->useLayoutComposer($data, "tpl");
 	}
 	
-	protected function departamentDetail($rest, $poll_id, $question_id, $poll_input_name, $prevQuestion, $nextQuestion){	
+	protected function departamentDetail($rest, $poll_id, $question_id, $poll_input_name, $prevQuestion, $nextQuestion, $progress){	
 		$article 	= new ArticleView;
 		$id = $article->getStaticId();
 		$articleName = $article->getPostParam("name",  $id);
@@ -117,7 +117,6 @@ class homepageModulController extends ArchimedaUser{
             return WWW_PATH . "" . $rest->webhook(1) . "/" . $rest->webhook(2) . "/" . $poll_id . "/" . $rest->webhook(4) . "/" . $prev_question;
         } elseif ($index == "first") {
             return WWW_PATH . "" . $rest->webhook(1) . "/" . $rest->webhook(2) . "/" . $poll_id . "/" . $rest->webhook(4) . "/" . $first_question;
-            //www_PATH."/".$rest->webhook(1)."/".$rest->webhook(2)."/".$rest->webhook(3)."/1"
         }
     }
 	
@@ -138,8 +137,8 @@ class homepageModulController extends ArchimedaUser{
 			
 			$prevQuestion = $this->pollUrl("prev", $poll_id, $question_id);
 			$nextQuestion = $this->pollUrl("next", $poll_id, $question_id);
-			
-			$this->departamentDetail($rest, $poll_id, $question_id, $poll_input_name, $prevQuestion, $nextQuestion);
+			$progress	  = PollsFrontend::getProgressPercent($poll_id, $question_id);
+			$this->departamentDetail($rest, $poll_id, $question_id, $poll_input_name, $prevQuestion, $nextQuestion, $progress);
 		}elseif(
 			$rest->webhook(1) == $this->route_app && 
 			$rest->webhook(2) == $this->route_departments && 
@@ -154,8 +153,9 @@ class homepageModulController extends ArchimedaUser{
 			
 			$prevQuestion = $this->pollUrl("prev", $poll_id, $question_id);
 			$nextQuestion = $this->pollUrl("next", $poll_id, $question_id);
+			$progress	  = PollsFrontend::getProgressPercent($poll_id, $question_id);
 			
-			$this->departamentDetail($rest, $poll_id, $question_id, $poll_input_name, $prevQuestion, $nextQuestion);
+			$this->departamentDetail($rest, $poll_id, $question_id, $poll_input_name, $prevQuestion, $nextQuestion, $progress);
 		}
 		
 		elseif($rest->webhook(1) == $this->route_app && $this->logged())

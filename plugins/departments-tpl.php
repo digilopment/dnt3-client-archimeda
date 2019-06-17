@@ -8,55 +8,55 @@
 			 <div class="slide-wrapper">
 				<ul>
 				   <li>
-					  <a href="#index">
+					  <a href="<?php echo WWW_PATH?>/primary-handler/departments/124/my-poll/1">
 					  <i class="ion-ios-home bg-red-dark"></i>
 					  <em>neurology</em>
 					  </a>
 				   </li>
 				   <li>
-					  <a href="#features-typography">
+					  <a href="<?php echo WWW_PATH?>/primary-handler/departments/124/my-poll/1">
 					  <i class="ion-ios-gear bg-green-dark"></i>
 					  <em>Pregnancy & Births</em>
 					  </a>
 				   </li>
 				   <li>
-					  <a href="#gallery-square">
+					  <a href="<?php echo WWW_PATH?>/primary-handler/departments/124/my-poll/1">
 					  <i class="ion-ios-camera bg-blue-dark"></i>
 					  <em>Heart Center</em>
 					  </a>
 				   </li>
 				   <li>
-					  <a href="#portfolio-one">
+					  <a href="<?php echo WWW_PATH?>/primary-handler/departments/124/my-poll/1">
 					  <i class="ion-ios-analytics bg-magenta-dark"></i>
 					  <em>Dental Surgery</em>
 					  </a>
 				   </li>
 				   <li>
-					  <a href="#pageapp-coverpage">
+					  <a href="<?php echo WWW_PATH?>/primary-handler/departments/124/my-poll/1">
 					  <i class="ion-iphone bg-orange-dark"></i>
 					  <em>Cancer Oncology</em>
 					  </a>
 				   </li>
 				   <li>
-					  <a href="#page-soon">
+					  <a href="<?php echo WWW_PATH?>/primary-handler/departments/124/my-poll/1">
 					  <i class="ion-ios-browsers bg-teal-dark"></i>
 					  <em>Diagnose & Research</em>
 					  </a>
 				   </li>
 				   <li>
-					  <a href="#page-blog">
+					  <a href="<?php echo WWW_PATH?>/primary-handler/departments/124/my-poll/1">
 					  <i class="ion-ios-book bg-night-dark"></i>
 					  <em>Drug / Medicine</em>
 					  </a>
 				   </li>
 				   <li>
-					  <a class="tel:+1 234 567 890" href="##">
+					 <a href="<?php echo WWW_PATH?>/primary-handler/departments/124/my-poll/1">
 					  <i class="ion-ios-telephone bg-green-dark"></i>
 					  <em>Endocrinology</em>
 					  </a>
 				   </li>
 				   <li>
-					  <a href="#contact">
+					  <a href="<?php echo WWW_PATH?>/primary-handler/departments/124/my-poll/1">
 					  <i class="ion-ios-email bg-blue-dark"></i>
 					  <em>Medical Counseling</em>
 					  </a>

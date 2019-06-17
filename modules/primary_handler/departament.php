@@ -5,7 +5,9 @@
 		<link href="http://ankety.markiza.sk/css/polls.css" media="screen" rel="stylesheet" type="text/css">
 		<div class="page-polls content">
 
-				
+			
+			<div class="progress-bar"><div class="progress-bar-size p25" style="width:<?php echo $progress?>%"></div><em><?php echo $progress?>%</em></div>
+			
 				<a href="#" class="page-login-logo">
 					<img class="preload-image" src="<?php echo Settings::getImage($data['meta_settings']['keys']['logo_firmy']['value']); ?>" alt="img">
 				</a>
@@ -90,6 +92,38 @@
 }
 #page-content .poll-steps a.float-right{
 	float:right;
+}
+
+.progress-bar {
+    background-color: #eee;
+    height: 25px;
+    border-radius: 0px;
+    box-shadow: inset 0px 0px 0px 0px rgba(0,0,0,0.1);
+    margin-bottom: 15px;
+}
+.progress-bar em {
+    position: absolute;
+    z-index: 10;
+    right: 20px;
+    font-size: 15px;
+    font-style: inherit;
+    height: 25px;
+    line-height: 25px;
+    font-weight: bold;
+	color: #111;
+    margin-top: 1px;
+    margin-right: -15px;
+}
+.progress-bar-size {
+    position: absolute;
+    margin-top: 0px;
+    margin-left: 0px;
+    display: block;
+    height: 100%;
+    border-radius: 0px;
+    border: 0px;
+    border-bottom: 0px;
+    background-color: #1a79b2 !important;
 }
 
 .page-polls {

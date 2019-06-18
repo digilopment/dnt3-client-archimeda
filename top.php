@@ -3,7 +3,13 @@
 $user = new ArchimedaUser();
 ?>
    <body>
-	<div class="loader"></div>
+	<div class="loader">
+	<div class="header header-logo-center header-dark">
+         <a href="#" class="header-icon header-icon-1 hamburger-animated open-sidebar-left"><em class="hm1"></em><em class="hm2"></em><em class="hm3"></em></a>
+         <span class="header-logo-text"><?php echo $data['headline']?></span>
+		 <a href="#" class="header-icon header-icon-4 open-sidebar-right"><i class="login-icon ion-person"></i></a>
+		 </div>
+	</div>
 	<div class="content-page">
       <div id="page-transitions">
       <!-- NAVIGATION LEFT -->

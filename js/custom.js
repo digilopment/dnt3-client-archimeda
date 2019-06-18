@@ -797,6 +797,20 @@ $(document).ready(function(){
 			
 			/** set dynamic windows content **/
 			if ( $( ".coverpage-classic" ).length ) {
+				
+				swiper_coverpage.on('touchStart', function() { 
+					var addHight = 5;
+					$('.coverpage-slider.coverpage-classic').css({"height": "auto"});   
+					screen_height = $(".swiper-slide-active").height(); 
+					if(screen_height == 0){
+						screen_height = $(window).height();
+					}
+					if(screen_height < $(window).height() ){
+						screen_height = $(window).height();
+					}
+					$('.coverpage-classic').css({"height": screen_height + addHight});  
+				});
+				
 				swiper_coverpage.on('transitionEnd', function() { 
 					var addHight = 5;
 					$('.coverpage-slider.coverpage-classic').css({"height": "auto"});   

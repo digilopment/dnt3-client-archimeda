@@ -112,11 +112,11 @@ class homepageModulController extends ArchimedaUser{
         }
 
         if ($index == "next")
-            return WWW_PATH . "" . $rest->webhook(1) . "/" . $rest->webhook(2) . "/" . $poll_id . "/" . $rest->webhook(4) . "/" . $next_question;
+            return WWW_PATH . "" . $rest->webhook(1) . "/" . $rest->webhook(2) . "/" . $rest->webhook(3) . "/" . $poll_id . "/" . $rest->webhook(5) . "/" . $next_question;
         elseif ($index == "prev") {
-            return WWW_PATH . "" . $rest->webhook(1) . "/" . $rest->webhook(2) . "/" . $poll_id . "/" . $rest->webhook(4) . "/" . $prev_question;
+            return WWW_PATH . "" . $rest->webhook(1) . "/" . $rest->webhook(2) . "/" . $rest->webhook(3) . "/" . $poll_id . "/" . $rest->webhook(5) . "/" . $prev_question;
         } elseif ($index == "first") {
-            return WWW_PATH . "" . $rest->webhook(1) . "/" . $rest->webhook(2) . "/" . $poll_id . "/" . $rest->webhook(4) . "/" . $first_question;
+            return WWW_PATH . "" . $rest->webhook(1) . "/" . $rest->webhook(2) . "/" . $rest->webhook(3) . "/" . $poll_id . "/" . $rest->webhook(5) . "/" . $first_question;
         }
     }
 	
@@ -127,12 +127,13 @@ class homepageModulController extends ArchimedaUser{
 			$rest->webhook(1) == $this->route_app && 
 			$rest->webhook(2) == $this->route_departments && 
 			is_numeric($rest->webhook(3)) &&
-			$rest->webhook(4) &&
-			is_numeric($rest->webhook(5)) &&
+			is_numeric($rest->webhook(4)) &&
+			$rest->webhook(5) &&
+			is_numeric($rest->webhook(6)) &&
 			$this->logged())
 		{
-			$poll_id 		 = $rest->webhook(3);
-			$question_id	 = $rest->webhook(5);
+			$poll_id 		 = $rest->webhook(4);
+			$question_id	 = $rest->webhook(6);
 			$poll_input_name = "poll_".$poll_id."_".$question_id;
 			
 			$prevQuestion = $this->pollUrl("prev", $poll_id, $question_id);
@@ -143,12 +144,13 @@ class homepageModulController extends ArchimedaUser{
 			$rest->webhook(1) == $this->route_app && 
 			$rest->webhook(2) == $this->route_departments && 
 			is_numeric($rest->webhook(3)) &&
-			$rest->webhook(4) &&
-			$rest->webhook(5) == $this->route_result &&
+			is_numeric($rest->webhook(4)) &&
+			$rest->webhook(5) &&
+			$rest->webhook(6) == $this->route_result &&
 			$this->logged())
 		{
-			$poll_id 		 = $rest->webhook(3);
-			$question_id	 = $rest->webhook(5);
+			$poll_id 		 = $rest->webhook(4);
+			$question_id	 = $rest->webhook(6);
 			$poll_input_name = "poll_".$poll_id."_".$question_id;
 			
 			$prevQuestion = $this->pollUrl("prev", $poll_id, $question_id);
@@ -157,7 +159,14 @@ class homepageModulController extends ArchimedaUser{
 			
 			$this->departamentDetail($rest, $poll_id, $question_id, $poll_input_name, $prevQuestion, $nextQuestion, $progress);
 		}
-		
+		elseif(
+			$rest->webhook(1) == $this->route_app && 
+			$rest->webhook(2) == $this->route_departments && 
+			is_numeric($rest->webhook(3)) &&
+			$this->logged())
+		{
+			echo "form for departament";
+		}
 		elseif($rest->webhook(1) == $this->route_app && $this->logged())
 		{
 			$this->defaultPage($rest);

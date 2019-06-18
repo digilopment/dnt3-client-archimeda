@@ -5,17 +5,19 @@ function setCookie(cname, cvalue, exdays) {
     document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
 	}
 
-$(document).ready(function($) {  
-	$(window).load(function(){
-		$('.loader').fadeOut();
-	});
-	
 	function getPreloader(){
 		//$('.loader').show();
 		$('.loader').fadeIn("slow");
 		/*$( ".loader" ).fadeTo( "slow" , 1, function() {
 		 });*/
 	}
+	
+$(document).ready(function($) {  
+	$(window).load(function(){
+		$('.loader').fadeOut();
+	});
+	
+
 	
 	$( "#logout-form" ).click(function() {
 		getPreloader();

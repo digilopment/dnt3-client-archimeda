@@ -49,9 +49,10 @@
 		<a class="float-left" href="<?php echo $prevQuestion; ?>">
 			<i class="ion ion-ios-arrow-back"></i>
 		</a>
-		<a class="float-right" href="<?php echo $nextQuestion; ?>">
+		<?php /*<a class="float-right" href="<?php echo $nextQuestion; ?>">
 			<i class="ion ion-ios-arrow-forward"></i>
 		</a>
+		*/?>
 	</div>
 				
  </div>
@@ -62,6 +63,7 @@
 		 var pollData;
 		$("input[name=<?php echo $poll_input_name; ?>]").click(function() {    
 			if($("input[name=<?php echo $poll_input_name; ?>]").is(':checked')){
+				getPreloader();
 				pollData = $("input[name=<?php echo $poll_input_name; ?>]:checked").val();
 				setCookie("<?php echo $poll_input_name; ?>", pollData, 60);
 				window.location.href = "<?php echo $nextQuestion ?>";
@@ -94,10 +96,12 @@
 	font-size: 30px;
 }
 #page-content .poll-steps a.float-left{
-	float:left;
+	float: left;
+    margin-top: 4px;
 }
 #page-content .poll-steps a.float-right{
-	float:right;
+	float: right;
+    margin-top: 4px;
 }
 
 .progress-bar {

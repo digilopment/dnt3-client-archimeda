@@ -102,7 +102,7 @@ class homepageModulController extends ArchimedaUser{
 		vendor_id 	= " . Vendor::getId() . " AND
 		`key`       = 'question' AND
 		`question_id` < '" . $question_id . "' AND
-		poll_id 	= '" . $poll_id . "' LIMIT 1";
+		poll_id 	= '" . $poll_id . "' order by id desc LIMIT 1";
         if ($db->num_rows($query) > 0) {
             foreach ($db->get_results($query) as $row) {
                 $prev_question = $row['question_id'];

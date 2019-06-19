@@ -9,7 +9,7 @@
 					$url = WWW_PATH."primary-handler/departments/" . $post['id_entity'] . "/124/my-poll/1";
 					?>
 				   <li>
-					  <a class="show-departament-forms" data-search="<?php echo Dnt::name_url($post['name_url'])?>" data-id="<?php echo $post['id_entity']?>" href="#">
+					  <a class="show-departament-forms" id="departamen-form-id-<?php echo $post['id_entity']?>" data-search="<?php echo Dnt::name_url($post['name_url'])?>" data-id="<?php echo $post['id_entity']?>" href="#">
 					  <i class="<?php echo $post['embed']?>"></i>
 					  <em><?php echo $post['name']?></em>
 					  </a>
@@ -22,77 +22,61 @@
 	   </div>
 	</div>
 	
-	<div class="form-area">
+	<?php foreach($posts as $post){  ?>
+	<div class="form-area" id="form-area-<?php echo $post['id_entity'];?>">
 		<div class="content">
-   <div class="one-half-responsive">
-   
-	  <div class="toggle">
-         <a href="#" class="close-form-area toggle-title"><center style="color: #1a79b2">close</center><i class="ion-android-close"></i></a>
-      </div>
-	  
-	   <?php 
-	   $db = new Db();
-	   $rest = new Rest();
-	   $query = Polls::getPolls();
-	   if($db->num_rows($query)>0){
-			foreach($db->get_results($query) as $row){
-				$url = WWW_PATH."primary-handler/departments/" . $post['id_entity'] . "/124/my-poll/1";
-		?>
-		
-		  <div class="toggle">
-			 <a href="#" class="toggle-title"><?php echo $row['name']; ?><i class="ion-android-add"></i></a>
-			 <div class="toggle-content" style="display: none;">
-				<?php echo $row['content']; ?>
-				<div class="buttons"><a href="<?php echo $url; ?>" class="icon-go-to-form"><i class="ion ion-ios-arrow-forward"></i></a></div>
-			 </div>
-		  </div>
-	  <?php 
-			}
-	   }
-	?>
-	  
-      <div class="toggle">
-         <a href="#" class="toggle-title">Custom Form 1<i class="ion-android-add"></i></a>
-         <div class="toggle-content" style="display: none;">
-            <p>
-               Ad nihil populo evertitur sea. Facer delectus id cum, cu stet blandit quo. Pertinax interpretaris no vim, vide malorum ea mel. Expetendis honestatis ex vel, verterem democritum liberavisse cum ea. Ei noster scaevola necessitatibus sit, ei pro probo habemus.
-            </p>
-			<p><a href="#" class="button button-blue button-round button-bold button-xs">GET A QUOTE</a></p>
-         </div>
-      </div>
-      <div class="toggle">
-         <a href="#" class="toggle-title">Custom Form 2<i class="ion-android-add"></i></a>
-         <div class="toggle-content">
-            <p>
-               Lorem ipsum dolor sit amet, eos et nostro dicunt, vitae quaestio nec an. Ea quo iisque vivendum singulis. Malis labore pro ei. Eum et nibh delectus, et eum hinc utamur fabulas.
-            </p>
-         </div>
-      </div>
-      <div class="toggle">
-         <a href="#" class="toggle-title">Custom Form 3<i class="ion-android-add"></i></a>
-         <div class="toggle-content">
-            <p>
-              Ad nihil populo evertitur sea. Facer delectus id cum, cu stet blandit quo. Pertinax interpretaris no vim, vide malorum ea mel. Expetendis honestatis ex vel, verterem democritum liberavisse cum ea. Ei noster scaevola necessitatibus sit, ei pro probo habemus.
-            </p>
-         </div>
-      </div>
-   </div>
-   <div class="clear"></div>
-</div>
- </div>
+		   <div class="one-half-responsive">
+		   
+			  <div class="toggle">
+				 <a href="#" class="close-form-area toggle-title"><center style="color: #1a79b2">close</center><i class="ion-android-close"></i></a>
+			  </div>
+			  
+			   <?php 
+			   $db = new Db();
+			   $rest = new Rest();
+			   $query = Polls::getPolls();
+			   if($db->num_rows($query)>0){
+					foreach($db->get_results($query) as $row){
+						if($row['parent_id'] == $post['id_entity']){
+						$url = WWW_PATH."primary-handler/departments/" . $post['id_entity'] . "/".$row['id_entity']."/my-poll/1";
+						?>
+						  <div class="toggle">
+							 <a href="#" class="toggle-title"><?php echo $row['name']; ?><i class="ion-android-add"></i></a>
+							 <div class="toggle-content" style="display: none;">
+								<?php echo $row['content']; ?>
+								<div class="buttons"><a href="<?php echo $url; ?>" class="icon-go-to-form"><i class="ion ion-ios-arrow-forward"></i></a></div>
+							 </div>
+						  </div>
+						<?php 
+						}else{
+							?>
+							<div class="toggle">
+								 <a href="#" class="close-form-area toggle-title" style="line-height: initial;padding: 9px;">We are sorry, but for this departament we don`t have eny forms. Please try the other departament.</a>
+							</div>
+							<?php
+						}
+					}
+			   }
+			?>
+		   </div>
+		   <div class="clear"></div>
+		</div>
+	 </div>
+	  <script>
+		 $("#departamen-form-id-<?php echo $post['id_entity']?>").on('click', function() {
+		  $("#form-area-<?php echo $post['id_entity'];?>").fadeIn();
+		});
+		 
+		 $(".close-form-area").on('click', function() {
+		  $("#form-area-<?php echo $post['id_entity'];?>").fadeOut();
+		});
+		 </script>
+	<?php } ?>
+ 
+ 
+ 
  <div class="overlay dark-overlay"></div>
  </div>
- <script>
- $(".show-departament-forms").on('click', function() {
-  //  ret = DetailsView.GetProject($(this).attr("#data-id"), OnComplete, OnTimeOut, OnError);
-  //alert($(this).attr("data-id"));
-  $(".form-area").fadeIn();
-});
- 
- $(".close-form-area").on('click', function() {
-  $(".form-area").fadeOut();
-});
- </script>
  
  <style>
  .buttons{

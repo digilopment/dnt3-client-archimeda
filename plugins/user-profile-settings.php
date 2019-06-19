@@ -1,4 +1,9 @@
  <div class="page-login small-form content">
+ 
+ <div class="profile">
+		  <img src="<?php echo Image::getFileImage($user->get()->img, true, Image::THUMB)?>" >
+	   </div>
+	   
  <form class="" id="<?php echo $selector; ?>" action="" novalidate="novalidate" enctype="multipart/form-data">
 	<div class="page-login-input">
 	   <i class="login-icon ion-person"></i>

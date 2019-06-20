@@ -12,6 +12,8 @@ class rpcModulController extends archimedaUser{
 			include "login-form.php";
 		}elseif($rest->webhook(2) == "json" && $rest->webhook(3) == "update-profile"){
 			include "update-profile.php";
+		}elseif($rest->webhook(2) == "json" && $rest->webhook(3) == "save-form-data"){
+			include "save-form-data.php";
 		}
 		elseif($rest->webhook(2) == "xml" && $rest->webhook(3) == "sitemap"){
 			include "sitemap.php";

@@ -21,6 +21,7 @@ class profileSettingsModulController extends ArchimedaUser{
 				 '<meta content="'.$articleImage.'" property="og:image" />',
 			),
 		);
+		
 		$data = Frontend::get($custom_data);
 		
 		if($this->logged()){

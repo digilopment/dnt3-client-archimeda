@@ -149,15 +149,17 @@ class homepageModulController extends ArchimedaUser{
 			$rest->webhook(6) == $this->route_result &&
 			$this->logged())
 		{
-			$poll_id 		 = $rest->webhook(4);
-			$question_id	 = $rest->webhook(6);
-			$poll_input_name = "poll_".$poll_id."_".$question_id;
 			
-			$prevQuestion = $this->pollUrl("prev", $poll_id, $question_id);
-			$nextQuestion = $this->pollUrl("next", $poll_id, $question_id);
-			$progress	  = PollsFrontend::getProgressPercent($poll_id, $question_id);
+			$custom_data = array(
+				"headline" =>  Settings::get("title") ,
+			);
+		
+			$data = Frontend::get($custom_data);
+			include "dnt-view/layouts/".Vendor::getLayout()."/tpl_functions.php";
+			include "dnt-view/layouts/".Vendor::getLayout()."/top.php";
+			include "result.php";
+			include "dnt-view/layouts/".Vendor::getLayout()."/bottom.php";
 			
-			$this->departamentDetail($rest, $poll_id, $question_id, $poll_input_name, $prevQuestion, $nextQuestion, $progress);
 		}
 		elseif(
 			$rest->webhook(1) == $this->route_app && 

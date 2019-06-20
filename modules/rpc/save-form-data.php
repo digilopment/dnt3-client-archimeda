@@ -6,6 +6,7 @@ class SaveFormData extends ArchimedaUser{
 	
 	public $response;
 	public $qrImage;
+	public $jsonResponse;
 	
 	protected function getFormData($attachments, $qrImage, $qrHash){
 		//header('Content-Type: application/json');
@@ -13,17 +14,27 @@ class SaveFormData extends ArchimedaUser{
 		$mainArray = array();
 		$rest = new Rest();
 		
+		$poll_id = $rest->post("id");
+		
 		foreach($_COOKIE as $key=>$value){
 			if(Dnt::in_string("poll_", $key)){
-				$pollArr[$key] = $value;
+				$question_id = explode("_", $key)[2];
+				$pollArr[$question_id] = array(
+									"question" 	=> PollsFrontend::getCurrentQuestions($poll_id, $question_id), 
+									"ans" 		=> PollsFrontend::getValueByInputId("value", $value),
+									"input_id" 	=> $value
+								);
 			}
 		}
+		sort($pollArr);
 		
-		$mainArray['id'] 			= $rest->post("id");
+		$mainArray['id'] 			= $poll_id;
 		$mainArray['attachments'] 	= $attachments;
 		$mainArray['data'] 			= array($pollArr);
 		$mainArray['qr_image'] 		= $qrImage;
 		$mainArray['qr_hash'] 		= $qrHash;
+		$mainArray['datetime'] 		= Dnt::datetime();
+		$mainArray['user'] 			= $this->get();
 		return $mainArray;
 		
 	}
@@ -69,7 +80,8 @@ class SaveFormData extends ArchimedaUser{
 			$this->qrImage			= WWW_PATH.$path.$qrImageName.".png";
 			QRcode::png($data, $qrImage, $errorCorrectionLevel, $matrixPointSize, 2);
 			
-			$jsonToInsert = $this->getFormData($attachment, $qrImage, $qrHash);
+			$jsonToInsert = $this->getFormData($attachment, $qrImageName.".png", $qrHash);
+			$this->jsonResponse = $jsonToInsert;
 			
 			$this->update(
 				"dnt_posts_meta",	//table

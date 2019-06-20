@@ -17,12 +17,9 @@
                   <h3 id="text-on-finish">You finish the basic formular. If you want, you can upload your immages here:</h3>
                </div>
 			   
-            </div>
-         </div>
-		 
-		<div class="input-wrap">
+			   		<div class="input-wrap">
 			<form class="" id="<?php echo $selector; ?>" action="" novalidate="novalidate" enctype="multipart/form-data">
-			
+				<input type="hidden" id="id" name="id" value="<?php echo $data['webhook'][4]?>" multiple >
 				 <div class="page-login small-form">
 					<div class="page-login-input">
 						<label class="filebutton">
@@ -36,15 +33,18 @@
 			</form>
 			<div id="form-result"></div>
 		</div>
+			   
+            </div>
+         </div>
+		 
 	
       </div>
 	  
-
-				
+	  
    </div>
    <div class="poll-steps">
-		<a class="float-right" href="<?php echo $selector; ?>">
-			<i class="ion ion-ios-arrow-forward"></i>
+		<a id="back-to-home" class="float-right" href="<?php echo WWW_PATH; ?>primary-handler" style="display:none;">
+			&nbsp;<i class="ion ion-ios-arrow-forward"></i>
 		</a>
 	</div>
 </div>
@@ -52,9 +52,11 @@
 <style>
 .page-polls h3 {
     padding: 0px 10px;
+	text-align: center;
 }
 .page-login {
     margin-left: 0px;
+    margin-top: 0px;
 }
 .input-wrap{
 	padding: 15px;
@@ -67,6 +69,14 @@
 }
 .page-polls h3 {
     padding: 20px 10px;
+}
+.polls_cont .input-wrap {
+    float: none;
+}
+@media screen and (max-width: 500px){
+	.polls_cont .input-wrap {
+		margin-left: 0px;
+	}
 }
 </style>
 
@@ -122,6 +132,7 @@
 					console.log(data);
 					 if (data.success == 1) {
 						$(".loader").fadeOut();
+						$("#back-to-home").fadeIn();
 						$("#<?php echo $selector; ?>").hide();
 						$("#text-on-finish").html("Your QR is ready to scan. Your data has been save to your history and we send your QR to mail.");
 						writeQr(data.qr_image); 

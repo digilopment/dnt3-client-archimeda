@@ -1,8 +1,8 @@
-<link href="http://ankety.markiza.sk/css/polls.css" media="screen" rel="stylesheet" type="text/css">
+
 <div id="page-content">
    <div class="content-fullscreens">
       <div class="animate-fade">
-		<img class="nav-img" src="<?php echo Settings::getImage($data['meta_settings']['keys']['logo_firmy_2']['value']); ?>" alt="">
+		<img class="step-image" src="<?php echo Settings::getImage($data['meta_settings']['keys']['logo_firmy_2']['value']); ?>" alt="">
          <div class="page-polls content">
             <div class="progress-bar">
                <div class="progress-bar-size p25" style="width:<?php echo $progress?>%"></div>

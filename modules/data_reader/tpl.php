@@ -39,5 +39,5 @@
    </div>
 </div>
 <style>
-#page-content{min-height: auto!important;margin-top: 55px;}.content {margin-top: 30px;}.qr-wrapper img{margin: 0px auto;margin-bottom: 25px;}.mini-gallery img{margin: 0px auto;margin-bottom: 10px;margin-top: 10px}
+#page-content{min-height: auto!important;margin-top: 55px;}.content {margin-top: 30px;}.qr-wrapper img{margin: 0px auto;margin-bottom: 25px;}.mini-gallery img{width: 100%;margin: 0px auto;margin-bottom: 10px;margin-top: 10px}
 </style>

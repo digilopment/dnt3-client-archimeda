@@ -1,10 +1,9 @@
 <?php $selector = "attachment"; ?>
 <?php $progress = "100"; ?>
-<link href="http://ankety.markiza.sk/css/polls.css" media="screen" rel="stylesheet" type="text/css">
 <div id="page-content">
    <div class="content-fullscreens">
       <div class="animate-fade">
-	  <img class="nav-img" src="<?php echo Settings::getImage($data['meta_settings']['keys']['logo_firmy_2']['value']); ?>" alt="">
+	  <img class="step-image" src="<?php echo Settings::getImage($data['meta_settings']['keys']['logo_firmy_2']['value']); ?>" alt="">
          <div class="page-polls content">
             <div class="progress-bar">
                <div class="progress-bar-size p25" style="width:<?php echo $progress?>%"></div>
@@ -49,9 +48,13 @@
 </div>
 
 <style>
+.poll-steps{
+	display:none;
+}
 .page-polls h3 {
     padding: 0px 10px;
 	text-align: center;
+	font-size: 22px;
 }
 .page-login {
     margin-left: 0px;
@@ -78,7 +81,7 @@
 	}
 }
 </style>
-<style>#page-content{min-height: auto!important;margin-top: 55px;}.content {margin-top: 30px;}</style>
+<style>#page-content{min-height: auto!important;margin-top: 55px;}.content {margin-top: 30px; margin-bottom: 0px;}</style>
 
 <script type="text/javascript">
 	jQuery(document).ready(function() {
@@ -127,8 +130,13 @@
 					console.log(data);
 					 if (data.success == 1) {
 						$(".loader").fadeOut();
-						$("#back-to-home").fadeIn();
+						
+						$(".step-image").hide();
+						$(".progress-bar").hide();
 						$("#<?php echo $selector; ?>").hide();
+						
+						$(".poll-steps").show();
+						$("#back-to-home").fadeIn();
 						$("#text-on-finish").html("Your QR is ready to scan. Your data has been save to your history and we send your QR to mail.");
 						writeQr(data.qr_image); 
 						//window.location.href = data.url;

@@ -4,14 +4,13 @@
 <div id="page-content">
    <div class="content-fullscreens">
       <div class="animate-fade">
+	  <img class="nav-img" src="<?php echo Settings::getImage($data['meta_settings']['keys']['logo_firmy_2']['value']); ?>" alt="">
          <div class="page-polls content">
             <div class="progress-bar">
                <div class="progress-bar-size p25" style="width:<?php echo $progress?>%"></div>
                <em><?php echo $progress?>%</em>
             </div>
-            <a href="#" class="page-login-logo">
-				<img class="preload-image" src="<?php echo Settings::getImage($data['meta_settings']['keys']['logo_firmy']['value']); ?>" alt="img">
-            </a>
+           
             <div class="polls_cont">
                <div class="input-wrap">
                   <h3 id="text-on-finish">You finish the basic formular. If you want, you can upload your immages here:</h3>
@@ -79,12 +78,8 @@
 	}
 }
 </style>
+<style>#page-content{min-height: auto!important;margin-top: 55px;}.content {margin-top: 30px;}</style>
 
-<style>
-/*.page-login.small-form label.filebutton i.ion-images {
-    font-size: 40px !important;
-}*/
-</style>
 <script type="text/javascript">
 	jQuery(document).ready(function() {
 	   jQuery("#<?php echo $selector; ?>").validate({

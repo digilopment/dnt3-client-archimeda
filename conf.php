@@ -25,6 +25,10 @@ function custom_modules($webhook = false){
 		"profile_settings" => array_merge(
 			array(), $webhook->getSitemapModules("profile_settings")
 		),
+		//logged/profile-settings
+		"data_reader" => array_merge(
+			array(), $webhook->getSitemapModules("data_reader")
+		),
 		
 		
 		//DETAIL
@@ -59,6 +63,10 @@ function modulesConfig(){
 		),
 		"profile_settings" => array(
 			"service_name" => "Profile Settings",
+			"sql" => ""
+		),
+		"data_reader" => array(
+			"service_name" => "Data Reader",
 			"sql" => ""
 		),
 		

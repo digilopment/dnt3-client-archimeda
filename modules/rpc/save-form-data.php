@@ -9,7 +9,6 @@ class SaveFormData extends ArchimedaUser{
 	public $jsonResponse;
 	
 	protected function getFormData($attachments, $qrImage, $qrHash){
-		//header('Content-Type: application/json');
 		$pollArr = array();
 		$mainArray = array();
 		$rest = new Rest();
@@ -31,6 +30,7 @@ class SaveFormData extends ArchimedaUser{
 		$mainArray['id'] 			= $poll_id;
 		$mainArray['attachments'] 	= $attachments;
 		$mainArray['data'] 			= array($pollArr);
+		$mainArray['form'] 			= array("form_name"=> Dnt::not_html(Polls::getParam("name", $poll_id)), "form_content"=> Dnt::not_html(Polls::getParam("content", $poll_id)));
 		$mainArray['qr_image'] 		= $qrImage;
 		$mainArray['qr_hash'] 		= $qrHash;
 		$mainArray['datetime'] 		= Dnt::datetime();
@@ -68,11 +68,10 @@ class SaveFormData extends ArchimedaUser{
 			
 			$lastId = Dnt::getLastId('dnt_posts_meta');
 			
-			$qrImage 	= "http://www.google.sk/";
 			$qrHash 	= $lastId;
 			
 			
-			$data 					= WWW_PATH."a/qr/".$qrHash;
+			$data 					= WWW_PATH."data-reader/".$qrHash;
 			$qrImageName 			= md5($data);
 			$qrImage 				= $path.$qrImageName.'.png';
 			$errorCorrectionLevel 	= 'H';

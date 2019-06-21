@@ -149,7 +149,6 @@ class homepageModulController extends ArchimedaUser{
 			$rest->webhook(6) == $this->route_result &&
 			$this->logged())
 		{
-			
 			$custom_data = array(
 				"headline" =>  Settings::get("title") ,
 			);

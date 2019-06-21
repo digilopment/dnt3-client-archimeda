@@ -2,14 +2,12 @@
 <div id="page-content">
    <div class="content-fullscreens">
       <div class="animate-fade">
+		<img class="nav-img" src="<?php echo Settings::getImage($data['meta_settings']['keys']['logo_firmy_2']['value']); ?>" alt="">
          <div class="page-polls content">
             <div class="progress-bar">
                <div class="progress-bar-size p25" style="width:<?php echo $progress?>%"></div>
                <em><?php echo $progress?>%</em>
             </div>
-            <a href="#" class="page-login-logo">
-            <img class="preload-image" src="<?php echo Settings::getImage($data['meta_settings']['keys']['logo_firmy']['value']); ?>" alt="img">
-            </a>
             <div class="polls_cont">
                <div class="input-wrap">
                   <h3><?php echo PollsFrontend::getCurrentQuestions($poll_id, $question_id); ?></h3>
@@ -56,9 +54,4 @@
 		});
 	});
 	</script>
-<style>
-/** this is inline **/
-#page-content{
-	min-height: auto !important;
-}
-</style>
+<style>#page-content{min-height: auto!important;margin-top: 55px;}.content {margin-top: 30px;}</style>

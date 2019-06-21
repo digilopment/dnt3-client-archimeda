@@ -91,7 +91,7 @@ class SaveFormData extends ArchimedaUser{
 					'service' 			=> "archimeda_examination", 
 					'content_type' 		=> "json", 
 					'key' 				=> "data", 
-					'value' 			=> json_encode($jsonToInsert), 
+					'value' 			=> json_encode($jsonToInsert, JSON_UNESCAPED_UNICODE), 
 					'show' 				=> '1' 
 					), 
 				array( 	//where

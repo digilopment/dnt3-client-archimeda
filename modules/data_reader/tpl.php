@@ -8,7 +8,7 @@
                <?php echo $data['patient_data']->form->form_content; ?>
             </p>
 			<div class="decoration"></div>
-				<p><?php  echo $data['patient_data']->user->name . " " . $data['patient_data']->user->surname . ", " . $data['patient_data']->user->vyska. " cm, " . $data['patient_data']->user->vaha. "kg, " . floor((time() - strtotime($data['patient_data']->user->datetime_publish)) / 31556926)."Y";?></p>
+				<p><?php  echo $data['patient_data']->user->name . " " . $data['patient_data']->user->surname . ", " . $data['patient_data']->user->vyska. "cm, " . $data['patient_data']->user->vaha. "kg, " . floor((time() - strtotime($data['patient_data']->user->datetime_publish)) / 31556926)."years";?></p>
 			 <div class="decoration"></div>
             <?php 
                $i = 1;

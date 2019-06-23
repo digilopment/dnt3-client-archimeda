@@ -352,13 +352,13 @@ button{
 
 /*** FORM POLL STEP **/
 #page-content .poll-steps {
-    background-color: #1a79b2;
+	background-color: #1a79b2;
     color: #fff;
     position: fixed;
     bottom: 40px;
     width: 100%;
-    padding: 0px 20px;
-	height: 50px;
+    padding: 0px 40px;
+    height: 30px;
 }
 #page-content .poll-steps a{
 	color: #fff;
@@ -368,13 +368,19 @@ button{
 	font-size: 30px;
 }
 #page-content .poll-steps a.float-left{
-	float: left;
-    margin-top: 4px;
+    float: left;
+    margin-top: 0px;
+    padding: 0px;
 }
 #page-content .poll-steps a.float-right{
-	float: right;
-    margin-top: 4px;
-	    margin-right: 20px;
+	    float: right;
+    margin-top: 0px;
+    padding: 0px;
+}
+
+.content{
+	margin-top: 30px;
+    margin-bottom: 60px;
 }
 
 .progress-bar {

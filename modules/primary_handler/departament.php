@@ -29,15 +29,16 @@
                   }
                   }
                   ?>
+				  <a href="<?php echo $prevQuestion; ?>" class="button button-blue button-full bold uppercase toggle-menu-color" style="color: #fff;margin-top:10px;"><i class="ion ion-ios-arrow-back"></i> prev question</a>
             </div>
          </div>
       </div>
    </div>
-   <div class="poll-steps">
+   <?php /* <div class="poll-steps">
       <a class="float-left" href="<?php echo $prevQuestion; ?>">
 		<i class="ion ion-ios-arrow-back"></i>
       </a>
-   </div>
+   </div> */?>
 </div>
 	<script>
 	 $( document ).ready(function() {

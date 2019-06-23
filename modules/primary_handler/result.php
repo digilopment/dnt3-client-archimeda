@@ -32,7 +32,7 @@
 			</form>
 			<div id="form-result"></div>
 		</div>
-			   
+			   <a href="<?php echo WWW_PATH; ?>primary-handler" class="poll-back-to-home button button-blue button-full bold uppercase toggle-menu-color" style="display:none; color: #fff;margin-top:50px;"><i class="ion ion-ios-home"></i> back to home</a> 
             </div>
          </div>
 		 
@@ -41,11 +41,13 @@
 	  
 	  
    </div>
+   <?php /*
    <div class="poll-steps">
 		<a id="back-to-home" class="float-right" href="<?php echo WWW_PATH; ?>primary-handler" style="display:none;">
 			&nbsp;<i class="ion ion-ios-arrow-forward"></i>
 		</a>
 	</div>
+	*/?>
 </div>
 
 <style>
@@ -136,7 +138,8 @@
 						$(".progress-bar").hide();
 						$("#<?php echo $selector; ?>").hide();
 						
-						$(".poll-steps").show();
+						//$(".poll-steps").show();
+						$(".poll-back-to-home").show();
 						$("#back-to-home").fadeIn();
 						$("#text-on-finish").html("Your QR is ready to scan. Your data has been save to your history and we send your QR to mail.");
 						writeQr(data.qr_image); 

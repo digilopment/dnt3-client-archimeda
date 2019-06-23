@@ -29,7 +29,9 @@ function custom_modules($webhook = false){
 		"data_reader" => array_merge(
 			array(), $webhook->getSitemapModules("data_reader")
 		),
-		
+		"my_examinations" => array_merge(
+			array(), $webhook->getSitemapModules("my_examinations")
+		),
 		
 		//DETAIL
 		"article_view" => array_merge(
@@ -69,8 +71,10 @@ function modulesConfig(){
 			"service_name" => "Data Reader",
 			"sql" => ""
 		),
-		
-		
+		"my_examinations" => array(
+			"service_name" => "My examinations",
+			"sql" => ""
+		),
 		"singl_page" => array(
 			"service_name" => "Singl Page",
 			"sql" => ""

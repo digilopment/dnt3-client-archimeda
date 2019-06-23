@@ -17,7 +17,8 @@
 			   
 			   		<div class="input-wrap">
 			<form class="" id="<?php echo $selector; ?>" action="" novalidate="novalidate" enctype="multipart/form-data">
-				<input type="hidden" id="id" name="id" value="<?php echo $data['webhook'][4]?>" multiple >
+				<input type="hidden" id="id" name="id" value="<?php echo $data['webhook'][4]?>" >
+				<input type="hidden" id="departament_id" name="departament_id" value="<?php echo $data['webhook'][3]?>" >
 				 <div class="page-login small-form">
 					<div class="page-login-input">
 						<label class="filebutton">

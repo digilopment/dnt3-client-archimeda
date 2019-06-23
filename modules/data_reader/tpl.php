@@ -3,6 +3,11 @@
       <div class="animate-fade">
          <img class="nav-img" src="<?php echo Settings::getImage($data['meta_settings']['keys']['logo_firmy_2']['value']); ?>" alt="">
          <div class="content">
+		 
+				<?php if(isset($data['patient_data']->departament_id)){?>
+					<h3><b>Departament:</b> <?php echo ArticleView::getPostParam("name",  $data['patient_data']->departament_id); ?><br/></h3>
+				 <?php } ?>
+							 
              <h4><?php echo $data['patient_data']->form->form_name; ?></h4>
 			<p>
                <?php echo $data['patient_data']->form->form_content; ?>

@@ -79,36 +79,4 @@
  </div>
  
  <style>
- .buttons{
-	 text-align:center;
- }
- a.icon-go-to-form{
-    display: inline-block;
-    width: 40px;
-    height: 40px;
-    background-color: #1a79b2;
-    border-radius: 24px;
-    text-align: right;
-    position: relative;
- }
- a.icon-go-to-form i{
-    position: relative;
-    height: initial;
-    width: initial;
-    line-height: inherit;
-    top: initial;
-    color: #fff;
-	font-size: 30px !important;
-    padding: 5px 13px;
- }
- .form-area{
-	display: none;
-    position: absolute;
-    background-color: rgba(255,255,255,0.95);
-    width: 100%;
-    min-height: 1000px;
-    z-index: 9999;
-    top: 60px;
-    left: 0px;
- }
  </style>

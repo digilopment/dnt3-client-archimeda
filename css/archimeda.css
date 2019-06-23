@@ -355,7 +355,7 @@ button{
     background-color: #1a79b2;
     color: #fff;
     position: fixed;
-    bottom: 0px;
+    bottom: 40px;
     width: 100%;
     padding: 0px 20px;
 	height: 50px;
@@ -374,6 +374,7 @@ button{
 #page-content .poll-steps a.float-right{
 	float: right;
     margin-top: 4px;
+	    margin-right: 20px;
 }
 
 .progress-bar {
@@ -794,3 +795,104 @@ button{
     text-align: center;
     margin: 0px auto;	
 }
+
+/**departament list **/
+ .buttons{
+	 text-align:center;
+ }
+ a.icon-go-to-form{
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background-color: #1a79b2;
+    border-radius: 24px;
+    text-align: right;
+    position: relative;
+ }
+ a.icon-go-to-form i{
+    position: relative;
+    height: initial;
+    width: initial;
+    line-height: inherit;
+    top: initial;
+    color: #fff;
+	font-size: 30px !important;
+    padding: 5px 13px;
+ }
+ .form-area{
+	display: none;
+    position: absolute;
+    background-color: rgba(255,255,255,0.95);
+    width: 100%;
+    min-height: 1000px;
+    z-index: 9999;
+    top: 60px;
+    left: 0px;
+ }
+ 
+ /** departament identifikator**/
+ /*.content-page{
+	 padding-bottom:40px;
+ }*/
+ .departament-identifikator{
+	color: #FFFFFF!important;
+	line-height: 56px;
+    height: 56px!important;
+    overflow: hidden;
+    transition: all 500ms ease;
+ }
+ 
+ 	.bottom-navigation-wrap {
+		width: 100%;
+		height: 40px;
+		background-color: #fff;
+		position: fixed;
+		border: 0px;
+		z-index: 999999999;
+		bottom: 0px;
+		display: flex;
+	}
+	.bottom-navigation{
+		display: flex;
+		text-align: center;
+		margin: 0px auto;
+	}
+	
+	.bottom-navigation .icon {
+		width: auto;
+		height: initial;
+		line-height: initial;
+		text-align: center;
+		color: #1a79b2;
+		font-size: 20px;
+		display: inline-block;
+		margin: 5px;
+		padding: 0px;
+		margin: 0px;
+	}
+	
+	.bottom-navigation a > span {
+		display: inline;
+		display: block;
+		color: #1a79b2;
+		padding: 0px;
+		margin: 0px;
+		margin-top: -15px;
+		font-size: 10px;
+	}
+
+	.bottom-navigation .ion{
+		text-align: center;
+	}
+	
+	.bottom-navigation .bottom-icon{
+		font-size: 20px;
+		color: #fff;
+		font-size: 32px;
+		color: #1a79b2;
+	}
+	.bottom-navigation a{
+		display: inline-block;
+		    padding: 2px 25px;
+	}
+ 

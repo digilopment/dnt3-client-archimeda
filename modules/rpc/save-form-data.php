@@ -13,7 +13,8 @@ class SaveFormData extends ArchimedaUser{
 		$mainArray = array();
 		$rest = new Rest();
 		
-		$poll_id = $rest->post("id");
+		$poll_id		= $rest->post("id");
+		$departament_id	= $rest->post("departament_id");
 		
 		foreach($_COOKIE as $key=>$value){
 			if(Dnt::in_string("poll_", $key)){
@@ -28,6 +29,7 @@ class SaveFormData extends ArchimedaUser{
 		sort($pollArr);
 		
 		$mainArray['id'] 			= $poll_id;
+		$mainArray['departament_id']= $departament_id;
 		$mainArray['attachments'] 	= $attachments;
 		$mainArray['data'] 			= array($pollArr);
 		$mainArray['form'] 			= array("form_name"=> Dnt::not_html(Polls::getParam("name", $poll_id)), "form_content"=> Dnt::not_html(Polls::getParam("content", $poll_id)));

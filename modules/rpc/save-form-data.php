@@ -19,10 +19,11 @@ class SaveFormData extends ArchimedaUser{
 		foreach($_COOKIE as $key=>$value){
 			if(Dnt::in_string("poll_", $key)){
 				$question_id = explode("_", $key)[2];
+				$ans = is_numeric($value) ? PollsFrontend::getValueByInputId("value", $value) : "'".$value."'";
 				$pollArr[$question_id] = array(
 									"question" 	=> PollsFrontend::getCurrentQuestions($poll_id, $question_id), 
-									"ans" 		=> PollsFrontend::getValueByInputId("value", $value),
-									"input_id" 	=> $value
+									"ans" 		=> is_numeric($value) ? PollsFrontend::getValueByInputId("value", $value) : $value,
+									"input_id" 	=> is_numeric($value) ? $value : 0,
 								);
 			}
 		}

@@ -21,7 +21,7 @@
                ?>
 			   <h4><?php echo $item->question; ?></h4>
 				<p>
-				   <?php echo $item->question; ?>
+				   <?php echo $item->ans; ?>
 				</p>
             <?php $i++; } ?>
 			
@@ -38,7 +38,7 @@
 			<div class="qr-wrapper">
 				<img src="<?php echo WWW_PATH."dnt-view/data/external-uploads/".$data['patient_data']->qr_image ?>">
 			</div>
-            <a href="<?php echo WWW_PATH.$this->redirect ?>" class="button button-blue button-full bold uppercase toggle-menu-color">Back to home</a>
+            <a href="<?php echo WWW_PATH.$this->redirect ?>" class="button button-blue button-full bold uppercase">Back to home</a>
          </div>
       </div>
    </div>

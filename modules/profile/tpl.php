@@ -10,7 +10,7 @@
 		  <div class="content">
 			 <div class="profile-page-2-header">
 				<h1 class="animate-fade animate-delay-50"><?php echo $user->get()->name." ".$user->get()->surname;?></h1>
-				<em class="animate-fade animate-delay-100"><?php echo $user->get()->vyska."cm, ".$user->get()->vaha."kg";?></em>
+				<em class="animate-fade animate-delay-100"><?php echo $user->get()->vyska."cm, ".$user->get()->vaha."kg, ".floor((time() - strtotime($user->get()->datetime_publish)) / 31556926);?></em>
 				<strong class="animate-fade animate-delay-150"><i class="ion-ios-location"></i><?php echo $user->get()->krajina." ";?></strong>
 				<p class="animate-fade animate-delay-200">
 				   <?php echo $user->get()->content.""; ?>

@@ -32,7 +32,7 @@
 			</form>
 			<div id="form-result"></div>
 		</div>
-			   <a href="<?php echo WWW_PATH; ?>primary-handler" class="poll-back-to-home button button-blue button-full bold uppercase toggle-menu-color" style="display:none; color: #fff;margin-top:50px;"><i class="ion ion-ios-home"></i> back to home</a> 
+			   <a href="<?php echo WWW_PATH; ?>primary-handler" class="poll-back-to-home button button-blue button-full bold uppercase" style="display:none; color: #fff;margin-top:50px;"><i class="ion ion-ios-home"></i> back to home</a> 
             </div>
          </div>
 		 

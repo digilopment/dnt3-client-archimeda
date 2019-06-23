@@ -154,6 +154,7 @@ class homepageModulController extends ArchimedaUser{
 			);
 		
 			$data = Frontend::get($custom_data);
+			//var_dump($_COOKIE);exit;
 			include "dnt-view/layouts/".Vendor::getLayout()."/tpl_functions.php";
 			include "dnt-view/layouts/".Vendor::getLayout()."/top.php";
 			include "result.php";

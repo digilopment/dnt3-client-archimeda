@@ -31,6 +31,10 @@ input, select{
     margin-bottom: 0px;
 }
 
+.page-login.content{
+margin-top: 80px;
+	
+}
 @media only screen and (max-width: 320px) {
 	.page-login-logo {
 		display: none;
@@ -316,6 +320,31 @@ button{
 }
 
 /*** new one **/
+
+.text-area-wrap{
+    color: #948675;
+    font-size: 15px;
+}
+.text-area-wrap textarea {
+    border: 1px solid #efefef;
+    width: 99%;
+    color: #948675;
+    padding: 5px;
+    height: 150px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.switch-to-opinions {
+    float: right;
+    margin-right: 20px;
+    font-weight: bold;
+    margin-top: 12px;
+    position: absolute;
+    right: 0px;
+    z-index: 999999999999;
+}
+
 .small-form .page-login-input select, 
 .small-form .page-login-input textarea, 
 .small-form .page-login-input input {
@@ -421,7 +450,7 @@ button{
  width: 100%;
 }
 .page-polls h3 {
-    padding: 0px 23px;
+    padding: 0px 0px;
     padding-bottom: 1px;
     line-height: 30px;
     font-size: 24px;

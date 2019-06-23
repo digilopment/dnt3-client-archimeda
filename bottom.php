@@ -10,14 +10,25 @@
               <i class="icon ion-ios-star"></i>
               <span class="tabbar-label">Departaments</span>
             </a>
+			<?php if($user->logged()){?>
             <a href="<?php echo WWW_PATH."my-examinations";?>" class="tab-link">
               <i class="icon ion-ios-search"></i>
               <span class="tabbar-label">History</span>
             </a>
-            <a href="<?php echo WWW_PATH."profile-settings";?>" class="tab-link">
+            <a href="<?php echo WWW_PATH."profile";?>" class="tab-link">
               <i class="icon ion-ios-person"></i>
               <span class="tabbar-label">Profile</span>
             </a>
+			<?php } else { ?>
+			<a href="#login-form_main" class="tab-link">
+              <i class="icon ion-ios-search"></i>
+              <span class="tabbar-label">History</span>
+            </a>
+            <a href="#login-form_main" class="tab-link">
+              <i class="icon ion-ios-person"></i>
+              <span class="tabbar-label">Profile</span>
+            </a>
+			<?php } ?>
           </div>
     </div>
 

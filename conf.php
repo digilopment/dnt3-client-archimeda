@@ -32,6 +32,9 @@ function custom_modules($webhook = false){
 		"my_examinations" => array_merge(
 			array(), $webhook->getSitemapModules("my_examinations")
 		),
+		"profile" => array_merge(
+			array(), $webhook->getSitemapModules("profile")
+		),
 		
 		//DETAIL
 		"article_view" => array_merge(
@@ -73,6 +76,10 @@ function modulesConfig(){
 		),
 		"my_examinations" => array(
 			"service_name" => "My examinations",
+			"sql" => ""
+		),
+		"profile" => array(
+			"service_name" => "Profile",
 			"sql" => ""
 		),
 		"singl_page" => array(

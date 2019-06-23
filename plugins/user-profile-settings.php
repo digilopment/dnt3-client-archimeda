@@ -43,6 +43,11 @@
 	</div>
 	
 	<div class="page-login-input">
+		<i class="login-icon fa fa-info-circle"></i>
+		<textarea class="dnt-input" rows="4" cols="50" name="content"><?php echo $user->get()->content; ?></textarea>
+	</div>
+	
+	<div class="page-login-input">
 		<label class="filebutton">
 		<i class="login-icon ion-images"></i><?php echo MultyLanguage::translate($data, "select_image", "translate");?>
 			<span><input type="file" id="form_user_image_1" name="form_user_image_1" accept="image/x-png,image/gif,image/jpeg" ></span>

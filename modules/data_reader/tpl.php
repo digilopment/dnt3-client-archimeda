@@ -5,7 +5,7 @@
          <div class="content">
 		 
 				<?php if(isset($data['patient_data']->departament_id)){?>
-					<h3><b>Departament:</b> <?php echo ArticleView::getPostParam("name",  $data['patient_data']->departament_id); ?><br/></h3>
+					<h3><b><?php echo MultyLanguage::translate($data, "department", "translate");?>:</b> <?php echo ArticleView::getPostParam("name",  $data['patient_data']->departament_id); ?><br/></h3>
 				 <?php } ?>
 							 
              <h4><?php echo $data['patient_data']->form->form_name; ?></h4>
@@ -13,7 +13,7 @@
                <?php echo $data['patient_data']->form->form_content; ?>
             </p>
 			<div class="decoration"></div>
-				<p><?php  echo $data['patient_data']->user->name . " " . $data['patient_data']->user->surname . ", " . $data['patient_data']->user->vyska. "cm, " . $data['patient_data']->user->vaha. "kg, " . floor((time() - strtotime($data['patient_data']->user->datetime_publish)) / 31556926)."years";?></p>
+				<p><?php  echo $data['patient_data']->user->name . " " . $data['patient_data']->user->surname . ", " . $data['patient_data']->user->vyska. "cm, " . $data['patient_data']->user->vaha. "kg, " . floor((time() - strtotime($data['patient_data']->user->datetime_publish)) / 31556926)."";?><?php echo MultyLanguage::translate($data, "years", "translate");?></p>
 			 <div class="decoration"></div>
             <?php 
                $i = 1;
@@ -38,7 +38,7 @@
 			<div class="qr-wrapper">
 				<img src="<?php echo WWW_PATH."dnt-view/data/external-uploads/".$data['patient_data']->qr_image ?>">
 			</div>
-            <a href="<?php echo WWW_PATH.$this->redirect ?>" class="button button-blue button-full bold uppercase">Back to home</a>
+            <a href="<?php echo WWW_PATH.$this->redirect ?>" class="button button-blue button-full bold uppercase"><?php echo MultyLanguage::translate($data, "back_to_home", "translate");?></a>
          </div>
       </div>
    </div>

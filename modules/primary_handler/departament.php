@@ -26,7 +26,7 @@
 						</div>
 						
 					</div>
-					<span class="switch-to-opinions" style="display:none;"><i class="fa fa-toggle-on"></i>Switch back to opinions</span>
+					<span class="switch-to-opinions" style="display:none;"><i class="fa fa-toggle-on"></i><?php echo MultyLanguage::translate($data, "switch_back_to_opinions", "translate");?></span>
 					
 					 <?php } ?>
 					 
@@ -41,8 +41,8 @@
                   }
                   }
                   ?>
-				  <a href="<?php echo $prevQuestion; ?>" class="button button-blue button-full bold uppercase btn-prev" style="color: #fff;margin-top:10px;"><i class="ion ion-ios-arrow-back"></i> prev question</a>
-				   <a href="<?php echo $nextQuestion; ?>" class="button button-blue button-full bold uppercase btn-next" style="color: #fff;margin-top:10px;display:none;">next question <i class="ion ion-ios-arrow-forward"></i></a>
+				  <a href="<?php echo $prevQuestion; ?>" class="button button-blue button-full bold uppercase btn-prev" style="color: #fff;margin-top:10px;"><i class="ion ion-ios-arrow-back"></i> <?php echo MultyLanguage::translate($data, "prev_question", "translate");?></a>
+				   <a href="<?php echo $nextQuestion; ?>" class="button button-blue button-full bold uppercase btn-next" style="color: #fff;margin-top:10px;display:none;"><?php echo MultyLanguage::translate($data, "next_question", "translate");?> <i class="ion ion-ios-arrow-forward"></i></a>
             </div>
          </div>
       </div>

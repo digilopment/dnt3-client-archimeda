@@ -11,21 +11,21 @@ $user = new ArchimedaUser();
 		 </div>
 		 <div class="bottom-navigation-wrap">
           <div class="bottom-navigation">
-			 <a href="" class="tab-link">
+			<a href="<?php echo ($data['webhook']['1'] == "primary-handler" && !isset($data['webhook']['2'])) ? "#app-info-tpl_main" : WWW_PATH."primary-handler#app-info-tpl_main";?>" class="tab-link">
               <i class="icon ion-ios-home"></i>
-              <span class="tabbar-label">Home</span>
+              <span class="tabbar-label"><?php echo MultyLanguage::translate($data, "home", "translate");?></span>
             </a>
-            <a href="" class="tab-link">
+            <a href="<?php echo ($data['webhook']['1'] == "primary-handler" && !isset($data['webhook']['2'])) ? "#departments-tpl_main" : WWW_PATH."primary-handler#departments-tpl_main";?>" class="tab-link">
               <i class="icon ion-ios-star"></i>
-              <span class="tabbar-label">Departaments</span>
+              <span class="tabbar-label"><?php echo MultyLanguage::translate($data, "departments", "translate");?></span>
             </a>
-            <a href="" class="tab-link">
+			<a href="#login-form_main" class="tab-link">
               <i class="icon ion-ios-search"></i>
-              <span class="tabbar-label">History</span>
+              <span class="tabbar-label"><?php echo MultyLanguage::translate($data, "my_examinations", "translate");?></span>
             </a>
-            <a href="" class="tab-link">
+            <a href="#login-form_main" class="tab-link">
               <i class="icon ion-ios-person"></i>
-              <span class="tabbar-label">Profile</span>
+              <span class="tabbar-label"><?php echo MultyLanguage::translate($data, "profile", "translate");?></span>
             </a>
           </div>
     </div>

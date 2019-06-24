@@ -10,7 +10,7 @@
 					?>
 				   <li>
 					  <a class="show-departament-forms" id="departamen-form-id-<?php echo $post['id_entity']?>" data-search="<?php echo Dnt::name_url($post['name_url'])?>" data-id="<?php echo $post['id_entity']?>" href="#">
-					  <i class="<?php echo $post['id']?>" style="background: #<?php echo Color::randColor()?>"><?php echo substr($post['name'], 0, 1);?></i>
+					  <i class="<?php echo $post['id']?>" style="background: <?php echo $post['embed']?>"><?php echo substr($post['name'], 0, 2);?></i>
 					  <em><?php echo $post['name']?></em>
 					  </a>
 				   </li>

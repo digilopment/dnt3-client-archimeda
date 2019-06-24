@@ -1,3 +1,34 @@
+<?php
+/*
+function linear_color($from, $to, $ratio) {
+	// normalize ralio
+	$ratio = $ratio<0?0:($ratio>1?1:$ratio);
+	// unsure colors are numeric values
+	if(!is_numeric($from))$from=hexdec($from);
+	if(!is_numeric($to))$to=hexdec($to);
+
+	$rf = 0xFF & ($from >> 0x10);
+	$gf = 0xFF & ($from >> 0x8);
+	$bf = 0xFF & $from;
+	$rt = 0xFF & ($to >> 0x10);
+	$gt = 0xFF & ($to >> 0x8);
+	$bt = 0xFF & $to;
+	return str_pad( dechex(($bf + (($bt-$bf)*$ratio)) + ($gf + (($gt-$gf)*$ratio) << 0x8) + ($rf + (($rt-$rf)*$ratio) << 0x10)), 6,'0',STR_PAD_LEFT);
+}
+$color_from = hexdec('7d7b7b');
+$color_to = hexdec('5b5b5b');
+for($i=-0.2; $i<=1.3; $i+=0.10){
+        echo '<div style="background-color: #';
+        echo linear_color($color_from, $color_to, $i);
+        echo '">';
+        echo 'Result color when n = <strong>'.$i.'</strong>';
+        echo '</div>';
+    }
+
+exit;
+*/
+?>
+
 <div id="page-transitions">
 	<div class="landing-homepage">
 	   <div class="landing-page landing-dark">
@@ -17,7 +48,7 @@
 					?>
 				   <li>
 					  <a class="show-departament-forms" id="departamen-form-id-all-<?php echo $post['id_entity']?>" data-search="<?php echo Dnt::name_url($post['name_url'])?>" data-id="<?php echo $post['id_entity']?>" href="#">
-					  <i class="<?php echo $post['id']?>" style="background: #<?php echo Color::randColor()?>"><?php echo substr($post['name'], 0, 1);?></i>
+					  <i class="<?php echo $post['id']?>" style="background: <?php echo $post['embed']?>"><?php echo substr($post['name'], 0, 2);?></i>
 					  <em><?php echo $post['name']?></em>
 					  </a>
 				   </li>
@@ -46,6 +77,8 @@
 		border-radius: 5px;
 		margin-top: 0px;
 		margin-bottom: 10px;
+		float:right;
+		width: 100% !important;
 	}
 
 	.all-departaments .slide-wrapper .title{

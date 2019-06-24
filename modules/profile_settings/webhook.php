@@ -11,7 +11,7 @@ class profileSettingsModulController extends ArchimedaUser{
 		
 		$custom_data = array(
 			"title" =>  $articleName ." | ".Settings::get("title") ,
-			"headline" =>  $articleName ,
+			"headline" => $articleName ,
 			"meta" => array(
 				 '<meta name="keywords" content="'.$article->getPostParam("tags",  $id).'" />',
 				 '<meta name="description" content="'.Settings::get("description").'" />',

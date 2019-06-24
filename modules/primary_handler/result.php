@@ -12,7 +12,7 @@
            
             <div class="polls_cont">
                <div class="input-wrap">
-                  <h3 id="text-on-finish">You finish the basic formular. If you want, you can upload your immages here:</h3>
+                  <h3 id="text-on-finish"><?php echo MultyLanguage::translate($data, "on_finish_form", "translate");?></h3>
                </div>
 			   
 			   		<div class="input-wrap">
@@ -28,11 +28,11 @@
 					</div>
 				</div>
 				
-				<button type="submit" name="sent" class="button button-green button-icon button-full half-top full-bottom"><i class="ion-log-in"></i><?php echo MultyLanguage::translate($data, "save", "translate");?> and generate QR</button>
+				<button type="submit" name="sent" class="button button-green button-icon button-full half-top full-bottom"><i class="ion-log-in"></i><?php echo MultyLanguage::translate($data, "save", "translate");?></button>
 			</form>
 			<div id="form-result"></div>
 		</div>
-			   <a href="<?php echo WWW_PATH; ?>primary-handler" class="poll-back-to-home button button-blue button-full bold uppercase" style="display:none; color: #fff;margin-top:50px;"><i class="ion ion-ios-home"></i> back to home</a> 
+			   <a href="<?php echo WWW_PATH; ?>primary-handler" class="poll-back-to-home button button-blue button-full bold uppercase" style="display:none; color: #fff;margin-top:50px;"><i class="ion ion-ios-home"></i> <?php echo MultyLanguage::translate($data, "back_to_home", "translate");?></a> 
             </div>
          </div>
 		 
@@ -141,7 +141,7 @@
 						//$(".poll-steps").show();
 						$(".poll-back-to-home").show();
 						$("#back-to-home").fadeIn();
-						$("#text-on-finish").html("Your QR is ready to scan. Your data has been save to your history and we send your QR to mail.");
+						$("#text-on-finish").html("<?php echo MultyLanguage::translate($data, "form_response", "translate");?>");
 						writeQr(data.qr_image); 
 						//window.location.href = data.url;
 					 }

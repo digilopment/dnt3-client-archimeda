@@ -119,6 +119,7 @@ exit;
 		   </ul>
 		   <div id="tabs-1-all-<?php echo $post['id_entity'];?>" class="tab-content current">
 			  <div class="tab-elements">
+			  <img src="https://www.skinmedical.co.uk/wp-content/uploads/2013/02/laser-hair-removal-manchester-150x150.jpg" style="float: left;border-radius: 93px;">
 				 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
 				 incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
 				 nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
@@ -192,7 +193,7 @@ exit;
  <style>
  ul.tabs li {
     color: #222;
-    font-size: 13px;
+    font-size: 12px;
 }
  .close-form-area.toggle-title center{
 	color: #1a79b2;

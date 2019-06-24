@@ -868,7 +868,7 @@ button{
  .form-area{
 	display: none;
     position: absolute;
-    background-color: rgba(255,255,255,0.95);
+    background-color: rgba(255,255,255,0.97);
     width: 100%;
     min-height: 1000px;
     z-index: 9999;

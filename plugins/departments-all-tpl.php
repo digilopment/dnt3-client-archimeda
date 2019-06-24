@@ -99,13 +99,49 @@ exit;
 	
 	<?php foreach($allPosts as $post){  ?>
 	<div class="form-area" id="form-area-all-<?php echo $post['id_entity'];?>">
-		<div class="content">
-		   <div class="one-half-responsive">
+	
+	
+		<div class="content" style="margin-bottom: 0px;">
+		
+			<div class="one-half-responsive">
 		   
-			  <div class="toggle">
+			  <div class="toggle" style="border: 0px;">
 				 <a href="#" class="close-form-area toggle-title"><center style="color: #1a79b2"><?php echo $post['name'];?></center><i class="ion-android-close"></i></a>
 			  </div>
-			  
+			</div>
+		</div>
+		
+		<div class="content" style="margin-bottom: 0px;">
+		   <ul class="tabs">
+			  <li class="tab-link current" data-tab="tabs-1-all-<?php echo $post['id_entity'];?>">About</li>
+			  <li class="tab-link" data-tab="tabs-2-all-<?php echo $post['id_entity'];?>">Health promotion</li>
+			  <li class="tab-link" data-tab="tabs-3-all-<?php echo $post['id_entity'];?>" style="float:right;">Medical Procedures</li>
+		   </ul>
+		   <div id="tabs-1-all-<?php echo $post['id_entity'];?>" class="tab-content current">
+			  <div class="tab-elements">
+				 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+				 incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+				 nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+			  </div>
+		   </div>
+		   <div id="tabs-2-all-<?php echo $post['id_entity'];?>" class="tab-content">
+			  <div class="tab-elements">
+				 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+				 incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+				 nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+			  </div>
+		   </div>
+		   <div id="tabs-3-all-<?php echo $post['id_entity'];?>" class="tab-content">
+			  <div class="tab-elements">
+				 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+				 incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+				 nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+			  </div>
+		   </div>
+		</div>
+
+		<div class="content">
+		   <div class="one-half-responsive">
 			   <?php 
 			   $db = new Db();
 			   $rest = new Rest();
@@ -154,4 +190,18 @@ exit;
  </div>
  
  <style>
+ ul.tabs li {
+    color: #222;
+    font-size: 13px;
+}
+ .close-form-area.toggle-title center{
+	color: #1a79b2;
+    font-size: 18px;
+    font-weight: bold;
+ }
+ ul.tabs li.current,
+ .tab-content {
+    background: #1a79b2;
+    color: #fff;
+}
  </style>

@@ -45,8 +45,11 @@ function registration_form($data, $selector) {
 function login_form($data, $selector) {
 	include "plugins/login-form.php";
 }
-function departments_tpl($data, $selector) {
+function departments_tpl($data, $sectionId, $selector) {
 	include "plugins/departments-tpl.php";
+}
+function departments_all_tpl($data, $sectionId, $selector) {
+	include "plugins/departments-all-tpl.php";
 }
 function app_info_tpl($data, $selector) {
 	include "plugins/app-info-tpl.php";

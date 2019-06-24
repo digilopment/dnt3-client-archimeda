@@ -1,5 +1,6 @@
 <?php
 include "app/archimedaUser.php";
+include "app/color.php";
 function custom_modules($webhook = false){
 	//$webhook = new Modul();
 	//$webhook->getSitemap(New Client());

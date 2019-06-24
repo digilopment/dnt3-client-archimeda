@@ -3,27 +3,69 @@
 	   <div class="landing-page landing-dark">
 		  <div class="landing-wrapper">
 			 <div class="slide-wrapper">
+			 
+				<?php
+				$catArr = array(1267=>"Internal Medicine", 1268=>"Surgery", 1269=>"Independent");
+				foreach($catArr as $catId => $catName){
+				?>
 				<ul>
-					<?php $posts = ArticleView::getPosts($sectionId, false, "`order` DESC");
-					foreach($posts as $post){ 
+					<span class="title"><?php echo $catName; ?></span>
+					<?php $posts = ArticleView::getPosts($catId, false, "`order` DESC");
+					foreach($posts as $key=>$post){ 
 					$url = WWW_PATH."primary-handler/departments/" . $post['id_entity'] . "/124/my-poll/1";
+					$allPosts[] = $post;
 					?>
 				   <li>
-					  <a class="show-departament-forms" id="departamen-form-id-<?php echo $post['id_entity']?>" data-search="<?php echo Dnt::name_url($post['name_url'])?>" data-id="<?php echo $post['id_entity']?>" href="#">
+					  <a class="show-departament-forms" id="departamen-form-id-all-<?php echo $post['id_entity']?>" data-search="<?php echo Dnt::name_url($post['name_url'])?>" data-id="<?php echo $post['id_entity']?>" href="#">
 					  <i class="<?php echo $post['id']?>" style="background: #<?php echo Color::randColor()?>"><?php echo substr($post['name'], 0, 1);?></i>
 					  <em><?php echo $post['name']?></em>
 					  </a>
 				   </li>
 				   <?php } ?>				   
 				</ul>
+				<?php } ?>	
 			 </div>
 			 <div class="clear"></div>
 		  </div>
 	   </div>
 	</div>
 	
-	<?php foreach($posts as $post){  ?>
-	<div class="form-area" id="form-area-<?php echo $post['id_entity'];?>">
+	<style>
+	
+	.all-departaments .slide-wrapper{
+		float: left;
+		padding: 5px;
+		background-color: #efefef;
+	}
+
+	.all-departaments .slide-wrapper ul{
+		position: relative;
+		float: right;
+		background-color: #fff;
+		padding: 0px;
+		border-radius: 5px;
+		margin-top: 0px;
+		margin-bottom: 10px;
+	}
+
+	.all-departaments .slide-wrapper .title{
+		display: block;
+		margin-left: 25px;
+		color: #1a79b2;
+		font-weight: bold;
+		font-size: 14px;
+		text-transform: uppercase;
+		margin-top: 10px;
+	}
+	
+	.landing-homepage ul li a i {
+		font-style: normal;
+	}
+
+	</style>
+	
+	<?php foreach($allPosts as $post){  ?>
+	<div class="form-area" id="form-area-all-<?php echo $post['id_entity'];?>">
 		<div class="content">
 		   <div class="one-half-responsive">
 		   
@@ -63,12 +105,12 @@
 		</div>
 	 </div>
 	  <script>
-		 $("#departamen-form-id-<?php echo $post['id_entity']?>").on('click', function() {
-		  $("#form-area-<?php echo $post['id_entity'];?>").fadeIn();
+		 $("#departamen-form-id-all-<?php echo $post['id_entity']?>").on('click', function() {
+		  $("#form-area-all-<?php echo $post['id_entity'];?>").fadeIn();
 		});
 		 
 		 $(".close-form-area").on('click', function() {
-		  $("#form-area-<?php echo $post['id_entity'];?>").fadeOut();
+		  $("#form-area-all-<?php echo $post['id_entity'];?>").fadeOut();
 		});
 		 </script>
 	<?php } ?>

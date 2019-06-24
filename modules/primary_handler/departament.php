@@ -26,7 +26,7 @@
 						</div>
 						
 					</div>
-					<span class="switch-to-opinions" style="display:none;"><i class="fa fa-toggle-on"></i> Switch back to opinions</span>
+					<span class="switch-to-opinions" style="display:none;"><i class="fa fa-toggle-on"></i>Switch back to opinions</span>
 					
 					 <?php } ?>
 					 
@@ -90,7 +90,7 @@
 		
 		$("textarea[name=<?php echo $poll_input_name; ?>]").change(function() { 
 			pollData = $("textarea[name=<?php echo $poll_input_name; ?>]").val();
-			setCookie("<?php echo $poll_input_name; ?>", pollData, 60);
+			setCookie("<?php echo $poll_input_name; ?>", pollData + "&nbsp;", 60);
 			console.log(pollData);
 		});
 		

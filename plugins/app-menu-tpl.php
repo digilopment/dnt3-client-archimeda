@@ -2,10 +2,14 @@
 <div class="menu-options icon-background no-submenu-numbers sidebar-menu">
    <em class="menu-divider"><?php echo MultyLanguage::translate($data, "navigation", "translate");?></em>
    
-   <a class="close-sidebar" href="<?php echo ($data['webhook']['1'] == "primary-handler" && !isset($data['webhook']['2'])) ? "#app-info-tpl_main" : WWW_PATH."primary-handler#app-info-tpl_main";?>"><i class="icon-bg bg-green-dark ion-ios-heart"></i><span><?php echo MultyLanguage::translate($data, "info", "translate");?></span><i class="ion-record"></i></a>
-   <a class="close-sidebar" href="<?php echo ($data['webhook']['1'] == "primary-handler" && !isset($data['webhook']['2'])) ? "#departments-tpl_main" : WWW_PATH."primary-handler#departments-tpl_main";?>"><i class="icon-bg bg-green-dark ion-ios-paper-outline"></i><span><?php echo MultyLanguage::translate($data, "departments", "translate");?></span><i class="ion-record"></i></a>
-   <a class="close-sidebar" href="#new-examination-tpl_main"><i class="icon-bg bg-red-dark ion-ios-heart"></i><span><?php echo MultyLanguage::translate($data, "new_examination", "translate");?></span><i class="ion-record"></i></a>
-   <a class="close-sidebar" href="<?php echo WWW_PATH."my-examinations";?>"><i class="icon-bg bg-night-dark ion-checkmark"></i><span><?php echo MultyLanguage::translate($data, "my_examinations", "translate");?></span><i class="ion-record"></i></a>
+   <a class="close-sidebar" href="<?php echo ($data['webhook']['1'] == "primary-handler" && !isset($data['webhook']['2'])) ? "#app-info-tpl_main" : WWW_PATH."primary-handler#app-info-tpl_main";?>"><i class="icon-bg bg-blue-dark fa fa-info"></i><span><?php echo MultyLanguage::translate($data, "info", "translate");?></span><i class="ion-record"></i></a>
+   
+   <a class="close-sidebar" href="<?php echo ($data['webhook']['1'] == "primary-handler" && !isset($data['webhook']['2'])) ? "#departments-tpl_internal" : WWW_PATH."primary-handler#departments-tpl_main";?>"><i class="icon-bg bg-green-dark fa fa-heartbeat"></i><span><?php echo MultyLanguage::translate($data, "internal_medicine", "translate");?></span><i class="ion-record"></i></a>
+   
+   <a class="close-sidebar" href="<?php echo ($data['webhook']['1'] == "primary-handler" && !isset($data['webhook']['2'])) ? "#departments-tpl_surgery" : WWW_PATH."primary-handler#departments-tpl_main";?>"><i class="icon-bg bg-green-dark fa fa-gavel"></i><span><?php echo MultyLanguage::translate($data, "surgery", "translate");?></span><i class="ion-record"></i></a>
+   
+   <a class="close-sidebar" href="<?php echo ($data['webhook']['1'] == "primary-handler" && !isset($data['webhook']['2'])) ? "#departments-tpl_independent" : WWW_PATH."primary-handler#departments-tpl_main";?>"><i class="icon-bg bg-green-dark fa fa-flag"></i><span><?php echo MultyLanguage::translate($data, "independent", "translate");?></span><i class="ion-record"></i></a>
+   
    <?php if(!$user->logged()){?>
    <a class="close-sidebar" href="#login-form_main"><i class="icon-bg bg-night-dark ion-log-in"></i><span><?php echo MultyLanguage::translate($data, "login", "translate");?></span><i class="ion-record"></i></a>
    <a class="close-sidebar" href="#registration-form_main"><i class="icon-bg bg-night-dark ion-ios-star"></i><span><?php echo MultyLanguage::translate($data, "registration", "translate");?></span><i class="ion-record"></i></a>

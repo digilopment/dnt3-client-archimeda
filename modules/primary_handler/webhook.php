@@ -20,7 +20,6 @@ class homepageModulController extends ArchimedaUser{
 		$id = $article->getStaticId();
 		$articleName = $article->getPostParam("name",  $id);
 		$articleImage = $article->getPostImage($id);
-		
 		$custom_data = array(
 			"title" =>  $articleName ." | ".Settings::get("title") ,
 			"headline" =>  Settings::get("title") ,

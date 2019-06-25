@@ -174,7 +174,7 @@ class homepageModulController extends ArchimedaUser{
 		}
 		else
 		{
-			Dnt::redirect(WWW_PATH."app-logouted");
+			Dnt::redirect(WWW_PATH."app-logouted#login-form_main");
 		}
 
 	}

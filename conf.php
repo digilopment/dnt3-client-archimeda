@@ -36,6 +36,9 @@ function custom_modules($webhook = false){
 		"profile" => array_merge(
 			array(), $webhook->getSitemapModules("profile")
 		),
+		"article_view_meta" => array_merge(
+			array(), $webhook->getSitemapModules("article_view_meta")
+		),
 		
 		//DETAIL
 		"article_view" => array_merge(
@@ -85,6 +88,10 @@ function modulesConfig(){
 		),
 		"singl_page" => array(
 			"service_name" => "Singl Page",
+			"sql" => ""
+		),
+		"article_view_meta" => array(
+			"service_name" => "Article View Meta",
 			"sql" => ""
 		),
 		

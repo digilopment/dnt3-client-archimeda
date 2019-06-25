@@ -22,15 +22,24 @@
 	   </div>
 	</div>
 	
-	<?php foreach($posts as $post){  ?>
+	<?php foreach($posts as $post){ 
+	?>
 	<div class="form-area" id="form-area-<?php echo $post['id_entity'];?>">
 		<div class="content">
 		   <div class="one-half-responsive">
 		   
-			  <div class="toggle">
-				 <a href="#" class="close-form-area toggle-title"><center style="color: #1a79b2"><?php echo $post['name'];?></center><i class="ion-android-close"></i></a>
-			  </div>
-			  
+				  <div class="toggle">
+					 <a href="#" class="close-form-area toggle-title"><center style="color: #1a79b2"><?php echo $post['name'];?></center><i class="ion-android-close"></i></a>
+				  </div>
+				  <div class="toggle">
+				   <a href="#" class="toggle-title departamen-form-id-all-about-<?php echo $post['id_entity'];?>"> About<i class="ion-android-add"></i></a>
+				</div>
+				<div class="toggle">
+				   <a href="#" class="toggle-title departamen-form-id-all-health-<?php echo $post['id_entity'];?>"> Health promotion<i class="ion-android-add"></i></a>
+				</div>
+				<div class="toggle">
+				   <a href="#" class="toggle-title departamen-form-id-all-medical-<?php echo $post['id_entity'];?>"> Medical Procedures<i class="ion-android-add"></i></a>
+				</div>
 			   <?php 
 			   $db = new Db();
 			   $rest = new Rest();

@@ -134,11 +134,11 @@ exit;
       }
       
 	  <?php
-		$metas = ArticleView::getPostsMeta($post['id_entity'], "article_view_meta");
 		$textAbout = false;
 		$textHealth = false;
 		$textMedical = false;
-		if($post['id_entity']){
+		if($post['service']){
+			$metas = ArticleView::getPostsMeta($post['id_entity'], "article_view_meta");
 			foreach($metas as $meta){
 				if($meta['key'] == "about"){
 					$textAbout =  html_entity_decode(trim(preg_replace('/\s\s+/', ' ', $meta['value'])));

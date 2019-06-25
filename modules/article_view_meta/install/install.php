@@ -9,7 +9,7 @@ function defaultModuleMetaDataConfiguration($postId, $service){
 		'`vendor_id`' 		=> Vendor::getId(), 
 		'`key`' 			=> "about", 
 		'`value`' 			=> $defaultContent, 
-		'`content_type`' 	=> "text",
+		'`content_type`' 	=> "content",
 		'`cat_id`' 			=> "3",
 		'`description`' 	=> "About Department", 
 		'`order`' 			=> 1, 

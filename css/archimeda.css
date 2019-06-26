@@ -144,6 +144,9 @@ input, select{
 .coverpage-top img{
  width:100%;
 }
+.coverpage-top h3{
+	text-align:center;
+}
 .coverpage-top h3,
 .coverpage-top p{
     color: #111;

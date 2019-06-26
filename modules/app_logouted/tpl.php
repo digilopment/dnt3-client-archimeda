@@ -5,7 +5,7 @@
 		<!-- PRIMARY CONTENT -->
 		<?php if(!$user->logged()){?>
 		<!--app info -->
-		<div class="swiper-slide" id="app-info-tpl_main" style="background: url(<?php echo $data['article']['img']?>) 0px 55px;background-position: right;background-size: contain;">
+		<div class="swiper-slide info" id="app-info-tpl_main">
 			 <?php app_info_tpl($data, ""); ?>
 		</div>
 		

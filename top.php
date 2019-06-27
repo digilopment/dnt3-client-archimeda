@@ -35,7 +35,7 @@ $user = new ArchimedaUser();
       <!-- NAVIGATION LEFT -->
       <div class="sidebars sidebars-light">
          <div class="sidebar sidebar-left">
-            <div class="sidebar-header sidebar-header-image bg-2">
+            <div class="sidebar-header sidebar-header-image">
                <div class="overlay dark-overlay"></div>
                <div class="sidebar-socials">
                   <a class="close-sidebar" href="#"><i class="ion-android-close"></i></a>

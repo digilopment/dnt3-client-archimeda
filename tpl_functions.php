@@ -18,6 +18,9 @@
    <!-- Favicone Icon -->
    <link rel="" type="img/x-icon" href="<?php echo $favicon; ?>" />
    <link rel="" type="img/png" href="<?php echo $favicon; ?>" />
+   <link rel="" type="img/png" href="<?php echo $favicon; ?>" />
+   <link rel="icon" sizes="48x48 57x57 60x60 64x64 72x72 76x76 114x114 120x120 128x128 144x144 152x152 192x192" href="<?php echo $favicon; ?>" type="image/png" />
+
    <link rel="stylesheet" type="text/css" href="<?php echo $data['media_path']; ?>css/style.css">
    <link rel="stylesheet" type="text/css" href="<?php echo $data['media_path']; ?>css/skin.css">
    <link rel="stylesheet" type="text/css" href="<?php echo $data['media_path']; ?>css/framework.css">

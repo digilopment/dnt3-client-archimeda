@@ -24,8 +24,8 @@
 	<div class="page-login-input">
 		<i class="login-icon ion-transgender"></i>
 		<select name="sex" style="padding-bottom: 4px;">
-		  <option value="1" selected><?php echo MultyLanguage::translate($data, "man", "translate");?></option>
-		  <option value="2"><?php echo MultyLanguage::translate($data, "woman", "translate");?></option>
+		  <option value="1" <?php if($user->get()->sex == "1") echo "selected";?>><?php echo MultyLanguage::translate($data, "man", "translate");?></option>
+		  <option value="2" <?php if($user->get()->sex == "2") echo "selected";?>><?php echo MultyLanguage::translate($data, "woman", "translate");?></option>
 		</select>
 	</div>
 	<div class="page-login-input">

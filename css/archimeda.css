@@ -1006,5 +1006,14 @@ button{
     padding-top: 15px;
     padding-bottom: 15px;
 }
-
+.formValidationError {
+    height: auto;
+}
+.formValidationError .center-text {
+    line-height: 25px;
+    padding: 5px 5px 10px 5px;
+}
+.page-login-create {
+    line-height: 15px;
+}
  

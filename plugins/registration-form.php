@@ -1,6 +1,7 @@
 <div class="page-login content">
  <form class="" id="<?php echo $selector; ?>" action="" novalidate="novalidate">
 	<a href="#" class="page-login-logo"><img class="preload-image" src="<?php echo Settings::getImage($data['meta_settings']['keys']['logo_firmy']['value']); ?>" alt="img"></a>
+	<div id="form-result"></div>
 	<div class="page-login-input">
 	   <i class="login-icon ion-person"></i>
 	   <input name="name" type="text" placeholder="<?php echo MultyLanguage::translate($data, "name", "translate");?>" value="" >
@@ -23,6 +24,10 @@
 	</div>
 	<?php } ?>
 	<button type="submit" name="sent" class="button button-green button-icon button-full half-top full-bottom"/><i class="ion-log-in"></i><?php echo MultyLanguage::translate($data, "create_account", "translate");?></button>
+	<div class="pageapp-login-links">
+		  <a href="#login-form_main" class="page-login-create "><?php echo MultyLanguage::translate($data, "have_account", "translate");?><i class="ion-person"></i></a>
+		   <div class="clear"></div>
+		</div>
 	</form>
  </div>
 
@@ -74,7 +79,12 @@
 							alert("Bat token");
 						 }
 						 else if (data.success == 2) {
-							alert("Prosím kliknite na Captchu");
+							//alert("Prosím kliknite na Captchu");
+						 }
+						 else if (data.success == 4) {
+							jQuery(".loader").fadeOut();
+							jQuery("#form-result").show();
+							writeError(data.message); 
 						 }
 						 else{
 							writeError(data.message); 
@@ -83,13 +93,14 @@
 					error: function() {
 						alert("Momentálne sme zaneprázdnený.");
 					}
+					
 				});
 				return false;
 			}
 		   });	
 	  
-	  function writeError(message)  {
-		jQuery("#form-result").html("<div class=\"alert alert-error\">" + message + "</div>");
+	   function writeError(message)  {
+		jQuery("#form-result").html("<div class=\"formValidationError bg-red-dark\" id=\"contactNameFieldError\"><p class=\"center-text uppercase small-text color-white\">" + message +"</p></div>");
 	  }
 	  }); 	
    </script>

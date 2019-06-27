@@ -1,7 +1,7 @@
 <div class="page-login content">
 	<form class="" id="<?php echo $selector; ?>" action="" novalidate="novalidate">
 		<a href="#" class="page-login-logo"><img class="preload-image" src="<?php echo Settings::getImage($data['meta_settings']['keys']['logo_firmy']['value']); ?>" alt="img"></a>
-		<div id="form-result"></div>
+		<div id="form-result-login"></div>
 		<div class="page-login-input">
 		   <i class="login-icon ion-at"></i>
 		   <input type="text" name="email" placeholder="<?php echo MultyLanguage::translate($data, "email_addr", "translate");?>">
@@ -19,7 +19,7 @@
 			
 			<div class="pageapp-login-links">
 		   <a href="#" class="page-login-forgot "><i class="ion-eye"></i><?php echo MultyLanguage::translate($data, "forgot_credentials", "translate");?></a>
-		   <a href="#" class="page-login-create "><?php echo MultyLanguage::translate($data, "create_account", "translate");?><i class="ion-person"></i></a>
+		   <a href="#registration-form_main" class="page-login-create "><?php echo MultyLanguage::translate($data, "create_account", "translate");?><i class="ion-person"></i></a>
 		   <div class="clear"></div>
 		</div>
 	</form>
@@ -44,7 +44,7 @@
 				},
 			submitHandler: function(form) {
 				jQuery(".loader").fadeIn();
-				jQuery("#form-result").hide();
+				jQuery("#form-result-login").hide();
 				jQuery.ajax({
 					type: "POST",
 					url: '<?php echo WWW_PATH; ?>rpc/json/login-form',
@@ -65,7 +65,7 @@
 						 }
 						 else if (data.success == 3) {
 							jQuery(".loader").fadeOut();
-							jQuery("#form-result").show();
+							jQuery("#form-result-login").show();
 							writeError(data.message); 
 						 }
 						 else{
@@ -81,7 +81,7 @@
 		   });	
 	  
 	  function writeError(message)  {
-		jQuery("#form-result").html("<div class=\"formValidationError bg-red-dark\" id=\"contactNameFieldError\"><p class=\"center-text uppercase small-text color-white\">" + message +"</p></div>");
+		jQuery("#form-result-login").html("<div class=\"formValidationError bg-red-dark\" id=\"contactNameFieldError\"><p class=\"center-text uppercase small-text color-white\">" + message +"</p></div>");
 	  }
 	  }); 	
    </script>

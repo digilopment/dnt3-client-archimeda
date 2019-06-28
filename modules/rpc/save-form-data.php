@@ -45,6 +45,7 @@ class SaveFormData extends ArchimedaUser{
 	public function saveData(){
 		
 		$dntUpload 	= new DntUpload();
+		$dntMailer	= new Mailer();
 		$attachment = array();
 		$data 		= array();
 		$path 		= "dnt-view/data/external-uploads/";
@@ -102,6 +103,25 @@ class SaveFormData extends ArchimedaUser{
 					'service' 		=> "archimeda_examination",
 					'`vendor_id`' 	=> Vendor::getId())
 			);
+			
+			
+			$userData['app_name'] = $this->get()->name. " here's your examination data";
+			$userData['name'] = "Please scan your QR code bellow to continue";
+			$userData['img'] = Image::getFileImage($this->get()->img, true, Image::THUMB);
+			$userData['img_qr'] = $this->qrImage;
+			$userData['message_1'] = "Your data are ready to view, you can use QR code bellow or you can go to Archimeda app and go to Examinations.";
+			$userData['message_2'] = "Thank you for useing <b>Archimeda</b> App";
+			
+			$messageTitle 	= $userData['app_name'];
+			$senderEmail 	= "info@archimeda.sk";
+			$msg 			= $this->loadHtmlTemplate($userData, "save-email-tpl");
+			$dntMailer->set_recipient(array($this->get()->email));
+			$dntMailer->set_msg($msg);
+			$dntMailer->set_subject($messageTitle);
+			$dntMailer->set_sender_name($senderEmail);
+			$dntMailer->set_sender_email($senderEmail);
+			$dntMailer->sent_email();	
+
 		}else{
 			$this->response = 0;
 		}

@@ -127,7 +127,7 @@ class rpcRegistrationUser extends ArchimedaUser{
 					
 					$messageTitle 	= $userData['app_name'];
 					$senderEmail 	= "info@archimeda.sk";
-					$msg 			= $this->loadHtmlTemplate($userData);
+					$msg 			= $this->loadHtmlTemplate($userData, "reg-email-tpl");
 					$dntMailer->set_recipient(array($form_base_email));
 					$dntMailer->set_msg($msg);
 					$dntMailer->set_subject($messageTitle);

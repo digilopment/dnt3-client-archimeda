@@ -71,7 +71,6 @@ $data = '<div id=":15t" class="ii gt">
                                           <td style="border-collapse:collapse;color:#293754;font-family:Noto Sans,Verdana,Arial,sans-serif;font-size:16px;line-height:26px;max-width:45px;overflow:hidden;padding:0">
                                              <a href="'.$userData['twitter_url'].'" style="color:#0c70ad!important;text-decoration:none" target="_blank" data-nodata="https://www.google.com/url?q=http://email.ada.com/e/c/eyJlbWFpbF9pZCI6IlJKNjRBd0VBQVd0Yy1rQkJhSDZ2T2hUQmxBY29udz09IiwiaHJlZiI6Imh0dHBzOi8vd3d3LnlvdXR1YmUuY29tL2FkYWhlYWx0aCIsImxpbmtfaWQiOjMzNjc0Mzk0LCJwb3NpdGlvbiI6OH0/b85157ca9069677bd651512607a7813e7a530c06f8f4bbb44fbfd809d7e29540&amp;source=gmail&amp;ust=1560785332879000&amp;usg=AFQjCNGEHvupIjta2RQTrBP0vcLi-xVBiA"><img src="'.$userData['img_path'].'youtube.png" height="22" width="22" alt="YouTube" style="display:block;height:22px;line-height:100%;max-width:100%!important;outline:none;text-decoration:none;font-size:14px;width:22px;margin:0 10px;border:0 none" class="CToWUd"></a>
                                           </td>
-               
                                        </tr>
                                     </tbody>
                                  </table>

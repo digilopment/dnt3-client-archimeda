@@ -7,33 +7,23 @@
 			   <?php 
 			   if(count($data['examinations_list'])>0){
 				    foreach($data['examinations_list'] as $post){
-						if(json_decode($post->value)->user->email == $this->get()->email){
-							$url = WWW_PATH."data-reader/".$post->id_entity;
-							$date = new DateTime(json_decode($post->value)->datetime);
-							?>
-							  <div class="toggle">
-								 <a href="#" class="toggle-title">
-								
-								
-								 <span class="title"><?php echo $date->format('d.m.Y'); ?> <?php echo json_decode($post->value)->form->form_name; ?><i class="ion-android-add"></i></span></a>
-								 <div class="toggle-content" style="display: none;">
-								 <?php if(isset(json_decode($post->value)->departament_id)){?>
-									<h3><b><?php echo MultyLanguage::translate($data, "department", "translate");?>:</b> <?php echo ArticleView::getPostParam("name",  json_decode($post->value)->departament_id); ?><br/></h3>
-								 <?php } ?>
-									<?php echo json_decode($post->value)->form->form_content; ?>
-									<div class="buttons"><a href="<?php echo $url; ?>" class="icon-go-to-form"><i class="ion ion-ios-arrow-forward"></i></a></div>
-								 </div>
-							  </div>
-						<?php
-						}else{
-							?>
-							<div class="toggle">
-								 <a href="#" class="toggle-title">
-								 <span class="title">Sorry, but you do not have any examination history</span>
-								 </a>
-							  </div>
-							<?php
-						}
+						$url = WWW_PATH."data-reader/".$post->id_entity;
+						$date = new DateTime(json_decode($post->value)->datetime);
+						?>
+						  <div class="toggle">
+							 <a href="#" class="toggle-title">
+							
+							
+							 <span class="title"><?php echo $date->format('d.m.Y'); ?> <?php echo json_decode($post->value)->form->form_name; ?><i class="ion-android-add"></i></span></a>
+							 <div class="toggle-content" style="display: none;">
+							 <?php if(isset(json_decode($post->value)->departament_id)){?>
+								<h3><b><?php echo MultyLanguage::translate($data, "department", "translate");?>:</b> <?php echo ArticleView::getPostParam("name",  json_decode($post->value)->departament_id); ?><br/></h3>
+							 <?php } ?>
+								<?php echo json_decode($post->value)->form->form_content; ?>
+								<div class="buttons"><a href="<?php echo $url; ?>" class="icon-go-to-form"><i class="ion ion-ios-arrow-forward"></i></a></div>
+							 </div>
+						  </div>
+					<?php
 					}
 				}else{ ?>
 					<div class="toggle">

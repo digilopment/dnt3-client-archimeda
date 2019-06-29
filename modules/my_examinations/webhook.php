@@ -12,7 +12,12 @@ class profileSettingsModulController extends ArchimedaUser{
 		
 		$query = "SELECT * FROM dnt_posts_meta WHERE service = '".$service."' AND vendor_id = '".Vendor::getId()."' order by id_entity desc";
 		if ($this->num_rows($query) > 0) {
-			$this->listData = $this->get_results($query, true);
+			foreach($this->get_results($query, true) as $post){
+					if(isset(json_decode($post->value)->user->email) && isset($this->get()->email) && json_decode($post->value)->user->email == $this->get()->email){
+						$this->listData[] = $post;
+					}
+				}
+			//$this->listData = $this->get_results($query, true);
 		}
 		
 	}

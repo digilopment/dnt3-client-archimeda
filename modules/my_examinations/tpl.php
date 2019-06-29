@@ -25,6 +25,14 @@
 								 </div>
 							  </div>
 						<?php
+						}else{
+							?>
+							<div class="toggle">
+								 <a href="#" class="toggle-title">
+								 <span class="title">Sorry, but you do not have any examination history</span>
+								 </a>
+							  </div>
+							<?php
 						}
 					}
 				}else{ ?>

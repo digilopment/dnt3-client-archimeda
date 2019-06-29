@@ -23,13 +23,7 @@ class profileSettingsModulController extends ArchimedaUser{
 		$id_entity = $rest->webhook(2);
 		
 		if(is_numeric($id_entity)){
-			$query = "
-			SELECT * FROM dnt_posts_meta 
-			WHERE 
-			id_entity = $id_entity AND 
-			vendor_id = '".Vendor::getId()."' AND 
-			email = '".$this->get()->email."' 
-			order by id_entity desc ";
+			$query = "SELECT * FROM dnt_posts_meta WHERE id_entity = $id_entity AND vendor_id = '".Vendor::getId()."' order by id_entity desc ";
 			if ($this->num_rows($query) > 0) {
 				$this->detailData = $this->get_results($query, true);
 			}

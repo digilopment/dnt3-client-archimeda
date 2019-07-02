@@ -31,7 +31,7 @@
 		?>
 	</span>
    
-   <em class="menu-divider"><?php echo Settings::get("title"); ?> <u class="copyright-year"></u>. <?php echo MultyLanguage::translate($data, "developed_by", "translate");?></em>
+   <em class="menu-divider bottom"><?php echo Settings::get("title"); ?> <u class="copyright-year"></u>. <?php echo MultyLanguage::translate($data, "developed_by", "translate");?></em>
 </div>
 
 <style>
@@ -52,5 +52,8 @@
     margin-left: 20px;
     border-radius: 10px;
 	
+}
+.menu-divider.bottom{
+	margin-bottom: 200px;
 }
 </style>

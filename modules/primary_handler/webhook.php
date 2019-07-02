@@ -137,7 +137,7 @@ class homepageModulController extends ArchimedaUser{
 			
 			$prevQuestion = $this->pollUrl("prev", $poll_id, $question_id);
 			$nextQuestion = $this->pollUrl("next", $poll_id, $question_id);
-			$progress	  = PollsFrontend::getProgressPercent($poll_id, $question_id);
+			$progress	  = round(PollsFrontend::getProgressPercent($poll_id, $question_id), 2);
 			$this->departamentDetail($rest, $poll_id, $question_id, $poll_input_name, $prevQuestion, $nextQuestion, $progress);
 		}elseif(
 			$rest->webhook(1) == $this->route_app && 

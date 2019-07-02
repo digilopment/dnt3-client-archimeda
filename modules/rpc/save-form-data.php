@@ -8,6 +8,13 @@ class SaveFormData extends ArchimedaUser{
 	public $qrImage;
 	public $jsonResponse;
 	
+	protected function formater($data){
+		$data = Dnt::not_html($data);
+		$data = str_replace(array("\n", "\r"), '', $data);
+		return $data;
+		//return json_encode($data);
+	}
+	
 	protected function getFormData($attachments, $qrImage, $qrHash){
 		$pollArr = array();
 		$mainArray = array();
@@ -19,10 +26,10 @@ class SaveFormData extends ArchimedaUser{
 		foreach($_COOKIE as $key=>$value){
 			if(Dnt::in_string("poll_", $key)){
 				$question_id = explode("_", $key)[2];
-				$ans = is_numeric($value) ? PollsFrontend::getValueByInputId("value", $value) : "'".$value."'";
+				$ans = is_numeric($value) ? PollsFrontend::getValueByInputId("value", $value) : "'".$this->formater($value)."'";
 				$pollArr[$question_id] = array(
-									"question" 	=> PollsFrontend::getCurrentQuestions($poll_id, $question_id), 
-									"ans" 		=> is_numeric($value) ? PollsFrontend::getValueByInputId("value", $value) : $value,
+									"question" 	=> $this->formater(PollsFrontend::getCurrentQuestions($poll_id, $question_id)), 
+									"ans" 		=> is_numeric($value) ? $this->formater(PollsFrontend::getValueByInputId("value", $value)) : $this->formater($value),
 									"input_id" 	=> is_numeric($value) ? $value : 0,
 								);
 			}
@@ -33,7 +40,7 @@ class SaveFormData extends ArchimedaUser{
 		$mainArray['departament_id']= $departament_id;
 		$mainArray['attachments'] 	= $attachments;
 		$mainArray['data'] 			= array($pollArr);
-		$mainArray['form'] 			= array("form_name"=> Dnt::not_html(Polls::getParam("name", $poll_id)), "form_content"=> Dnt::not_html(Polls::getParam("content", $poll_id)));
+		$mainArray['form'] 			= array("form_name"=> $this->formater(Polls::getParam("name", $poll_id)), "form_content"=> $this->formater(Polls::getParam("content", $poll_id)));
 		$mainArray['qr_image'] 		= $qrImage;
 		$mainArray['qr_hash'] 		= $qrHash;
 		$mainArray['datetime'] 		= Dnt::datetime();

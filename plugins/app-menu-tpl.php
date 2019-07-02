@@ -54,6 +54,6 @@
 	
 }
 .menu-divider.bottom{
-	margin-bottom: 150px;
+	margin-bottom: 100px;
 }
 </style>

@@ -44,6 +44,7 @@
 				$i = 0;
 				if(count($modul->getPolls())>0){
 					foreach($modul->getPolls() as $row){
+						$i++;
 						if(in_array($row['id_entity'],$modul->departmentPolls($post))){
 						$url = WWW_PATH."primary-handler/departments/" . $post['id_entity'] . "/".$row['id_entity']."/my-poll/1";
 						   ?>
@@ -57,7 +58,6 @@
 							</div>
 						<?php 
 						}else{
-							$i++;
 							if($i<=1){
 							?>
 								<div class="toggle">

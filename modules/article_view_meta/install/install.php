@@ -41,6 +41,21 @@ function defaultModuleMetaDataConfiguration($postId, $service){
 		'`order`' 			=> 1, 
 		'`show`' 			=> 1, 
 	);
+	
+	$insertedData[] = array(
+		'`post_id`' 		=> $postId, 
+		'`service`' 		=> $service, 
+		'`vendor_id`' 		=> Vendor::getId(), 
+		'`key`' 			=> "poll_id", 
+		'`value`' 			=> "", 
+		'`content_type`' 	=> "text",
+		'`cat_id`' 			=> "3",
+		'`description`' 	=> "Formulars IDs (separate each forms with a comma)", 
+		'`order`' 			=> 1, 
+		'`show`' 			=> 1, 
+	);
+	
+
 		
 		
 	

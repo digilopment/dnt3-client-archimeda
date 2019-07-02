@@ -1,5 +1,5 @@
 <?php
-class homepageModulController extends ArchimedaUser{
+class primaryHandlerModulController extends ArchimedaUser{
 	
 	
 	public $route_app 				= "primary-handler";
@@ -7,6 +7,7 @@ class homepageModulController extends ArchimedaUser{
 	public $route_departments 		= "departments";
 	public $route_result 			= "result";
 	public $route_departments_id	= true;
+	public $polls;
 	
 	protected function useLayoutComposer($data, $template){
 		include "dnt-view/layouts/".Vendor::getLayout()."/tpl_functions.php";
@@ -119,6 +120,40 @@ class homepageModulController extends ArchimedaUser{
         }
     }
 	
+	public function getPolls(){
+		if($this->polls){
+			return $this->polls;
+		}else{
+			$db = new Db();
+			$rest = new Rest();
+			$pollsArr = array();
+			$query = Polls::getPolls();
+			if($db->num_rows($query)>0){
+				foreach($db->get_results($query) as $row){
+					$pollsArr[] = $row; 
+				}
+			}
+			$this->polls = $pollsArr;
+			return $this->polls;
+		}
+	}
+	
+	public function departmentPolls($post){
+		if($post['service'])
+			$metas = ArticleView::getPostsMeta($post['id_entity'], "article_view_meta");
+		else
+			$metas = array();
+
+		$poll_id = false;
+		foreach($metas as $meta){
+			if($meta['key'] == "poll_id"){
+				$poll_id =  $meta['value'];
+			}
+		}
+		$poll_id_arr = explode(",", $poll_id);
+		return $poll_id_arr;
+	}
+	
 	public function run(){
 		
 		$rest 			 = new Rest();
@@ -180,5 +215,5 @@ class homepageModulController extends ArchimedaUser{
 	}
 }
 
-$modul = new homepageModulController;
+$modul = new primaryHandlerModulController();
 $modul->run();

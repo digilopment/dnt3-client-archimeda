@@ -27,6 +27,7 @@ for($i=-0.2; $i<=1.3; $i+=0.10){
 
 exit;
 */
+$modul = new primaryHandlerModulController();
 ?>
 
 <div id="page-transitions">
@@ -59,7 +60,10 @@ exit;
          </div>
       </div>
    </div>
-   <?php foreach($allPosts as $post){?>
+   
+   
+   <?php 
+   foreach($allPosts as $post){?>
    <div class="form-area" id="form-area-all-<?php echo $post['id_entity'];?>">
       <div class="content" style="margin-bottom: 0px;">
          <div class="one-half-responsive">
@@ -84,32 +88,32 @@ exit;
       <div class="content">
          <div class="one-half-responsive">
             <?php 
-               $db = new Db();
-               $rest = new Rest();
-               $query = Polls::getPolls();
-               if($db->num_rows($query)>0){
-               foreach($db->get_results($query) as $row){
-               if($row['parent_id'] == $post['id_entity']){
-               $url = WWW_PATH."primary-handler/departments/" . $post['id_entity'] . "/".$row['id_entity']."/my-poll/1";
-               ?>
-            <div class="toggle">
-               <a href="#" class="toggle-title"><?php echo $row['name']; ?><i class="ion-android-add"></i></a>
-               <div class="toggle-content" style="display: none;">
-                  <?php echo $row['content']; ?>
-                  <div class="buttons"><a href="<?php echo $url; ?>" class="icon-go-to-form"><i class="ion ion-ios-arrow-forward"></i></a></div>
-               </div>
-            </div>
-            <?php 
-               }else{
-               	?>
-            <div class="toggle">
-               <a href="#" class="close-form-area toggle-title" style="line-height: initial;padding: 9px;">We are sorry, but for this departament we don`t have eny forms. Please try the other departament.</a>
-            </div>
-            <?php
-               }
-               }
-               }
-               ?>
+			$i = 0;
+			if(count($modul->getPolls())>0){
+				foreach($modul->getPolls() as $row){
+					if(in_array($row['id_entity'],$modul->departmentPolls($post))){
+					$url = WWW_PATH."primary-handler/departments/" . $post['id_entity'] . "/".$row['id_entity']."/my-poll/1";
+					   ?>
+						<div class="toggle">
+						   <a href="#" class="toggle-title"><?php echo $row['name']; ?><i class="ion-android-add"></i></a>
+						   <div class="toggle-content" style="display: none;">
+							  <?php echo $row['content']; ?>
+							  <div class="buttons"><a href="<?php echo $url; ?>" class="icon-go-to-form"><i class="ion ion-ios-arrow-forward"></i></a></div>
+						   </div>
+						</div>
+					<?php 
+					}else{ 
+						$i++;
+						if($i<=1){
+						?>
+							<div class="toggle">
+							   <a href="#" class="close-form-area toggle-title" style="line-height: initial;padding: 9px;">We are sorry, but for this departament we don`t have eny forms. Please try the other departament.</a>
+							</div><?php
+						}
+					}
+				}
+            }
+		?>
          </div>
          <div class="clear"></div>
       </div>
@@ -185,8 +189,6 @@ exit;
       
       
       });
-      
-      
    </script>
    <?php } ?>
    <script>

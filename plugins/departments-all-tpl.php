@@ -67,21 +67,18 @@ $modul = new primaryHandlerModulController();
    <div class="form-area" id="form-area-all-<?php echo $post['id_entity'];?>">
       <div class="content" style="margin-bottom: 0px;">
          <div class="one-half-responsive">
-            <div class="toggle">
-               <a href="#" class="close-form-area toggle-title">
-                  <center style="color: #1a79b2"><?php echo $post['name'];?></center>
-                  <i class="ion-android-close"></i>
-               </a>
-            </div>
-            <div class="toggle">
-               <a href="#" class="toggle-title departamen-form-id-all-about-<?php echo $post['id_entity'];?>"> About<i class="ion-android-add"></i></a>
-            </div>
-            <div class="toggle">
-               <a href="#" class="toggle-title departamen-form-id-all-health-<?php echo $post['id_entity'];?>"> Health promotion<i class="ion-android-add"></i></a>
-            </div>
-            <div class="toggle">
-               <a href="#" class="toggle-title departamen-form-id-all-medical-<?php echo $post['id_entity'];?>"> Medical Procedures<i class="ion-android-add"></i></a>
-            </div>
+			<div class="toggle">
+				 <a href="#" class="close-form-area toggle-title"><center style="color: #1a79b2"><?php echo $post['name'];?></center><i class="ion-android-close"></i></a>
+			  </div>
+			  <div class="toggle">
+			   <a href="#" class="toggle-title departamen-form-id-all-about-<?php echo $post['id_entity'];?>"> <?php echo MultyLanguage::translate($data, "about", "translate");?><i class="ion-android-add"></i></a>
+			</div>
+			<div class="toggle">
+			   <a href="#" class="toggle-title departamen-form-id-all-health-<?php echo $post['id_entity'];?>"> <?php echo MultyLanguage::translate($data, "health_promotion", "translate");?><i class="ion-android-add"></i></a>
+			</div>
+			<div class="toggle">
+			   <a href="#" class="toggle-title departamen-form-id-all-medical-<?php echo $post['id_entity'];?>"> <?php echo MultyLanguage::translate($data, "medical_procedures", "translate");?><i class="ion-android-add"></i></a>
+			</div>
          </div>
          <div class="clear"></div>
       </div>
@@ -98,7 +95,8 @@ $modul = new primaryHandlerModulController();
 						   <a href="#" class="toggle-title"><?php echo $row['name']; ?><i class="ion-android-add"></i></a>
 						   <div class="toggle-content" style="display: none;">
 							  <?php echo $row['content']; ?>
-							  <div class="buttons"><a href="<?php echo $url; ?>" class="icon-go-to-form"><i class="ion ion-ios-arrow-forward"></i></a></div>
+							  <?php /*<div class="buttons"><a href="<?php echo $url; ?>" class="icon-go-to-form"><i class="ion ion-ios-arrow-forward"></i></a></div> */?>
+							  <a href="<?php echo $url; ?>" class="button button-round button-blue profile-page-button-1"><?php echo MultyLanguage::translate($data, "go_to_form", "translate");?></a>
 						   </div>
 						</div>
 					<?php 
@@ -107,7 +105,7 @@ $modul = new primaryHandlerModulController();
 						if($i<=1){
 						?>
 							<div class="toggle">
-							   <a href="#" class="close-form-area toggle-title" style="line-height: initial;padding: 9px;">We are sorry, but for this departament we don`t have eny forms. Please try the other departament.</a>
+							   <a href="#" class="close-form-area toggle-title" style="line-height: initial;padding: 9px;"><?php echo MultyLanguage::translate($data, "no_forms", "translate");?></a>
 							</div><?php
 						}
 					}

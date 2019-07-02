@@ -55,10 +55,6 @@ function defaultModuleMetaDataConfiguration($postId, $service){
 		'`show`' 			=> 1, 
 	);
 	
-
-		
-		
-	
 	return $insertedData;
 	
 }

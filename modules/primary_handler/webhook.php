@@ -112,11 +112,11 @@ class primaryHandlerModulController extends ArchimedaUser{
         }
 
         if ($index == "next")
-            return WWW_PATH . "" . $rest->webhook(1) . "/" . $rest->webhook(2) . "/" . $rest->webhook(3) . "/" . $poll_id . "/" . $rest->webhook(5) . "/" . $next_question;
+            return WWW_PATH_LANG . "" . $rest->webhook(1) . "/" . $rest->webhook(2) . "/" . $rest->webhook(3) . "/" . $poll_id . "/" . $rest->webhook(5) . "/" . $next_question;
         elseif ($index == "prev") {
-            return WWW_PATH . "" . $rest->webhook(1) . "/" . $rest->webhook(2) . "/" . $rest->webhook(3) . "/" . $poll_id . "/" . $rest->webhook(5) . "/" . $prev_question;
+            return WWW_PATH_LANG . "" . $rest->webhook(1) . "/" . $rest->webhook(2) . "/" . $rest->webhook(3) . "/" . $poll_id . "/" . $rest->webhook(5) . "/" . $prev_question;
         } elseif ($index == "first") {
-            return WWW_PATH . "" . $rest->webhook(1) . "/" . $rest->webhook(2) . "/" . $rest->webhook(3) . "/" . $poll_id . "/" . $rest->webhook(5) . "/" . $first_question;
+            return WWW_PATH_LANG . "" . $rest->webhook(1) . "/" . $rest->webhook(2) . "/" . $rest->webhook(3) . "/" . $poll_id . "/" . $rest->webhook(5) . "/" . $first_question;
         }
     }
 	
@@ -184,7 +184,7 @@ class primaryHandlerModulController extends ArchimedaUser{
 			
 			$prevQuestion = $this->pollUrl("prev", $poll_id, $question_id);
 			$nextQuestion = $this->pollUrl("next", $poll_id, $question_id);
-			$progress	  = round(PollsFrontend::getProgressPercent($poll_id, $question_id), 2);
+			$progress	  = round(PollsFrontend::getProgressPercent($poll_id, $question_id), 0);
 			$this->departamentDetail($rest, $poll_id, $question_id, $poll_input_name, $prevQuestion, $nextQuestion, $progress);
 		}elseif(
 			$rest->webhook(1) == $this->route_app && 
@@ -221,7 +221,7 @@ class primaryHandlerModulController extends ArchimedaUser{
 		}
 		else
 		{
-			Dnt::redirect(WWW_PATH."app-logouted#login-form_main");
+			Dnt::redirect(WWW_PATH_LANG."app-logouted#login-form_main");
 		}
 
 	}

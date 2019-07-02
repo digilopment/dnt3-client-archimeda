@@ -7,7 +7,7 @@
 				<ul>
 					<?php $posts = ArticleView::getPosts($sectionId, false, "`order` DESC");
 					foreach($posts as $post){ 
-					$url = WWW_PATH."primary-handler/departments/" . $post['id_entity'] . "/124/my-poll/1";
+					$url = WWW_PATH_LANG."primary-handler/departments/" . $post['id_entity'] . "/124/my-poll/1";
 					?>
 				   <li>
 					  <a class="show-departament-forms" id="departamen-form-id-<?php echo $post['id_entity']?>" data-search="<?php echo Dnt::name_url($post['name_url'])?>" data-id="<?php echo $post['id_entity']?>" href="#">
@@ -44,7 +44,7 @@
 				$pollsArr = $modul->getDepartmentPolls($post);
 				if(count($pollsArr)>0){
 					foreach($pollsArr as $row){
-					$url = WWW_PATH."primary-handler/departments/" . $post['id_entity'] . "/".$row['id_entity']."/my-poll/1";
+					$url = WWW_PATH_LANG."primary-handler/departments/" . $post['id_entity'] . "/".$row['id_entity']."/my-poll/1";
 					?>
 					<div class="toggle">
 					   <a href="#" class="toggle-title"><?php echo $row['name']; ?><i class="ion-android-add"></i></a>

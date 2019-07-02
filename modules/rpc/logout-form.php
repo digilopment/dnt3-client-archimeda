@@ -12,7 +12,7 @@ class logoutModulController{
 		Cookie::Delete("archimeda-patient_logged");
 		Cookie::Delete("archimeda-patient_id");
 		
-		$url = WWW_PATH."app-logouted";
+		$url = WWW_PATH_LANG."app-logouted";
 		$RESPONSE = "1";
 		echo '
 		{

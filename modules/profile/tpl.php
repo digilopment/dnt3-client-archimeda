@@ -15,7 +15,7 @@
 				<p class="animate-fade animate-delay-200">
 				   <?php echo $user->get()->content.""; ?>
 				</p>
-				<a href="<?php echo WWW_PATH."profile-settings"?>" class="button button-round button-blue profile-page-button-1 animate-fade animate-delay-250"><?php echo MultyLanguage::translate($data, "settinigs", "translate");?></a>
+				<a href="<?php echo WWW_PATH_LANG."profile-settings"?>" class="button button-round button-blue profile-page-button-1 animate-fade animate-delay-250"><?php echo MultyLanguage::translate($data, "settinigs", "translate");?></a>
 			 </div>
 		  </div>
 	   </div>

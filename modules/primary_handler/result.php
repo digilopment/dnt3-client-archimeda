@@ -32,7 +32,7 @@
 			</form>
 			<div id="form-result"></div>
 		</div>
-			   <a href="<?php echo WWW_PATH; ?>primary-handler" class="poll-back-to-home button button-blue button-full bold uppercase" style="display:none; color: #fff;margin-top:50px;"><i class="ion ion-ios-home"></i> <?php echo MultyLanguage::translate($data, "back_to_home", "translate");?></a> 
+			   <a href="<?php echo WWW_PATH_LANG; ?>primary-handler" class="poll-back-to-home button button-blue button-full bold uppercase" style="display:none; color: #fff;margin-top:50px;"><i class="ion ion-ios-home"></i> <?php echo MultyLanguage::translate($data, "back_to_home", "translate");?></a> 
             </div>
          </div>
 		 

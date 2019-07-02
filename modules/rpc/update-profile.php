@@ -91,7 +91,7 @@ echo '
       "custom": "'.$ATTACHMENT.'",
       "imagex": "",
       "protokol": "REST",
-      "url": "'.WWW_PATH."profile-settings".'",
+      "url": "'.WWW_PATH_LANG."profile-settings".'",
       "lang": "",
       "generator": "Designdnt 3",
       "service": "c_dnt-ajax-universal",

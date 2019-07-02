@@ -82,7 +82,7 @@ class SaveFormData extends ArchimedaUser{
 			$qrHash 	= $lastId;
 			
 			
-			$data 					= WWW_PATH."data-reader/".$qrHash;
+			$data 					= WWW_PATH_LANG."data-reader/".$qrHash;
 			$qrImageName 			= md5($data);
 			$qrImage 				= $path.$qrImageName.'.png';
 			$errorCorrectionLevel 	= 'H';

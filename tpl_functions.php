@@ -35,7 +35,7 @@
    <script src="<?php echo $data['media_path']; ?>js/jquery.validate.js"></script>
    <script src="<?php echo $data['media_path']; ?>js/additional-methods.min.js"></script>
    <script>
-      var WWW_PATH = "<?php echo WWW_PATH;?>";
+      var WWW_PATH = "<?php echo WWW_PATH_LANG;?>";
        
    </script>
    <script src="https://www.google.com/recaptcha/api.js"></script>

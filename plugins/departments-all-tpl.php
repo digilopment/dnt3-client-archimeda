@@ -43,7 +43,7 @@ $modul = new primaryHandlerModulController();
                   <span class="title"><?php echo $catName; ?></span>
                   <?php $posts = ArticleView::getPosts($catId, false, "`order` DESC");
                      foreach($posts as $key=>$post){ 
-                     $url = WWW_PATH."primary-handler/departments/" . $post['id_entity'] . "/124/my-poll/1";
+                     $url = WWW_PATH_LANG."primary-handler/departments/" . $post['id_entity'] . "/124/my-poll/1";
                      $allPosts[] = $post;
                      ?>
                   <li>
@@ -88,7 +88,7 @@ $modul = new primaryHandlerModulController();
 				$pollsArr = $modul->getDepartmentPolls($post);
 				if(count($pollsArr)>0){
 					foreach($pollsArr as $row){
-					$url = WWW_PATH."primary-handler/departments/" . $post['id_entity'] . "/".$row['id_entity']."/my-poll/1";
+					$url = WWW_PATH_LANG."primary-handler/departments/" . $post['id_entity'] . "/".$row['id_entity']."/my-poll/1";
 					?>
 					<div class="toggle">
 					   <a href="#" class="toggle-title"><?php echo $row['name']; ?><i class="ion-android-add"></i></a>

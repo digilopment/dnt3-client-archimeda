@@ -38,7 +38,7 @@ if(isset($_POST['email'])){
 			Cookie::Set("archimeda-patient_id", $email);
 			$RESPONSE 	= 1;
 			$ATTACHMENT = 0;
-			$url	    = WWW_PATH."primary-handler";
+			$url	    = WWW_PATH_LANG."primary-handler";
 		}else{
 			$RESPONSE 	= 3;
 			$ATTACHMENT = 3;	

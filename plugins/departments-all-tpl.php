@@ -84,34 +84,29 @@ $modul = new primaryHandlerModulController();
       </div>
       <div class="content">
          <div class="one-half-responsive">
-            <?php 
-			$i = 0;
-			if(count($modul->getPolls())>0){
-				foreach($modul->getPolls() as $row){
-					$i++;
-					if(in_array($row['id_entity'],$modul->departmentPolls($post))){
+            <?php
+				$pollsArr = $modul->getDepartmentPolls($post);
+				if(count($pollsArr)>0){
+					foreach($pollsArr as $row){
 					$url = WWW_PATH."primary-handler/departments/" . $post['id_entity'] . "/".$row['id_entity']."/my-poll/1";
-					   ?>
-						<div class="toggle">
-						   <a href="#" class="toggle-title"><?php echo $row['name']; ?><i class="ion-android-add"></i></a>
-						   <div class="toggle-content" style="display: none;">
-							  <?php echo $row['content']; ?>
-							  <?php /*<div class="buttons"><a href="<?php echo $url; ?>" class="icon-go-to-form"><i class="ion ion-ios-arrow-forward"></i></a></div> */?>
-							  <a href="<?php echo $url; ?>" class="button button-round button-blue profile-page-button-1"><?php echo MultyLanguage::translate($data, "go_to_form", "translate");?></a>
-						   </div>
-						</div>
-					<?php 
-					}else{ 
-						if($i<=1){
-						?>
-							<div class="toggle">
-							   <a href="#" class="close-form-area toggle-title" style="line-height: initial;padding: 9px;"><?php echo MultyLanguage::translate($data, "no_forms", "translate");?></a>
-							</div><?php
-						}
+					?>
+					<div class="toggle">
+					   <a href="#" class="toggle-title"><?php echo $row['name']; ?><i class="ion-android-add"></i></a>
+					   <div class="toggle-content" style="display: none;">
+						  <?php echo $row['content']; ?>
+							<a href="<?php echo $url; ?>" class="button button-round button-blue profile-page-button-1"><?php echo MultyLanguage::translate($data, "go_to_form", "translate");?></a>
+					   </div>
+					</div>
+					<?php
 					}
+				}else{
+					?>
+					<div class="toggle">
+					   <a href="#" class="close-form-area toggle-title" style="line-height: initial;padding: 9px;"><?php echo MultyLanguage::translate($data, "no_forms", "translate");?></a>
+					</div>
+				<?php
 				}
-            }
-		?>
+			?>
          </div>
          <div class="clear"></div>
       </div>

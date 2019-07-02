@@ -154,6 +154,18 @@ class primaryHandlerModulController extends ArchimedaUser{
 		return $poll_id_arr;
 	}
 	
+	
+	public function getDepartmentPolls($post){
+		$pollsArr = array();
+		foreach($this->getPolls() as $key => $row){
+			if(in_array($row['id_entity'],$this->departmentPolls($post))){
+				$pollsArr[$key] = $row;
+			}
+			
+		}
+		return $pollsArr;
+	}
+	
 	public function run(){
 		
 		$rest 			 = new Rest();

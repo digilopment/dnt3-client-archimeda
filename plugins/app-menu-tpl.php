@@ -47,8 +47,8 @@
 		    border-bottom: 0px solid #ebebeb;
 }
 .languages img{
-	margin: 12px;
-    height: 32px;
+	margin: 16px;
+    height: 25px;
     margin-left: 20px;
     border-radius: 10px;
 	

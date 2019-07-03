@@ -1,14 +1,3 @@
-<!--<div id="page-content">
-	<div class="content-fullscreen">
-	   <div class="animate-fade">
-		  <h3 class="center-text thin small-bottom half-top"><?php echo MultyLanguage::translate($data, "settinigs", "translate");?></h3>
-		  <?php user_profile_settings($data, $user, "profile-settings-form"); ?>
-	   </div>
-	</div>
-</div>
-<style>#page-content{min-height: auto!important};</style>
--->
-
 <div id="page-content">
 	<div id="page-content-scroll" class="header-clear">
 	   <div class="profile-page-2 full-bottom">

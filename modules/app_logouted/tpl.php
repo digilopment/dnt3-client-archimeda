@@ -42,5 +42,3 @@
 	   <div class="coverpage-clear full-bottom"></div>
 	</div>
  </div>
- 
- <?php /* <a href="#" class="back-to-top-badge"><i class="ion-ios-arrow-up"></i></a> */ ?>

@@ -1,5 +1,5 @@
 <?php
-class profileSettingsModulController extends ArchimedaUser{
+class defaultModulController extends ArchimedaUser{
 	
 	public function run(){
 		
@@ -35,5 +35,5 @@ class profileSettingsModulController extends ArchimedaUser{
 	}
 }
 
-$modul = new profileSettingsModulController();
+$modul = new defaultModulController();
 $modul->run();

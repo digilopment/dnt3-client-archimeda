@@ -27,7 +27,7 @@
    <link rel="stylesheet" type="text/css" href="<?php echo $data['media_path']; ?>css/ionicons.min.css">
    <link rel="stylesheet" type="text/css" href="<?php echo $data['media_path']; ?>css/archimeda.css">
    <!-- Font Awesome v4.7.0 -->
-   <link href="https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+   <link href="<?php echo $data['media_path']; ?>css/font-awesome.min.css" rel="stylesheet">
    <script type="text/javascript" src="<?php echo $data['media_path']; ?>js/jquery.js"></script>
    <script type="text/javascript" src="<?php echo $data['media_path']; ?>js/plugins.js"></script>
    <script type="text/javascript" src="<?php echo $data['media_path']; ?>js/custom.js"></script>
@@ -38,7 +38,9 @@
       var WWW_PATH = "<?php echo WWW_PATH_LANG;?>";
        
    </script>
+   <?php if($data['meta_settings']['keys']['gc_secret_key']['show'] == 1 && $data['meta_settings']['keys']['gc_site_key']['show'] == 1){?>
    <script src="https://www.google.com/recaptcha/api.js"></script>
+   <?php } ?>
 </head>
 <?php } ?>
 <?php 

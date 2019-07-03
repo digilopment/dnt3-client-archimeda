@@ -45,7 +45,7 @@
 	<div class="page-login-input">
 		<label class="filebutton">
 		<i class="login-icon ion-images"></i><?php echo MultyLanguage::translate($data, "select_image", "translate");?>
-			<span><input type="file" id="form_user_image_1" name="form_user_image_1" accept="image/x-png,image/gif,image/jpeg" ></span>
+			<span><input type="file" id="form_user_image_1" name="form_user_image_1" accept="" ></span>
 		</label>
 	</div>
 		<button type="submit" name="sent" class="button button-green button-icon button-full half-top full-bottom"><i class="ion-log-in"></i><?php echo MultyLanguage::translate($data, "save", "translate");?></button>
@@ -134,40 +134,3 @@
 	  }
 	  }); 	
    </script>
- 
- 
- 
- 
-     <!--<link rel="stylesheet" type="text/css" href="https://getbootstrap.com/docs/4.0/dist/css/bootstrap.min.css" >-->
-
-
-<script>
-	/*$("input.dnt-input").click(function(){
-		$this = $(this);
-		var oldValue =  $(this).val(); 
-		$(this).val("");
-		if($(this).val() == ""){
-			setTimeout(function(){$this.val(oldValue)}, 500);			
-		}
-	});*/
-	
-	/*$("input.dnt-input").focus(function(){
-	$this = $(this);
-	var oldValue =  $(this).val(); 
-	$(this).val("");
-	if($(this).val() == ""){
-		$("input.dnt-input").focusout(function(){
-			if($(this).val() == "" || $(this).val() == 0){
-				$this.val(oldValue)
-			}else{
-				$this.val($(this).val())
-			}
-		});			
-	}
-});
-*/
-</script>
- 
-<style>
-
-</style>

@@ -1,4 +1,6 @@
-<?php $modul = new primaryHandlerModulController(); ?>
+<?php
+$user = new ArchimedaUser();
+?>
 <div id="page-transitions">
 	<div class="landing-homepage">
 	   <div class="landing-page landing-dark">
@@ -7,10 +9,10 @@
 				<ul>
 					<?php $posts = ArticleView::getPosts($sectionId, false, "`order` DESC");
 					foreach($posts as $post){ 
-					$url = WWW_PATH_LANG."primary-handler/departments/" . $post['id_entity'] . "/124/my-poll/1";
+					$url = WWW_PATH_LANG."primary-handler/departments/" . $post['id_entity'] . "/".$row['id_entity']."/my-poll/1";
 					?>
 				   <li>
-					  <a class="show-departament-forms" id="departamen-form-id-<?php echo $post['id_entity']?>" data-search="<?php echo Dnt::name_url($post['name_url'])?>" data-id="<?php echo $post['id_entity']?>" href="#">
+					  <a <?php if(!$user->logged()){echo 'href="#login-form_main" ';} ?> class="show-departament-forms" id="departamen-form-id-<?php echo $post['id_entity']?>" data-search="<?php echo Dnt::name_url($post['name_url'])?>" data-id="<?php echo $post['id_entity']?>" href="#">
 					  <i class="<?php echo $post['id']?>" style="background: <?php echo $post['embed']?>"><?php echo substr($post['name'], 0, 2);?></i>
 					  <em><?php echo $post['name']?></em>
 					  </a>
@@ -23,7 +25,9 @@
 	   </div>
 	</div>
 	
-	<?php foreach($posts as $post){ 
+	<?php 
+if($user->logged()){
+	foreach($posts as $post){ 
 	?>
 	<div class="form-area" id="form-area-<?php echo $post['id_entity'];?>">
 		<div class="content">
@@ -41,6 +45,7 @@
 				   <a href="#" class="toggle-title departamen-form-id-all-medical-<?php echo $post['id_entity'];?>"> <?php echo MultyLanguage::translate($data, "medical_procedures", "translate");?><i class="ion-android-add"></i></a>
 				</div>
 			  <?php
+				$modul = new primaryHandlerModulController();
 				$pollsArr = $modul->getDepartmentPolls($post);
 				if(count($pollsArr)>0){
 					foreach($pollsArr as $row){
@@ -79,4 +84,5 @@
 	<?php } ?>
 	
  <div class="overlay dark-overlay"></div>
+ <?php } ?>
  </div>

@@ -159,7 +159,7 @@ $modul = new primaryHandlerModulController();
       $(".departamen-form-id-all-health-<?php echo $post['id_entity'];?>").on('click', function() {
 		  $(".coverpage-slider").fadeOut();
 		  $("#data-reader").html("");
-		  var text = '<?php echo $textMedical;?>';
+		  var text = '<?php echo $textHealth;?>';
 		  $("#data-reader").html(dataReaderTpl<?php echo $post['id_entity'];?>("Health promotion", text));
       });
       

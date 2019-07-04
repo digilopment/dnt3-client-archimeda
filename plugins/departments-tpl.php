@@ -9,7 +9,7 @@ $user = new ArchimedaUser();
 				<ul>
 					<?php $posts = ArticleView::getPosts($sectionId, false, "`order` DESC");
 					foreach($posts as $post){ 
-					$url = WWW_PATH_LANG."primary-handler/departments/" . $post['id_entity'] . "/".$row['id_entity']."/my-poll/1";
+					$url = WWW_PATH_LANG."primary-handler/departments/" . $post['id_entity'] . "/".$post['id_entity']."/my-poll/1";
 					?>
 				   <li>
 					  <a <?php if(!$user->logged()){echo 'href="#login-form_main" ';} ?> class="show-departament-forms" id="departamen-form-id-<?php echo $post['id_entity']?>" data-search="<?php echo Dnt::name_url($post['name_url'])?>" data-id="<?php echo $post['id_entity']?>" href="#">

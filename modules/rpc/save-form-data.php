@@ -34,7 +34,8 @@ class SaveFormData extends ArchimedaUser{
 								);
 			}
 		}
-		sort($pollArr);
+		
+		ksort($pollArr);
 		
 		$mainArray['id'] 			= $poll_id;
 		$mainArray['departament_id']= $departament_id;

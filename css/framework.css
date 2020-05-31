@@ -3098,7 +3098,7 @@ ul.tabs li.current{
 
 }
 
-.portfolio-adaptive-two .portfolio-item:nth-child(2n+2){margin-right:0%;!important;}
+.portfolio-adaptive-two .portfolio-item:nth-child(2n+2){margin-right:0%!important;}
 .portfolio-adaptive-two .portfolio-item:nth-child(2n+1){margin-right:4%!important;}
 
 /*3 Items*/
@@ -3113,9 +3113,9 @@ ul.tabs li.current{
     transition: all 250ms ease;
 }
 
-.portfolio-adaptive-three .portfolio-item:nth-child(3n+1){margin-right:4%;!important;}
-.portfolio-adaptive-three .portfolio-item:nth-child(3n+2){margin-right:0%;!important;}
-.portfolio-adaptive-three .portfolio-item:nth-child(3n+3){margin-left:4%;!important;}
+.portfolio-adaptive-three .portfolio-item:nth-child(3n+1){margin-right:4%!important;}
+.portfolio-adaptive-three .portfolio-item:nth-child(3n+2){margin-right:0%!important;}
+.portfolio-adaptive-three .portfolio-item:nth-child(3n+3){margin-left:4%!important;}
 
 /*Portfolio Controls*/
 .portfolio-adaptive-controls{
@@ -5137,7 +5137,7 @@ ul.tabs li.current{
     overflow:hidden;
 }
 
-calendar*{display:block; overflow:hidden;}
+.calendar{display:block; overflow:hidden;}
 .calendar-titles, .calendar-days{ padding:0px 30px;}
 
 .calendar-titles a{

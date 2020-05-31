@@ -1,4 +1,9 @@
-<?php function get_top($data){?>
+<?php
+
+use DntLibrary\Base\Frontend;
+use DntLibrary\Base\Settings;
+
+function get_top($data){?>
 <!doctype html>
 <html lang="<?php echo Frontend::getMetaSetting($data, "language"); ?>">
 <head>

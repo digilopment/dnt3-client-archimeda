@@ -18,11 +18,20 @@ class rpcRegistrationUser extends ArchimedaUser
     protected $table = "dnt_registred_users";
     protected $type = "archimeda-patient";
 
+	public function __construct(){
+		$this->dnt = new Dnt();
+		$this->frontend = new Frontend();
+		$this->Settings = new Settings();
+		$this->multiLanguage = new MultyLanguage();
+		$this->vendor = new Vendor();
+		$this->db = new DB();
+	}
+	
     public function userExists($email)
     {
         $db = new DB;
-        $query = "SELECT email FROM " . $this->table . " WHERE email = '" . $email . "' AND type = '" . $this->type . "' AND vendor_id = '" . Vendor::getId() . "'";
-        if ($db->num_rows($query) > 0) {
+        $query = "SELECT email FROM " . $this->table . " WHERE email = '" . $email . "' AND type = '" . $this->type . "' AND vendor_id = '" . $this->vendor->getId() . "'";
+        if ($this->db->num_rows($query) > 0) {
             return true;
         } else {
             return false;
@@ -37,10 +46,9 @@ class rpcRegistrationUser extends ArchimedaUser
 
 
         $rest = new Rest;
-        $db = new DB;
         $dntMailer = new Mailer;
 
-        $data = Frontend::get(false);
+        $data = $this->frontend->get(false);
         $siteKey = $data['meta_settings']['keys']['gc_site_key']['value'];
         $secretKey = $data['meta_settings']['keys']['gc_secret_key']['value'];
         $gc = new GoogleCaptcha($siteKey, $secretKey);
@@ -97,8 +105,8 @@ class rpcRegistrationUser extends ArchimedaUser
                     $table = $this->table;
 
                     $insertedData["`type`"] = "archimeda-patient";
-                    $insertedData["`vendor_id`"] = Vendor::getId();
-                    $insertedData["`datetime_creat`"] = Dnt::datetime();
+                    $insertedData["`vendor_id`"] = $this->vendor->getId();
+                    $insertedData["`datetime_creat`"] = $this->dnt->datetime();
 
 
                     $insertedData["`name`"] = $form_base_name;
@@ -112,13 +120,13 @@ class rpcRegistrationUser extends ArchimedaUser
                     $insertedData["`podmienky`"] = 1;
                     $insertedData["`status`"] = 1;
 
-                    $insertedData["`ip_adresa`"] = Dnt::get_ip();
+                    $insertedData["`ip_adresa`"] = $this->dnt->get_ip();
                     $insertedData["`img`"] = $attachment;
 
-                    $db->dbTransaction();
-                    $db->insert($table, $insertedData);
-                    $userId = Dnt::getLastId($table);
-                    $db->dbcommit();
+                    $this->db->dbTransaction();
+                    $this->db->insert($table, $insertedData);
+                    $userId = $this->dnt->getLastId($table);
+                    $this->db->dbcommit();
 
 
 
@@ -139,7 +147,7 @@ class rpcRegistrationUser extends ArchimedaUser
                         "linked_url" => "https://wwww.google.sk/",
                         "youtube_url" => "https://wwww.google.sk/",
                         "img_path" => $data['media_path'] . "img/email/",
-                        "img" => Settings::getImage($data['meta_settings']['keys']['logo_firmy']['value']),
+                        "img" => $this->settings->getImage($data['meta_settings']['keys']['logo_firmy']['value']),
                     );
 
                     $messageTitle = $userData['app_name'];
@@ -159,7 +167,7 @@ class rpcRegistrationUser extends ArchimedaUser
                      *
                      *
                      */
-                    $msg = MultyLanguage::translate($data, "dakujeme_za_registraciu", "translate");
+                    $msg = $this->multiLanguage->translate($data, "dakujeme_za_registraciu", "translate");
 
                     $senderEmail = $form_base_email;
                     $messageTitle = "Archimeda - Thank you for registration";

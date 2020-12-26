@@ -15,16 +15,19 @@ class profileSettingsModulController extends ArchimedaUser
 
         $article = new ArticleView;
         $rest = new Rest;
+        $frontend = new Frontend;
+        $settings = new Settings;
+        $vendor = new Vendor;
         $id = $article->getStaticId();
         $articleName = $article->getPostParam("name", $id);
         $articleImage = $article->getPostImage($id);
 
         $custom_data = array(
-            "title" => $articleName . " | " . Settings::get("title"),
+            "title" => $articleName . " | " . $settings->get("title"),
             "headline" => $this->get()->name . " " . $articleName,
             "meta" => array(
                 '<meta name="keywords" content="' . $article->getPostParam("tags", $id) . '" />',
-                '<meta name="description" content="' . Settings::get("description") . '" />',
+                '<meta name="description" content="' . $settings->get("description") . '" />',
                 '<meta content="' . $articleName . '" property="og:title" />',
                 '<meta content="' . SERVER_NAME . '" property="og:site_name" />',
                 '<meta content="article" property="og:type" />',
@@ -32,13 +35,13 @@ class profileSettingsModulController extends ArchimedaUser
             ),
         );
 
-        $data = Frontend::get($custom_data);
+        $data = $frontend->get($custom_data);
 
         if ($this->logged()) {
-            include "dnt-view/layouts/" . Vendor::getLayout() . "/tpl_functions.php";
-            include "dnt-view/layouts/" . Vendor::getLayout() . "/top.php";
+            include "dnt-view/layouts/" . $vendor->getLayout() . "/tpl_functions.php";
+            include "dnt-view/layouts/" . $vendor->getLayout() . "/top.php";
             include "tpl.php";
-            include "dnt-view/layouts/" . Vendor::getLayout() . "/bottom.php";
+            include "dnt-view/layouts/" . $vendor->getLayout() . "/bottom.php";
         }
     }
 

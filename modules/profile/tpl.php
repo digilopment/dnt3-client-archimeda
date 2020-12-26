@@ -3,14 +3,18 @@
 use DntLibrary\Base\Image;
 use DntLibrary\Base\MultyLanguage;
 use DntLibrary\Base\Settings;
+
+$settings = new Settings;
+$image = new Image;
+$multiLanguage = new MultyLanguage;
 ?><div id="page-content">
     <div id="page-content-scroll" class="header-clear">
         <div class="profile-page-2 full-bottom">
             <div class="profile-page-2-cover">
-                <img class="preload-image responsive-image" src="<?php echo Settings::getImage($data['meta_settings']['keys']['logo_firmy_2']['value']); ?>">
+                <img class="preload-image responsive-image" src="<?php echo $settings->getImage($data['meta_settings']['keys']['logo_firmy_2']['value']); ?>">
             </div>
             <div class="profile-page-2-thumbnail animate-top">
-                <img class="preload-image responsive-image" src="<?php echo Image::getFileImage($user->get()->img, true, Image::THUMB) ?>">
+                <img class="preload-image responsive-image" src="<?php echo $image->getFileImage($user->get()->img, true, Image::THUMB) ?>">
             </div>
             <div class="content">
                 <div class="profile-page-2-header">
@@ -20,7 +24,7 @@ use DntLibrary\Base\Settings;
                     <p class="animate-fade animate-delay-200">
                         <?php echo $user->get()->content . ""; ?>
                     </p>
-                    <a href="<?php echo WWW_PATH_LANG . "profile-settings" ?>" class="button button-round button-blue profile-page-button-1 animate-fade animate-delay-250"><?php echo MultyLanguage::translate($data, "settinigs", "translate"); ?></a>
+                    <a href="<?php echo WWW_PATH_LANG . "profile-settings" ?>" class="button button-round button-blue profile-page-button-1 animate-fade animate-delay-250"><?php echo $multiLanguage->translate($data, "settinigs", "translate"); ?></a>
                 </div>
             </div>
         </div>

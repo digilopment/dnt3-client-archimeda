@@ -15,6 +15,7 @@ $rest = new Rest;
 $db = new DB;
 $dntMailer = new Mailer;
 $user = new ArchimedaUser();
+$vendor = new Vendor();
 $post_id = $user->get()->id_entity;
 
 if (isset($_POST['sent'])) {
@@ -77,7 +78,7 @@ if (isset($_POST['sent'])) {
             $setData, //set 
             array(//where
                 'id_entity' => $post_id,
-                '`vendor_id`' => Vendor::getId(),
+                '`vendor_id`' => $vendor->getId(),
             )
     );
 

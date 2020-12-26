@@ -3,13 +3,16 @@
 use DntLibrary\Base\MultyLanguage;
 use DntLibrary\Base\Settings;
 
+$settings = new Settings();
+$multiLanguage = new MultyLanguage();
+
 $selector = "attachment";
 $progress = "100";
 ?>
 <div id="page-content">
     <div class="content-fullscreens">
         <div class="animate-fade">
-            <img class="step-image" src="<?php echo Settings::getImage($data['meta_settings']['keys']['logo_firmy_2']['value']); ?>" alt="">
+            <img class="step-image" src="<?php echo $settings->getImage($data['meta_settings']['keys']['logo_firmy_2']['value']); ?>" alt="">
             <div class="page-polls content">
                 <div class="progress-bar">
                     <div class="progress-bar-size p25" style="width:<?php echo $progress ?>%"></div>
@@ -18,7 +21,7 @@ $progress = "100";
 
                 <div class="polls_cont">
                     <div class="input-wrap">
-                        <h3 id="text-on-finish"><?php echo MultyLanguage::translate($data, "on_finish_form", "translate"); ?></h3>
+                        <h3 id="text-on-finish"><?php echo $multiLanguage->translate($data, "on_finish_form", "translate"); ?></h3>
                     </div>
 
                     <div class="input-wrap">
@@ -28,17 +31,17 @@ $progress = "100";
                             <div class="page-login small-form">
                                 <div class="page-login-input">
                                     <label class="filebutton">
-                                        <i class="login-icon ion-images"></i><?php echo MultyLanguage::translate($data, "select_image", "translate"); ?>
+                                        <i class="login-icon ion-images"></i><?php echo $multiLanguage->translate($data, "select_image", "translate"); ?>
                                         <span><input type="file" id="form_user_image_1" name="form_images[]" multiple ></span>
                                     </label>
                                 </div>
                             </div>
 
-                            <button type="submit" name="sent" class="button button-green button-icon button-full half-top full-bottom"><i class="ion-log-in"></i><?php echo MultyLanguage::translate($data, "save", "translate"); ?></button>
+                            <button type="submit" name="sent" class="button button-green button-icon button-full half-top full-bottom"><i class="ion-log-in"></i><?php echo $multiLanguage->translate($data, "save", "translate"); ?></button>
                         </form>
                         <div id="form-result"></div>
                     </div>
-                    <a href="<?php echo WWW_PATH_LANG; ?>primary-handler" class="poll-back-to-home button button-blue button-full bold uppercase" style="display:none; color: #fff;margin-top:50px;"><i class="ion ion-ios-home"></i> <?php echo MultyLanguage::translate($data, "back_to_home", "translate"); ?></a> 
+                    <a href="<?php echo WWW_PATH_LANG; ?>primary-handler" class="poll-back-to-home button button-blue button-full bold uppercase" style="display:none; color: #fff;margin-top:50px;"><i class="ion ion-ios-home"></i> <?php echo $multiLanguage->translate($data, "back_to_home", "translate"); ?></a> 
                 </div>
             </div>
 
@@ -147,7 +150,7 @@ $progress = "100";
                             //$(".poll-steps").show();
                             $(".poll-back-to-home").show();
                             $("#back-to-home").fadeIn();
-                            $("#text-on-finish").html("<?php echo MultyLanguage::translate($data, "form_response", "translate"); ?>");
+                            $("#text-on-finish").html("<?php echo $multiLanguage->translate($data, "form_response", "translate"); ?>");
                             writeQr(data.qr_image);
                             //window.location.href = data.url;
                         } else if (data.success == 0) {

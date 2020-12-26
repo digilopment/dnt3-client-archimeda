@@ -14,6 +14,12 @@ class ArchimedaUser extends Database
     public $init;
     public $data;
 
+	public function __construct(){
+		parent::__construct();
+		$this->cookie = new Cookie;
+		$this->vendor = new Vendor;
+	}
+	
     protected function model()
     {
 
@@ -23,9 +29,9 @@ class ArchimedaUser extends Database
         $type = "archimeda-patient";
         $email = $session->get("archimeda-patient_id");
         if (empty($email)) {
-            $email = Cookie::Get("archimeda-patient_id");
+            $email = $this->cookie->Get("archimeda-patient_id");
         }
-        $query = "SELECT * FROM `dnt_registred_users` WHERE type = '" . $type . "' AND email = '" . $email . "' AND vendor_id = '" . Vendor::getId() . "' ";
+        $query = "SELECT * FROM `dnt_registred_users` WHERE type = '" . $type . "' AND email = '" . $email . "' AND vendor_id = '" . $this->vendor->getId() . "' ";
         if ($this->num_rows($query) > 0) {
             $this->data = $this->get_results($query, true);
         }
@@ -35,7 +41,7 @@ class ArchimedaUser extends Database
     public function logged()
     {
         $session = new Sessions;
-        if ($session->get("archimeda-patient_logged") || (Cookie::Get("archimeda-patient_logged") == 1 && Cookie::Get("archimeda-patient_id") != "")) {
+        if ($session->get("archimeda-patient_logged") || ($this->cookie->Get("archimeda-patient_logged") == 1 && $this->cookie->Get("archimeda-patient_id") != "")) {
             return true;
         } else {
             return false;
@@ -44,7 +50,7 @@ class ArchimedaUser extends Database
 
     public function loadHtmlTemplate($userData, $tpl)
     {
-        include "dnt-view/layouts/" . Vendor::getLayout() . "/plugins/" . $tpl . ".php";
+        include "dnt-view/layouts/" . $this->vendor->getLayout() . "/plugins/" . $tpl . ".php";
         return $data;
     }
 

@@ -32,7 +32,8 @@ class rpcModulController extends ArchimedaUser
     protected function validProcessLogin($type, $email, $pass)
     {
         $db = new DB;
-        $query = "SELECT pass FROM dnt_registred_users WHERE type = '$type' AND email = '" . $email . "' AND vendor_id = '" . Vendor::getId() . "'";
+        $vendor = new Vendor;
+        $query = "SELECT pass FROM dnt_registred_users WHERE type = '$type' AND email = '" . $email . "' AND vendor_id = '" . $vendor->getId() . "'";
         if ($db->num_rows($query) > 0) {
             foreach ($db->get_results($query) as $row) {
                 $db_pass = $row['pass'];

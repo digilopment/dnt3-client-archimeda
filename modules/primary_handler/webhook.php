@@ -21,65 +21,73 @@ class primaryHandlerModulController extends ArchimedaUser
     public $route_departments_id = true;
     public $polls;
 
+	public function __construct(){
+		parent::__construct();
+		$this->db = new DB();
+		$this->vendor = new Vendor();
+		$this->settings = new Settings();
+		$this->frontend = new Frontend();
+		$this->polls = new Polls();
+		$this->dnt = new Dnt();
+		$this->articleView = new ArticleView();
+	}
+	
     protected function useLayoutComposer($data, $template)
     {
-        include "dnt-view/layouts/" . Vendor::getLayout() . "/tpl_functions.php";
-        include "dnt-view/layouts/" . Vendor::getLayout() . "/top.php";
+        include "dnt-view/layouts/" . $this->vendor->getLayout() . "/tpl_functions.php";
+        include "dnt-view/layouts/" . $this->vendor->getLayout() . "/top.php";
         include $template . ".php";
-        include "dnt-view/layouts/" . Vendor::getLayout() . "/bottom.php";
+        include "dnt-view/layouts/" . $this->vendor->getLayout() . "/bottom.php";
     }
 
     protected function defaultPage($rest)
     {
-        $article = new ArticleView;
-        $id = $article->getStaticId();
-        $articleName = $article->getPostParam("name", $id);
-        $articleImage = $article->getPostImage($id);
+        $id = $this->articleView->getStaticId();
+        $articleName = $this->articleView->getPostParam("name", $id);
+        $articleImage = $this->articleView->getPostImage($id);
         $custom_data = array(
-            "title" => $articleName . " | " . Settings::get("title"),
-            "headline" => Settings::get("title"),
+            "title" => $articleName . " | " . $this->settings->get("title"),
+            "headline" => $this->settings->get("title"),
             "meta" => array(
-                '<meta name="keywords" content="' . $article->getPostParam("tags", $id) . '" />',
-                '<meta name="description" content="' . Settings::get("description") . '" />',
+                '<meta name="keywords" content="' . $this->articleView->getPostParam("tags", $id) . '" />',
+                '<meta name="description" content="' . $this->settings->get("description") . '" />',
                 '<meta content="' . $articleName . '" property="og:title" />',
                 '<meta content="' . SERVER_NAME . '" property="og:site_name" />',
                 '<meta content="article" property="og:type" />',
                 '<meta content="' . $articleImage . '" property="og:image" />',
             ),
         );
-        $data = Frontend::get($custom_data);
+        $data = $this->frontend->get($custom_data);
         $this->useLayoutComposer($data, "tpl");
     }
 
     protected function departamentDetail($rest, $poll_id, $question_id, $poll_input_name, $prevQuestion, $nextQuestion, $progress)
     {
-        $article = new ArticleView;
-        $id = $article->getStaticId();
-        $articleName = $article->getPostParam("name", $id);
-        $articleImage = $article->getPostImage($id);
+        $id = $this->articleView->getStaticId();
+        $articleName = $this->articleView->getPostParam("name", $id);
+        $articleImage = $this->articleView->getPostImage($id);
 
         $custom_data = array(
-            "title" => $articleName . " | " . Settings::get("title"),
-            "headline" => Settings::get("title"),
+            "title" => $articleName . " | " . $this->settings->get("title"),
+            "headline" => $this->settings->get("title"),
             "meta" => array(
-                '<meta name="keywords" content="' . $article->getPostParam("tags", $id) . '" />',
-                '<meta name="description" content="' . Settings::get("description") . '" />',
+                '<meta name="keywords" content="' . $this->articleView->getPostParam("tags", $id) . '" />',
+                '<meta name="description" content="' . $this->settings->get("description") . '" />',
                 '<meta content="' . $articleName . '" property="og:title" />',
                 '<meta content="' . SERVER_NAME . '" property="og:site_name" />',
                 '<meta content="article" property="og:type" />',
                 '<meta content="' . $articleImage . '" property="og:image" />',
             ),
         );
-        $data = Frontend::get($custom_data);
-        include "dnt-view/layouts/" . Vendor::getLayout() . "/tpl_functions.php";
-        include "dnt-view/layouts/" . Vendor::getLayout() . "/top.php";
+        $data = $this->frontend->get($custom_data);
+        include "dnt-view/layouts/" . $this->vendor->getLayout() . "/tpl_functions.php";
+        include "dnt-view/layouts/" . $this->vendor->getLayout() . "/top.php";
         include "departament.php";
-        include "dnt-view/layouts/" . Vendor::getLayout() . "/bottom.php";
+        include "dnt-view/layouts/" . $this->vendor->getLayout() . "/bottom.php";
     }
 
     protected function pollUrl($index, $poll_id, $question_id)
     {
-        $db = new DB;
         $rest = new Rest;
 
         $result_url = "result";
@@ -88,11 +96,11 @@ class primaryHandlerModulController extends ArchimedaUser
 
         //first question 
         $query = "SELECT `question_id` FROM dnt_polls_composer WHERE
-		vendor_id 	= " . Vendor::getId() . " AND
+		vendor_id 	= " . $this->vendor->getId() . " AND
 		`key`       = 'question' AND
 		poll_id 	= '" . $poll_id . "' LIMIT 1";
-        if ($db->num_rows($query) > 0) {
-            foreach ($db->get_results($query) as $row) {
+        if ($this->db->num_rows($query) > 0) {
+            foreach ($this->db->get_results($query) as $row) {
                 $first_question = $row['question_id'];
             }
         } else {
@@ -101,12 +109,12 @@ class primaryHandlerModulController extends ArchimedaUser
 
         //next question
         $query = "SELECT `question_id` FROM dnt_polls_composer WHERE
-		vendor_id 	= " . Vendor::getId() . " AND
+		vendor_id 	= " . $this->vendor->getId() . " AND
 		`key`       = 'question' AND
 		`question_id` > '" . $question_id . "' AND
 		poll_id 	= '" . $poll_id . "' LIMIT 1";
-        if ($db->num_rows($query) > 0) {
-            foreach ($db->get_results($query) as $row) {
+        if ($this->db->num_rows($query) > 0) {
+            foreach ($this->db->get_results($query) as $row) {
                 $next_question = $row['question_id'];
             }
         } else {
@@ -115,12 +123,12 @@ class primaryHandlerModulController extends ArchimedaUser
 
         //prev question
         $query = "SELECT `question_id` FROM dnt_polls_composer WHERE
-		vendor_id 	= " . Vendor::getId() . " AND
+		vendor_id 	= " . $this->vendor->getId() . " AND
 		`key`       = 'question' AND
 		`question_id` < '" . $question_id . "' AND
 		poll_id 	= '" . $poll_id . "' order by id desc LIMIT 1";
-        if ($db->num_rows($query) > 0) {
-            foreach ($db->get_results($query) as $row) {
+        if ($this->db->num_rows($query) > 0) {
+            foreach ($this->db->get_results($query) as $row) {
                 $prev_question = $row['question_id'];
             }
         } else {
@@ -138,27 +146,21 @@ class primaryHandlerModulController extends ArchimedaUser
 
     public function getPolls()
     {
-        if ($this->polls) {
-            return $this->polls;
-        } else {
-            $db = new DB();
-            $rest = new Rest();
-            $pollsArr = array();
-            $query = Polls::getPolls();
-            if ($db->num_rows($query) > 0) {
-                foreach ($db->get_results($query) as $row) {
-                    $pollsArr[] = $row;
-                }
-            }
-            $this->polls = $pollsArr;
-            return $this->polls;
-        }
+		$rest = new Rest();
+		$pollsArr = array();
+		$query = $this->polls->getPolls();
+		if ($this->db->num_rows($query) > 0) {
+			foreach ($this->db->get_results($query) as $row) {
+				$pollsArr[] = $row;
+			}
+		}
+		return $pollsArr;
     }
 
     public function departmentPolls($post)
     {
         if ($post['service'])
-            $metas = ArticleView::getPostsMeta($post['id_entity'], "article_view_meta");
+            $metas = $this->articleView->getPostsMeta($post['id_entity'], "article_view_meta");
         else
             $metas = array();
 
@@ -169,14 +171,19 @@ class primaryHandlerModulController extends ArchimedaUser
             }
         }
         $poll_id_arr = explode(",", $poll_id);
-        return $poll_id_arr;
+		if(count($poll_id_arr)>0){
+			return $poll_id_arr;
+		}else{
+			return [];
+		}
     }
 
     public function getDepartmentPolls($post)
     {
         $pollsArr = array();
+		$polls = $this->departmentPolls($post);
         foreach ($this->getPolls() as $key => $row) {
-            if (in_array($row['id_entity'], $this->departmentPolls($post))) {
+            if (in_array($row['id_entity'], $polls)) {
                 $pollsArr[$key] = $row;
             }
         }
@@ -201,7 +208,7 @@ class primaryHandlerModulController extends ArchimedaUser
 
             $prevQuestion = $this->pollUrl("prev", $poll_id, $question_id);
             $nextQuestion = $this->pollUrl("next", $poll_id, $question_id);
-            $progress = round(PollsFrontend::getProgressPercent($poll_id, $question_id), 0);
+            $progress = round($this->frontend->getProgressPercent($poll_id, $question_id), 0);
             $this->departamentDetail($rest, $poll_id, $question_id, $poll_input_name, $prevQuestion, $nextQuestion, $progress);
         } elseif (
                 $rest->webhook(1) == $this->route_app &&
@@ -212,15 +219,15 @@ class primaryHandlerModulController extends ArchimedaUser
                 $rest->webhook(6) == $this->route_result &&
                 $this->logged()) {
             $custom_data = array(
-                "headline" => Settings::get("title"),
+                "headline" => $this->settings->get("title"),
             );
 
-            $data = Frontend::get($custom_data);
+            $data = $this->frontend->get($custom_data);
             //var_dump($_COOKIE);exit;
-            include "dnt-view/layouts/" . Vendor::getLayout() . "/tpl_functions.php";
-            include "dnt-view/layouts/" . Vendor::getLayout() . "/top.php";
+            include "dnt-view/layouts/" . $this->vendor->getLayout() . "/tpl_functions.php";
+            include "dnt-view/layouts/" . $this->vendor->getLayout() . "/top.php";
             include "result.php";
-            include "dnt-view/layouts/" . Vendor::getLayout() . "/bottom.php";
+            include "dnt-view/layouts/" . $this->vendor->getLayout() . "/bottom.php";
         } elseif (
                 $rest->webhook(1) == $this->route_app &&
                 $rest->webhook(2) == $this->route_departments &&
@@ -230,7 +237,7 @@ class primaryHandlerModulController extends ArchimedaUser
         } elseif ($rest->webhook(1) == $this->route_app && $this->logged()) {
             $this->defaultPage($rest);
         } else {
-            Dnt::redirect(WWW_PATH_LANG . "app-logouted#login-form_main");
+            $this->dnt->redirect(WWW_PATH_LANG . "app-logouted#login-form_main");
         }
     }
 

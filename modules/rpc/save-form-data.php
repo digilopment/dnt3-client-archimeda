@@ -17,9 +17,19 @@ class SaveFormData extends ArchimedaUser
     public $qrImage;
     public $jsonResponse;
 
+	public function __construct(){
+		parent::__construct();
+		$this->dnt = new Dnt();
+		$this->pollsFrontend = new PollsFrontend();
+		$this->polls = new Polls();
+		$this->QRcode = new QRcode();
+		$this->image = new Image();
+		$this->vendor = new Vendor();
+	}
+	
     protected function formater($data)
     {
-        $data = Dnt::not_html($data);
+        $data = $this->dnt->not_html($data);
         $data = str_replace(array("\n", "\r"), '', $data);
         return $data;
     }
@@ -34,12 +44,12 @@ class SaveFormData extends ArchimedaUser
         $departament_id = $rest->post("departament_id");
 
         foreach ($_COOKIE as $key => $value) {
-            if (Dnt::in_string("poll_", $key)) {
+            if ($this->dnt->in_string("poll_", $key)) {
                 $question_id = explode("_", $key)[2];
-                $ans = is_numeric($value) ? PollsFrontend::getValueByInputId("value", $value) : "'" . $this->formater($value) . "'";
+                $ans = is_numeric($value) ? $this->pollsFrontend->getValueByInputId("value", $value) : "'" . $this->formater($value) . "'";
                 $pollArr[$question_id] = array(
-                    "question" => $this->formater(PollsFrontend::getCurrentQuestions($poll_id, $question_id)),
-                    "ans" => is_numeric($value) ? $this->formater(PollsFrontend::getValueByInputId("value", $value)) : $this->formater($value),
+                    "question" => $this->formater($this->pollsFrontend->getCurrentQuestions($poll_id, $question_id)),
+                    "ans" => is_numeric($value) ? $this->formater($this->pollsFrontend->getValueByInputId("value", $value)) : $this->formater($value),
                     "input_id" => is_numeric($value) ? $value : 0,
                 );
             }
@@ -51,10 +61,10 @@ class SaveFormData extends ArchimedaUser
         $mainArray['departament_id'] = $departament_id;
         $mainArray['attachments'] = $attachments;
         $mainArray['data'] = array($pollArr);
-        $mainArray['form'] = array("form_name" => $this->formater(Polls::getParam("name", $poll_id)), "form_content" => $this->formater(Polls::getParam("content", $poll_id)));
+        $mainArray['form'] = array("form_name" => $this->formater($this->polls->getParam("name", $poll_id)), "form_content" => $this->formater($this->polls->getParam("content", $poll_id)));
         $mainArray['qr_image'] = $qrImage;
         $mainArray['qr_hash'] = $qrHash;
-        $mainArray['datetime'] = Dnt::datetime();
+        $mainArray['datetime'] = $this->dnt->datetime();
         $mainArray['user'] = $this->get();
         return $mainArray;
     }
@@ -80,7 +90,7 @@ class SaveFormData extends ArchimedaUser
             }
 
             $insertedData = array(
-                'vendor_id' => Vendor::getId(),
+                'vendor_id' => $this->vendor->getId(),
                 'service' => "archimeda_examination",
             );
 
@@ -88,7 +98,7 @@ class SaveFormData extends ArchimedaUser
             $this->insert('dnt_posts_meta', $insertedData);
             $this->dbcommit();
 
-            $lastId = Dnt::getLastId('dnt_posts_meta');
+            $lastId = $this->dnt->getLastId('dnt_posts_meta');
 
             $qrHash = $lastId;
 
@@ -99,7 +109,7 @@ class SaveFormData extends ArchimedaUser
             $errorCorrectionLevel = 'H';
             $matrixPointSize = 4;
             $this->qrImage = WWW_PATH . $path . $qrImageName . ".png";
-            QRcode::png($data, $qrImage, $errorCorrectionLevel, $matrixPointSize, 2);
+            $this->QRcode->png($data, $qrImage, $errorCorrectionLevel, $matrixPointSize, 2);
 
             $jsonToInsert = $this->getFormData($attachment, $qrImageName . ".png", $qrHash);
             $this->jsonResponse = $jsonToInsert;
@@ -107,7 +117,7 @@ class SaveFormData extends ArchimedaUser
             $this->update(
                     "dnt_posts_meta", //table
                     array(//set
-                        'vendor_id' => Vendor::getId(),
+                        'vendor_id' => $this->vendor->getId(),
                         'post_id' => $this->get()->id_entity, //user ID
                         'cat_id' => $jsonToInsert['id'], //cat ID
                         'service' => "archimeda_examination",
@@ -119,13 +129,13 @@ class SaveFormData extends ArchimedaUser
                     array(//where
                         'id_entity' => $lastId,
                         'service' => "archimeda_examination",
-                        '`vendor_id`' => Vendor::getId())
+                        '`vendor_id`' => $this->vendor->getId())
             );
 
 
             $userData['app_name'] = $this->get()->name . " here's your examination data";
             $userData['name'] = "Please scan your QR code bellow to continue";
-            $userData['img'] = Image::getFileImage($this->get()->img, true, Image::THUMB);
+            $userData['img'] = $this->image->getFileImage($this->get()->img, true, Image::THUMB);
             $userData['img_qr'] = $this->qrImage;
             $userData['message_1'] = "Your data are ready to view, you can use QR code bellow or you can go to Archimeda app and go to Examinations.";
             $userData['message_2'] = "Thank you for using <b>Archimeda</b> App";

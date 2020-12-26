@@ -5,11 +5,17 @@ use DntLibrary\Base\MultyLanguage;
 use DntLibrary\Base\Polls;
 use DntLibrary\Base\PollsFrontend;
 use DntLibrary\Base\Settings;
+
+$settings = new Settings();
+$pollsFrontend = new PollsFrontend();
+$polls = new Polls();
+$multiLanguage = new MultyLanguage();
+
 ?>
 <div id="page-content">
     <div class="content-fullscreens">
         <div class="animate-fade">
-            <img class="step-image" src="<?php echo Settings::getImage($data['meta_settings']['keys']['logo_firmy_2']['value']); ?>" alt="">
+            <img class="step-image" src="<?php echo $settings->getImage($data['meta_settings']['keys']['logo_firmy_2']['value']); ?>" alt="">
             <div class="page-polls content">
                 <div class="progress-bar">
                     <div class="progress-bar-size p25" style="width:<?php echo $progress ?>%"></div>
@@ -17,11 +23,11 @@ use DntLibrary\Base\Settings;
                 </div>
                 <div class="polls_cont">
                     <div class="input-wrap question">
-                        <h3><?php echo PollsFrontend::getCurrentQuestions($poll_id, $question_id); ?></h3>
+                        <h3><?php echo $pollsFrontend->getCurrentQuestions($poll_id, $question_id); ?></h3>
                     </div>
                     <?php
                     $db = new DB();
-                    $query = Polls::getQuestions($poll_id, $question_id);
+                    $query = $polls->getQuestions($poll_id, $question_id);
                     if ($db->num_rows($query) > 0) {
                         foreach ($db->get_results($query) as $row) {
                             ?>
@@ -33,7 +39,7 @@ use DntLibrary\Base\Settings;
                                     </div>
 
                                 </div>
-                                <span class="switch-to-opinions" style="display:none;"><i class="fa fa-toggle-on"></i><?php echo MultyLanguage::translate($data, "switch_back_to_opinions", "translate"); ?></span>
+                                <span class="switch-to-opinions" style="display:none;"><i class="fa fa-toggle-on"></i><?php echo $multiLanguage->translate($data, "switch_back_to_opinions", "translate"); ?></span>
 
                             <?php } ?>
 
@@ -52,8 +58,8 @@ use DntLibrary\Base\Settings;
     }
 }
 ?>
-                    <a href="<?php echo $prevQuestion; ?>" class="button button-blue button-full bold uppercase btn-prev" style="color: #fff;margin-top:10px;"><i class="ion ion-ios-arrow-back"></i> <?php echo MultyLanguage::translate($data, "prev_question", "translate"); ?></a>
-                    <a href="<?php echo $nextQuestion; ?>" class="button button-blue button-full bold uppercase btn-next" style="color: #fff;margin-top:10px;display:none;"><?php echo MultyLanguage::translate($data, "next_question", "translate"); ?> <i class="ion ion-ios-arrow-forward"></i></a>
+                    <a href="<?php echo $prevQuestion; ?>" class="button button-blue button-full bold uppercase btn-prev" style="color: #fff;margin-top:10px;"><i class="ion ion-ios-arrow-back"></i> <?php echo $multiLanguage->translate($data, "prev_question", "translate"); ?></a>
+                    <a href="<?php echo $nextQuestion; ?>" class="button button-blue button-full bold uppercase btn-next" style="color: #fff;margin-top:10px;display:none;"><?php echo $multiLanguage->translate($data, "next_question", "translate"); ?> <i class="ion ion-ios-arrow-forward"></i></a>
                 </div>
             </div>
         </div>

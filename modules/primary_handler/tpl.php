@@ -2,6 +2,9 @@
 
 use DntLibrary\Base\Frontend;
 use DntLibrary\Base\Settings;
+$settings = new Settings();
+$frontend = new Frontend();
+
 ?><div id="page-content-scroll" class="header-clear">
     <div class="coverpage-slider coverpage-classic">
         <div class="swiper-wrapper">
@@ -28,9 +31,9 @@ use DntLibrary\Base\Settings;
                 <!--app info -->
                 <?php
                 $custom_data = array(
-                    "headline" => Settings::get("title"),
+                    "headline" => $settings->get("title"),
                 );
-                $data = Frontend::get($custom_data, 16227);
+                $data = $frontend->get($custom_data, 16227);
                 ?>
                 <div class="swiper-slide info" id="app-info-tpl_main"> 
                 <?php app_info_tpl($data, ""); ?>

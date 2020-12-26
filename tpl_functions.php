@@ -3,9 +3,12 @@
 use DntLibrary\Base\Frontend;
 use DntLibrary\Base\Settings;
 
-function get_top($data){?>
+function get_top($data){
+$frontend = new Frontend();
+$settings = new Settings();
+?>
 <!doctype html>
-<html lang="<?php echo Frontend::getMetaSetting($data, "language"); ?>">
+<html lang="<?php echo $frontend->getMetaSetting($data, "language"); ?>">
 <head>
    <meta charset="utf-8">
    <title><?php echo $data['title']; ?></title>
@@ -18,7 +21,7 @@ function get_top($data){?>
    <meta name="author" content="digilopment">
    <meta name="viewport" content="width=device-width" />
    <?php
-      $favicon = Settings::getImage($data['meta_settings']['keys']['favicon']['value']);
+      $favicon = $settings->getImage($data['meta_settings']['keys']['favicon']['value']);
       ?>
    <!-- Favicone Icon -->
    <link rel="" type="img/x-icon" href="<?php echo $favicon; ?>" />

@@ -6,11 +6,11 @@ function defaultModuleMetaDataConfiguration($postId, $service)
 {
 
     $defaultContent = "Content";
-
+	$vendor = new Vendor();
     $insertedData[] = array(
         '`post_id`' => $postId,
         '`service`' => $service,
-        '`vendor_id`' => Vendor::getId(),
+        '`vendor_id`' => $vendor->getId(),
         '`key`' => "about",
         '`value`' => $defaultContent,
         '`content_type`' => "content",
@@ -23,7 +23,7 @@ function defaultModuleMetaDataConfiguration($postId, $service)
     $insertedData[] = array(
         '`post_id`' => $postId,
         '`service`' => $service,
-        '`vendor_id`' => Vendor::getId(),
+        '`vendor_id`' => $vendor->getId(),
         '`key`' => "health",
         '`value`' => $defaultContent,
         '`content_type`' => "content",
@@ -36,7 +36,7 @@ function defaultModuleMetaDataConfiguration($postId, $service)
     $insertedData[] = array(
         '`post_id`' => $postId,
         '`service`' => $service,
-        '`vendor_id`' => Vendor::getId(),
+        '`vendor_id`' => $vendor->getId(),
         '`key`' => "medical",
         '`value`' => $defaultContent,
         '`content_type`' => "content",
@@ -49,7 +49,7 @@ function defaultModuleMetaDataConfiguration($postId, $service)
     $insertedData[] = array(
         '`post_id`' => $postId,
         '`service`' => $service,
-        '`vendor_id`' => Vendor::getId(),
+        '`vendor_id`' => $vendor->getId(),
         '`key`' => "poll_id",
         '`value`' => "",
         '`content_type`' => "text",

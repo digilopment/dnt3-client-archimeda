@@ -10,7 +10,11 @@ header('Content-Type: application/json');
 header('Access-Control-Allow-Origin: *');
 $rest = new Rest;
 $session = new Sessions;
-$data = Frontend::get(false);
+$frontend = new Frontend;
+$cookie = new Cookie;
+
+
+$data = $frontend->get(false);
 
 $siteKey = $data['meta_settings']['keys']['gc_site_key']['value'];
 $secretKey = $data['meta_settings']['keys']['gc_secret_key']['value'];
@@ -41,8 +45,8 @@ if (isset($_POST['email'])) {
             $session->set("archimeda-patient_logged", "1");
             $session->set("archimeda-patient_id", $email);
 
-            Cookie::Set("archimeda-patient_logged", "1");
-            Cookie::Set("archimeda-patient_id", $email);
+            $cookie->Set("archimeda-patient_logged", "1");
+            $cookie->Set("archimeda-patient_id", $email);
             $RESPONSE = 1;
             $ATTACHMENT = 0;
             $url = WWW_PATH_LANG . "primary-handler";

@@ -3,15 +3,21 @@
 use DntLibrary\Base\ArticleView;
 use DntLibrary\Base\MultyLanguage;
 use DntLibrary\Base\Settings;
+
+
+$articleView = new ArticleView();
+$multiLanguage = new MultyLanguage();
+$settings = new Settings();
+
 ?>
 <div id="page-content">
     <div class="content-fullscreen content">
         <div class="animate-fade">
-            <img class="nav-img" src="<?php echo Settings::getImage($data['meta_settings']['keys']['logo_firmy_2']['value']); ?>" alt="">
+            <img class="nav-img" src="<?php echo $settings->getImage($data['meta_settings']['keys']['logo_firmy_2']['value']); ?>" alt="">
             <div class="content">
 
                 <?php if (isset($data['patient_data']->departament_id)) { ?>
-                    <h3><b><?php echo MultyLanguage::translate($data, "department", "translate"); ?>:</b> <?php echo ArticleView::getPostParam("name", $data['patient_data']->departament_id); ?><br/></h3>
+                    <h3><b><?php echo $multiLanguage->translate($data, "department", "translate"); ?>:</b> <?php echo $articleView->getPostParam("name", $data['patient_data']->departament_id); ?><br/></h3>
                 <?php } ?>
 
                 <h4><?php echo $data['patient_data']->form->form_name; ?></h4>
@@ -19,7 +25,7 @@ use DntLibrary\Base\Settings;
                     <?php echo $data['patient_data']->form->form_content; ?>
                 </p>
                 <div class="decoration"></div>
-                <p><?php echo $data['patient_data']->user->name . " " . $data['patient_data']->user->surname . ", " . $data['patient_data']->user->vyska . "cm, " . $data['patient_data']->user->vaha . "kg, " . floor((time() - strtotime($data['patient_data']->user->datetime_publish)) / 31556926) . ""; ?><?php echo MultyLanguage::translate($data, "years", "translate"); ?></p>
+                <p><?php echo $data['patient_data']->user->name . " " . $data['patient_data']->user->surname . ", " . $data['patient_data']->user->vyska . "cm, " . $data['patient_data']->user->vaha . "kg, " . floor((time() - strtotime($data['patient_data']->user->datetime_publish)) / 31556926) . ""; ?><?php echo $multiLanguage->translate($data, "years", "translate"); ?></p>
                 <div class="decoration"></div>
                 <?php
                 $i = 1;
@@ -45,7 +51,7 @@ use DntLibrary\Base\Settings;
                 <div class="qr-wrapper">
                     <img src="<?php echo WWW_PATH . "dnt-view/data/external-uploads/" . $data['patient_data']->qr_image ?>">
                 </div>
-                <a href="<?php echo WWW_PATH . $this->redirect ?>" class="button button-blue button-full bold uppercase"><?php echo MultyLanguage::translate($data, "back_to_home", "translate"); ?></a>
+                <a href="<?php echo WWW_PATH . $this->redirect ?>" class="button button-blue button-full bold uppercase"><?php echo $multiLanguage->translate($data, "back_to_home", "translate"); ?></a>
             </div>
         </div>
     </div>

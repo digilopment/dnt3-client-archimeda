@@ -7,6 +7,11 @@ use DntLibrary\Base\Settings;
 use DntView\Layout\App\ArchimedaUser;
 
 $user = new ArchimedaUser();
+$multiLanguage = new MultyLanguage();
+$settings = new Settings();
+$dnt = new Dnt();
+$articleView = new ArticleView();
+$dnt = new Dnt();
 ?>
 <div id="page-transitions">
     <div class="landing-homepage">
@@ -20,7 +25,7 @@ $user = new ArchimedaUser();
                         <ul>
                             <span class="title"><?php echo $catName; ?></span>
                             <?php
-                            $posts = ArticleView::getPosts($catId, false, "`order` DESC");
+                            $posts = $articleView->getPosts($catId, false, "`order` DESC");
                             foreach ($posts as $key => $post) {
                                 $url = WWW_PATH_LANG . "primary-handler/departments/" . $post['id_entity'] . "/124/my-poll/1";
                                 $allPosts[] = $post;
@@ -30,7 +35,7 @@ $user = new ArchimedaUser();
                                     if (!$user->logged()) {
                                         echo 'href="#login-form_main" ';
                                     }
-                                    ?> class="show-departament-forms" id="departamen-form-id-all-<?php echo $post['id_entity'] ?>" data-search="<?php echo Dnt::name_url($post['name_url']) ?>" data-id="<?php echo $post['id_entity'] ?>" href="#">
+                                    ?> class="show-departament-forms" id="departamen-form-id-all-<?php echo $post['id_entity'] ?>" data-search="<?php echo $dnt->name_url($post['name_url']) ?>" data-id="<?php echo $post['id_entity'] ?>" href="#">
                                         <i class="<?php echo $post['id'] ?>" style="background: <?php echo $post['embed'] ?>"><?php echo substr($post['name'], 0, 2); ?></i>
                                         <em><?php echo $post['name'] ?></em>
                                     </a>
@@ -56,13 +61,13 @@ $user = new ArchimedaUser();
                             <a href="#" class="close-form-area toggle-title"><center style="color: #1a79b2"><?php echo $post['name']; ?></center><i class="ion-android-close"></i></a>
                         </div>
                         <div class="toggle">
-                            <a href="#" class="toggle-title departamen-form-id-all-about-<?php echo $post['id_entity']; ?>"> <?php echo MultyLanguage::translate($data, "about", "translate"); ?><i class="ion-android-add"></i></a>
+                            <a href="#" class="toggle-title departamen-form-id-all-about-<?php echo $post['id_entity']; ?>"> <?php echo $multiLanguage->translate($data, "about", "translate"); ?><i class="ion-android-add"></i></a>
                         </div>
                         <div class="toggle">
-                            <a href="#" class="toggle-title departamen-form-id-all-health-<?php echo $post['id_entity']; ?>"> <?php echo MultyLanguage::translate($data, "health_promotion", "translate"); ?><i class="ion-android-add"></i></a>
+                            <a href="#" class="toggle-title departamen-form-id-all-health-<?php echo $post['id_entity']; ?>"> <?php echo $multiLanguage->translate($data, "health_promotion", "translate"); ?><i class="ion-android-add"></i></a>
                         </div>
                         <div class="toggle">
-                            <a href="#" class="toggle-title departamen-form-id-all-medical-<?php echo $post['id_entity']; ?>"> <?php echo MultyLanguage::translate($data, "medical_procedures", "translate"); ?><i class="ion-android-add"></i></a>
+                            <a href="#" class="toggle-title departamen-form-id-all-medical-<?php echo $post['id_entity']; ?>"> <?php echo $multiLanguage->translate($data, "medical_procedures", "translate"); ?><i class="ion-android-add"></i></a>
                         </div>
                     </div>
                     <div class="clear"></div>
@@ -80,7 +85,7 @@ $user = new ArchimedaUser();
                                     <a href="#" class="toggle-title"><?php echo $row['name']; ?><i class="ion-android-add"></i></a>
                                     <div class="toggle-content" style="display: none;">
                 <?php echo $row['content']; ?>
-                                        <a href="<?php echo $url; ?>" class="button button-round button-blue profile-page-button-1"><?php echo MultyLanguage::translate($data, "go_to_form", "translate"); ?></a>
+                                        <a href="<?php echo $url; ?>" class="button button-round button-blue profile-page-button-1"><?php echo $multiLanguage->translate($data, "go_to_form", "translate"); ?></a>
                                     </div>
                                 </div>
                                 <?php
@@ -88,7 +93,7 @@ $user = new ArchimedaUser();
                         } else {
                             ?>
                             <div class="toggle">
-                                <a href="#" class="close-form-area toggle-title" style="line-height: initial;padding: 9px;"><?php echo MultyLanguage::translate($data, "no_forms", "translate"); ?></a>
+                                <a href="#" class="close-form-area toggle-title" style="line-height: initial;padding: 9px;"><?php echo $multiLanguage->translate($data, "no_forms", "translate"); ?></a>
                             </div>
                             <?php
                         }
@@ -104,7 +109,7 @@ $user = new ArchimedaUser();
                         var showData = "";
                         showData += '<div class="content-fullscreen content">';
                         showData += '<div class="animate-fadse">';
-                        showData += '<img class="nav-img" src="<?php echo Settings::getImage($data['meta_settings']['keys']['logo_firmy_2']['value']); ?>" alt="">';
+                        showData += '<img class="nav-img" src="<?php echo $settings->getImage($data['meta_settings']['keys']['logo_firmy_2']['value']); ?>" alt="">';
                         showData += '<div class="content">';
                         showData += '<h3><b>' + title + '</b><br/></h3>';
                         //showData +='<p>';
@@ -121,7 +126,7 @@ $user = new ArchimedaUser();
         $textHealth = false;
         $textMedical = false;
         if ($post['service']) {
-            $metas = ArticleView::getPostsMeta($post['id_entity'], "article_view_meta");
+            $metas = $articleView->getPostsMeta($post['id_entity'], "article_view_meta");
             foreach ($metas as $meta) {
                 if ($meta['key'] == "about") {
                     $textAbout = html_entity_decode(trim(preg_replace('/\s\s+/', ' ', $meta['value'])));

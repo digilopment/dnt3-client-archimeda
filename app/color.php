@@ -12,7 +12,7 @@ class Color
 
     public function randColor()
     {
-        return self::random_color_part() . self::random_color_part() . self::random_color_part();
+        return $this->random_color_part() . $this->random_color_part() . $this->random_color_part();
     }
 
 }

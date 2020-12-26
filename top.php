@@ -4,6 +4,8 @@ use DntLibrary\Base\MultyLanguage;
 use DntLibrary\Base\Settings;
 use DntView\Layout\App\ArchimedaUser;
 
+$multiLanguage = new MultyLanguage();
+$settings = new Settings();
 get_top($data);
 ?>
 <?php
@@ -20,19 +22,19 @@ $user = new ArchimedaUser();
             <div class="bottom-navigation">
                 <a href="<?php echo ($data['webhook']['1'] == "primary-handler" && !isset($data['webhook']['2'])) ? "#app-info-tpl_main" : WWW_PATH_LANG . "primary-handler#app-info-tpl_main"; ?>" class="tab-link">
                     <i class="icon ion-ios-home"></i>
-                    <span class="tabbar-label"><?php echo MultyLanguage::translate($data, "home", "translate"); ?></span>
+                    <span class="tabbar-label"><?php echo $multiLanguage->translate($data, "home", "translate"); ?></span>
                 </a>
                 <a href="<?php echo ($data['webhook']['1'] == "primary-handler" && !isset($data['webhook']['2'])) ? "#departments-tpl_main" : WWW_PATH_LANG . "primary-handler#departments-tpl_main"; ?>" class="tab-link">
                     <i class="icon ion-ios-star"></i>
-                    <span class="tabbar-label"><?php echo MultyLanguage::translate($data, "departments", "translate"); ?></span>
+                    <span class="tabbar-label"><?php echo $multiLanguage->translate($data, "departments", "translate"); ?></span>
                 </a>
                 <a href="#login-form_main" class="tab-link">
                     <i class="icon ion-ios-search"></i>
-                    <span class="tabbar-label"><?php echo MultyLanguage::translate($data, "my_examinations", "translate"); ?></span>
+                    <span class="tabbar-label"><?php echo $multiLanguage->translate($data, "my_examinations", "translate"); ?></span>
                 </a>
                 <a href="#login-form_main" class="tab-link">
                     <i class="icon ion-ios-person"></i>
-                    <span class="tabbar-label"><?php echo MultyLanguage::translate($data, "profile", "translate"); ?></span>
+                    <span class="tabbar-label"><?php echo $multiLanguage->translate($data, "profile", "translate"); ?></span>
                 </a>
             </div>
         </div>
@@ -49,10 +51,10 @@ $user = new ArchimedaUser();
                             <div class="clear"></div>
                         </div>
                     </div>
-                    <img class="nav-img" src="<?php echo Settings::getImage($data['meta_settings']['keys']['logo_firmy_2']['value']); ?>" alt="" />
+                    <img class="nav-img" src="<?php echo $settings->getImage($data['meta_settings']['keys']['logo_firmy_2']['value']); ?>" alt="" />
                     <div class="menu-search">
                         <i class="ion-ios-search-strong"></i>
-                        <input type="text" class="search-field" onclick="window.location.href = '#departments-tpl_main'" placeholder="<?php echo MultyLanguage::translate($data, "find_departments", "translate"); ?>" >
+                        <input type="text" class="search-field" onclick="window.location.href = '#departments-tpl_main'" placeholder="<?php echo $multiLanguage->translate($data, "find_departments", "translate"); ?>" >
                     </div>
 <?php echo app_menu_tpl($data, $user, ""); ?>
                 </div>

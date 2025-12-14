@@ -13,6 +13,11 @@ use DntView\Layout\App\ArchimedaUser;
 
 class primaryHandlerModulController extends ArchimedaUser
 {
+    protected $db;
+    protected $settings;
+    protected $frontend;
+    protected $dnt;
+    protected $articleView;
 
     public $route_app = "primary-handler";
     public $route_logout = "app-logouted";
@@ -24,7 +29,6 @@ class primaryHandlerModulController extends ArchimedaUser
 	public function __construct(){
 		parent::__construct();
 		$this->db = new DB();
-		$this->vendor = new Vendor();
 		$this->settings = new Settings();
 		$this->frontend = new Frontend();
 		$this->polls = new Polls();

@@ -14,16 +14,21 @@ use DntView\Layout\App\ArchimedaUser;
 
 class rpcRegistrationUser extends ArchimedaUser
 {
+    protected $dnt;
+    protected $frontend;
+    protected $Settings;
+    protected $multiLanguage;
+    protected $db;
 
     protected $table = "dnt_registred_users";
     protected $type = "archimeda-patient";
 
 	public function __construct(){
+		parent::__construct();
 		$this->dnt = new Dnt();
 		$this->frontend = new Frontend();
 		$this->Settings = new Settings();
 		$this->multiLanguage = new MultyLanguage();
-		$this->vendor = new Vendor();
 		$this->db = new DB();
 	}
 	
@@ -147,7 +152,7 @@ class rpcRegistrationUser extends ArchimedaUser
                         "linked_url" => "https://wwww.google.sk/",
                         "youtube_url" => "https://wwww.google.sk/",
                         "img_path" => $data['media_path'] . "img/email/",
-                        "img" => $this->settings->getImage($data['meta_settings']['keys']['logo_firmy']['value']),
+                        "img" => $this->Settings->getImage($data['meta_settings']['keys']['logo_firmy']['value']),
                     );
 
                     $messageTitle = $userData['app_name'];

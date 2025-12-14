@@ -10,6 +10,8 @@ use DntLibrary\Base\Vendor;
 
 class ArchimedaUser extends Database
 {
+    protected $cookie;
+    protected $vendor;
 
     public $init;
     public $data;
